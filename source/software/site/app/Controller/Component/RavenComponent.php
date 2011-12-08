@@ -18,6 +18,8 @@ class RavenComponent extends Component {
 	private $key_dir = ''; // !TODO: set key file
 	private $Raven = false;
 	private $hostname = null;
+	private $authorised = false;
+	private $permissions_table = 'permissions';
 	
 	function initialize(&$controller, $settings = array()) {
 		$this->hostname = $settings['hostname'] || $_SERVER['SERVER_NAME'];
@@ -43,8 +45,24 @@ class RavenComponent extends Component {
 		
 		$this->cookie_key = $entropy;
 		
+		$acl = $controller->acl || array();
+		$this->authorised = $this->_checkAuthorisation($controller->params['action'],$acl);
+	}
+	
+	private function _checkAuthorisation($action, $acl = array()) {
+		$auth = $this->_authenticate();
+		if(!$auth) return false;
 		
-		$this->_authenticate();
+		if(in_array($action, $acl) || array_key_exists('__all__', $acl)) {
+			$perms = $this->Permission->findForUser($this->user());
+			
+			$acl = (in_array($action, $acl) ? $acl[$action] : $acl['__all__']) || array();
+			
+			$overlap = array_intersect($acl, $perms);
+			$auth = (count($overlap) > 0);
+		}
+		
+		return $auth;
 	}
 	
 	private function _authenticate() {
@@ -61,6 +79,10 @@ class RavenComponent extends Component {
 		if(!$complete) return false;
 		
 		return $this->Raven->success();
+	}
+	
+	function auth() {
+		return $this->authorised;
 	}
 	
 	function user() {

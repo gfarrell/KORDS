@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
  * @property Comment $Comment
  */
 class Room extends AppModel {
+	var $actsAs = 'Containable';
 /**
  * Display field
  *

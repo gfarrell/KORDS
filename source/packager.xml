@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packager>
+	<!-- ======================= -->
+	<!-- ! Javascript Packages   -->
+	<!-- ======================= -->
+	
+	<!-- ! Dependencies -->
+	<package name="Dependencies" language="js">
+		<source dir="software/javascript/dep">
+			<file>mootools-core.js</file>
+			<file>raphael.js</file>
+		</source>
+		<output dir="software/site/app/webroot/js/">
+			<file license="false" compression="enabled">dep.js</file>
+			<file license="false">dep-nocompression.js</file>
+		</output>
+	</package>
+	
+	<!-- ! BaseJS -->
+	<package name="KordsJS" language="js">
+		<source dir="software/javascript/core">
+		</source>
+		<output dir="software/site/app/webroot/js/">
+			<file license="false" compression="enabled">kords.js</file>
+			<file license="false">kords-nocompression.js</file>
+		</output>
+	</package>
+
+	
+	<!-- ================ -->
+	<!-- ! CSS Packages   -->
+	<!-- ================ -->
+
+	<!-- ! Core -->
+	<package name="CoreCSS" language="css">
+		<source dir="design/css/screen">
+			<file>reset.css</file>
+			<file>typography.css</file>
+			<file>base.css</file>
+		</source>
+		<output dir="software/site/app/webroot/css/">
+			<file license="false" compression="enabled">core.css</file>
+			<file license="false">core-nocompression.css</file>
+		</output>
+	</package>
+</packager>

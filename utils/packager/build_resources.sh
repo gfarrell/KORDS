@@ -5,4 +5,4 @@ set -e;
 MY_DIR=$(dirname "$0");
 XML_DIR="$MY_DIR/../../source/";
 
-php "$MY_DIR/build.php" "$XML_DIR/btm-packager.xml";
+php "$MY_DIR/build.php" "$XML_DIR/packager.xml";

@@ -1,0 +1,61 @@
+/**
+ * KORDS 4 | Buttons LESS
+ *
+ * @file	buttons.less
+ * @pkg		screen/base
+ * @author	Gideon Farrell <me@gideonfarrell.co.uk>
+*/
+
+@import "../dep/colours";
+@import "../dep/elements";
+
+.button_style(@col1, @col2, @fcol) {
+	.gradient(@col2, @col1, @col2);
+	color: @fcol;
+	text-decoration: none;
+	border-bottom: thin solid rgba(0,0,0,0.25);
+	cursor:pointer;
+	.box-shadow(0 1px 2px rgba(0,0,0,0.5));
+	
+	&:active {
+		.gradient(@col1, @col2, @col1);
+	}
+}
+.button_box_normal(@size:0.9em, @round:5px) {
+	.rounded(@round);
+	font-size: @size;
+	font-weight: bold;
+	line-height: 1.3*@size;
+	
+	margin: @size/4 @size/2;
+	padding:(@size/2)+(@size/8) (@size) (@size/2)-(@size/8);
+	
+	display: inline-block;
+	
+	position: relative;
+}
+.button_box_slim(@size:0.8em, @round:2px) {
+	.rounded(@round);
+	font-size: @size;
+	font-weight: bold;
+	line-height: @size;
+	
+	margin: @size/16 @size/8;
+	padding:(@size/4)+(@size/8) @size/2 (@size/4)-(@size/8);
+	
+	display: inline-block;
+	
+	position: relative;
+}
+
+.make_normal_button(@col1, @col2, @fcol, @size:0.9em, @round:5px) {
+	.button_style(@col1, @col2, @fcol);
+	.buton_box_normal(@size, @round);
+	
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+button, input[type=submit], input[type=reset] {
+	border:none;
+	font-family: Helvetica, Verdana, Arial;
+}

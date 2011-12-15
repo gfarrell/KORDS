@@ -12,14 +12,14 @@
 */
 
 // Server Connection 
-Configure::write('Kords.LDAP', array(
+Configure::write('ucam.ldap', array(
 	'server'	=>	'ldap.lookup.cam.ac.uk',
 	'port'		=>	'389',
 	'base'		=>	'o=University of Cambridge,dc=cam,dc=ac,dc=uk'
 ));
 
 // College list
-Configure::write('Kords.Colleges', array(
+Configure::write('ucam.ldap.colleges', array(
 	0 => 'Not applicable',
 	1 => 'Gonville and Caius College',
 	2 => 'St Catharine\'s College',
@@ -55,7 +55,7 @@ Configure::write('Kords.Colleges', array(
 ));
 
 // College institutions
-Configure::write('Kords.CollegeData', array(
+Configure::write('ucam.ldap.college_data', array(
 	//
 	// Gonville and Caius College
 	//

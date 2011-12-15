@@ -22,30 +22,11 @@ class RavenComponent extends Component {
 	private $permissions_table = 'permissions';
 	
 	function initialize(&$controller, $settings = array()) {
-		$this->hostname = $settings['hostname'] || $_SERVER['SERVER_NAME'];
+		$this->hostname = isset($settings['hostname']) ? $settings['hostname'] : $_SERVER['SERVER_NAME'];
 		
-		$chars = array(
-			'abcdefghijklmnopqrstuvwxyz',
-			'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-			'0123456789'
-		);
+		$this->cookie_key = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'),0,32);
 		
-		$entropy = '';
-		while(strlen($entropy) < 32) {
-			$set = rand(0,2);
-			$max = strlen($chars[$set])-1;
-			$pos = rand(0, $max);
-			
-			if($max < 0) continue;
-			
-			$entropy .= $chars[$set][$pos];
-			
-			$chars[$set] = substr_replace($chars[$set], '', $pos, 1);
-		}
-		
-		$this->cookie_key = $entropy;
-		
-		$acl = $controller->acl || array();
+		$acl = isset($controller->acl) ? $controller->acl : array();
 		$this->authorised = $this->_checkAuthorisation($controller->params['action'],$acl);
 	}
 	

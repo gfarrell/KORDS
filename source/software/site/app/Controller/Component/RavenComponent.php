@@ -34,10 +34,10 @@ class RavenComponent extends Component {
 		$auth = $this->_authenticate();
 		if(!$auth) return false;
 		
-		if(in_array($action, $acl) || array_key_exists('__all__', $acl)) {
+		if(array_key_exists($action, $acl) || array_key_exists('__all__', $acl)) {
 			$perms = $this->Permission->findForUser($this->user());
 			
-			$acl = (in_array($action, $acl) ? $acl[$action] : $acl['__all__']) || array();
+			$acl = (array_key_exists($action, $acl) ? $acl[$action] : $acl['__all__']) || array();
 			
 			$overlap = array_intersect($acl, $perms);
 			$auth = (count($overlap) > 0);

@@ -42,3 +42,11 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+
+/**
+ * JSON Routing (/json/controller/action/params)
+ */
+ 	Router::connect('/json/:controller', array('json'=>true, 'action'=>'index'));
+	Router::connect('/json/:controller/:id', array('json'=>true, 'action'=>'view'), array('id'=>'(\d+)'));
+	Router::connect('/json/:controller/:action', array('json'=>true));
+	Router::connect('/json/:controller/:action/*', array('json'=>true));

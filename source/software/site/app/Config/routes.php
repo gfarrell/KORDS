@@ -30,6 +30,23 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	
+/**
+ * JSON Routing (/json/controller/action/params)
+ */
+ 	Router::connect('/json/:controller',
+ 		array('ajax'=>true, 'action'=>'index')	
+ 	);
+	Router::connect('/json/:controller/:id',
+		array('ajax'=>true, 'action'=>'view'),
+		array('id'=>'(\d+)')
+	);
+	Router::connect('/json/:controller/:action',
+		array('ajax'=>true)
+	);
+	Router::connect('/json/:controller/:action/*',
+		array('ajax'=>true)
+	);
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 
@@ -42,11 +59,3 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
-
-/**
- * JSON Routing (/json/controller/action/params)
- */
- 	Router::connect('/json/:controller', array('json'=>true, 'action'=>'index'));
-	Router::connect('/json/:controller/:id', array('json'=>true, 'action'=>'view'), array('id'=>'(\d+)'));
-	Router::connect('/json/:controller/:action', array('json'=>true));
-	Router::connect('/json/:controller/:action/*', array('json'=>true));

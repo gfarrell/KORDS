@@ -30,7 +30,15 @@ class RoomsController extends AppController {
 		if (!$this->Room->exists()) {
 			throw new NotFoundException(__('Invalid room'));
 		}
-		$this->set('room', $this->Room->read(null, $id));
+		$room = $this->Room->read(null, $id));
+		
+		if($this->params['json']) {
+			$this->view = 'Json.Json';
+			$this->set('json', $room);
+		} else {
+			$this->title('Room '.$room['Room']['number']);
+			$this->set('room', $room);
+		}
 	}
 
 /**

@@ -1,5 +1,6 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('AppController', 'Controller', 'JsonResponse', 'Json.Network');
+
 /**
  * Rooms Controller
  *

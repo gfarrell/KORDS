@@ -14,7 +14,7 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
-	var $components = array('Raven', 'Session', 'Security');
+	var $components = array(/*'Raven',*/ 'Session', 'Security');
 	var $helpers = array('Session', 'Html', 'Form');
 	
 	function isAuthorised() {}

@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" language="text/css" href="/css/screen.css" />
+		<link rel="stylesheet" language="text/css" href="/css/core.css" />
 	</head>
 	<body>
 	</body>

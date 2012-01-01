@@ -42,7 +42,7 @@ class RoomsController extends AppController {
 			$this->view = 'Json.Json';
 			$this->set('json', $room);
 		} else {
-			$this->title('Room '.$room['Room']['number']);
+			$this->_title('Room '.$room['Room']['number']);
 			$this->set('room', $room);
 		}
 	}

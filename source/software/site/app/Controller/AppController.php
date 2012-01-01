@@ -16,7 +16,11 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	var $components = array(/*'Raven',*/ 'Session', 'Security');
 	var $helpers = array('Session', 'Html', 'Form');
-	
+
 	function isAuthorised() {}
+	
+	protected function _title($title) {
+		$this->set('title_for_content', $title . '&laquo; KORDS');
+	}
 }
 ?>

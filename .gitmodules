@@ -1,0 +1,3 @@
+[submodule "source/software/site/app/Plugin/Json"]
+	path = source/software/site/app/Plugin/Json
+	url = git://github.com/jrbasso/json_plugin.git

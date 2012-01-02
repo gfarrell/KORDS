@@ -32,20 +32,32 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	
 /**
+ * Normal controller/id routing
+*/
+	Router::connect('/:controller/:id',
+		array('action'=>'view'),
+		array('id'=>'(\d+)')
+	);
+	Router::connect('/:controller/:id/:action',
+		array(),
+		array('id'=>'(\d+)')
+	);
+	
+/**
  * JSON Routing (/json/controller/action/params)
  */
  	Router::connect('/json/:controller',
- 		array('ajax'=>true, 'action'=>'index')	
+ 		array('json'=>true, 'action'=>'index')	
  	);
 	Router::connect('/json/:controller/:id',
-		array('ajax'=>true, 'action'=>'view'),
+		array('json'=>true, 'action'=>'view'),
 		array('id'=>'(\d+)')
 	);
 	Router::connect('/json/:controller/:action',
-		array('ajax'=>true)
+		array('json'=>true)
 	);
 	Router::connect('/json/:controller/:action/*',
-		array('ajax'=>true)
+		array('json'=>true)
 	);
 
 /**

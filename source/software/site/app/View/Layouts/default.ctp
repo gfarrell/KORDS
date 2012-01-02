@@ -17,5 +17,6 @@
 		<link rel="stylesheet" language="text/css" href="/css/screen.css" />
 	</head>
 	<body>
+		<?= $content_for_layout; ?>
 	</body>
 </html>

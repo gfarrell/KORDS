@@ -7,7 +7,11 @@ App::uses('AppController', 'Controller', 'JsonResponse', 'Json.Network');
  * @property Room $Room
  */
 class RoomsController extends AppController {
-
+	var $paginate = array(
+		'Room'	=>	array(
+			'contain'	=>	array('Location', 'RentBand')
+		)
+	);
 	public function beforeFilter() {
 		$this->Security->validatePost = false;		
 	}

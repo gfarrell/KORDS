@@ -19,5 +19,7 @@
 	</head>
 	<body>
 		<?= $content_for_layout; ?>
+		
+		<?php echo $this->element('sql_dump'); ?>
 	</body>
 </html>

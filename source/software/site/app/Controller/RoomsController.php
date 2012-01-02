@@ -8,6 +8,9 @@ App::uses('AppController', 'Controller', 'JsonResponse', 'Json.Network');
  */
 class RoomsController extends AppController {
 
+	public function beforeFilter() {
+		$this->Security->validatePost = false;		
+	}
 
 /**
  * index method

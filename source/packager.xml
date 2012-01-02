@@ -39,8 +39,8 @@
 			<file>base.css</file>
 		</source>
 		<output dir="software/site/app/webroot/css/">
-			<file license="false" compression="enabled">core.css</file>
-			<file license="false">core-nocompression.css</file>
+			<file license="false" compression="enabled">screen.css</file>
+			<file license="false">screen-nocompression.css</file>
 		</output>
 	</package>
 </packager>

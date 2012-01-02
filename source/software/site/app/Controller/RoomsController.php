@@ -94,7 +94,8 @@ class RoomsController extends AppController {
 			$this->set('json', $rooms);		
 		} else {
 			$this->set('rooms', $rooms);
-			$this->set('locations', $this->Room->Location->find('all'));	
+			$this->set('locations', $this->Room->Location->find('list'));
+			$this->set('rentBands', $this->Room->RentBand->find('list'));
 		}
 	}
 

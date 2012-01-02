@@ -85,8 +85,13 @@ class RoomsController extends AppController {
 			}
 		}
 		
+		// Let's deal with sorting
+		$sort = (isset($this->data['Sort'])) ? $this->data['Sort'] : array('Room.location_id'=>'ASC');
+		
 		$rooms = $this->Room->find('all', array(
-			'conditions'	=>	$filter_conds
+			'conditions'	=>	$filter_conds,
+			'order'			=>	$sort,
+			'contain'		=>	array()
 		));
 		
 		if($this->params['json']) {

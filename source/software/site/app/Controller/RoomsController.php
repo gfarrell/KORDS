@@ -12,6 +12,37 @@ class RoomsController extends AppController {
 			'contain'	=>	array('Location', 'RentBand')
 		)
 	);
+	var $filters = array(
+			'contract'	=>	array(
+				'type'		=>	'string',
+				'allowed'	=>	array('', 'long', 'short')
+			),
+			'ensuite'	=>	array(
+				'type'		=>	'boolean'
+			),
+			'double'	=>	array(
+				'type'		=>	'boolean'
+			),
+			'piano'		=>	array(
+				'type'		=>	'boolean'
+			),
+			'smoking'	=>	array(
+				'type'		=>	'boolean'
+			),
+			'rent_band'	=>	array(
+				'type'		=>	'id'
+			),
+			'tenant_type'	=>	array(
+				'type'		=>	'id'
+			),
+			'room_status'	=>	array(
+				'type'		=>	'id'
+			),
+			'location'	=>	array(
+				'type'		=>	'id'	
+			)
+	);
+	
 	public function beforeFilter() {
 		$this->Security->validatePost = false;		
 	}
@@ -22,8 +53,49 @@ class RoomsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Room->recursive = 0;
-		$this->set('rooms', $this->paginate());
+		// Let's check for any filters
+		$filter_conds = array();
+		if(isset($this->data['Filter']) && is_array($this->data['Filter'])) {	
+			foreach($this->data['Filter'] as $f => $c) {
+				if(array_key_exists($f, $this->filters)) {
+					$filter = $this->filters[$f];
+					switch($filter['type']) {
+						case 'id':
+							$model = Inflector::camelize($f);
+							$key = $f.'_id';
+							$this->loadModel($model);
+							$this->$model->id = (int)$c;
+							if($this->$model->exists()) {
+								$filter_conds[$key] = $c;
+							}
+							break;
+						default:
+							settype($c, $filter['type']);
+							if(isset($filter['allowed'])) {
+								$allow = (is_array($filter['allowed'])) ? $filter['allowed'] : array($filter['allowed']);
+								if(in_array($c, $filter['allowed'])) {
+									$filter_conds[$f] = $c;
+								}
+							} else {
+								$filter_conds[$f] = $c;
+							}
+							break;
+					}
+				}				
+			}
+		}
+		
+		$rooms = $this->Room->find('all', array(
+			'conditions'	=>	$filter_conds
+		));
+		
+		if($this->params['json']) {
+			$this->view = 'Json.Json';
+			$this->set('json', $rooms);		
+		} else {
+			$this->set('rooms', $rooms);
+			$this->set('locations', $this->Room->Location->find('all'));	
+		}
 	}
 
 /**

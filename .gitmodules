@@ -4,3 +4,6 @@
 [submodule "source/software/site/app/plugins/Json"]
 	path = source/software/site/app/plugins/Json
 	url = git://github.com/jrbasso/json_plugin.git
+[submodule "source/libraries/bootstrap"]
+	path = source/libraries/bootstrap
+	url = git://github.com/twitter/bootstrap.git

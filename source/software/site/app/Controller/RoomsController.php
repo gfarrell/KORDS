@@ -95,8 +95,9 @@ class RoomsController extends AppController {
 		));
 		
 		if($this->params['json']) {
-			$this->view = 'Json.Json';
-			$this->set('json', $rooms);		
+			$this->viewClass = 'Json.Json';
+			$this->set('json', $rooms);
+			$this->render(false);
 		} else {
 			$this->set('rooms', $rooms);
 			$this->set('locations', $this->Room->Location->find('list'));
@@ -124,8 +125,9 @@ class RoomsController extends AppController {
 		$room = $this->Room->findById($id);
 		
 		if($this->params['json']) {
-			$this->view = 'Json.Json';
+			$this->viewClass = 'Json.Json';
 			$this->set('json', $room);
+			$this->render(false);
 		} else {
 			$this->_title('Room '.$room['Room']['number']);
 			$this->set('room', $room);

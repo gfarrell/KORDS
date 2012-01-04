@@ -1,0 +1,66 @@
+/**
+ * KORDS 4 | Lists LESS
+ *
+ * @file	lists.less
+ * @pkg		css/screen
+ * @author	Gideon Farrell <me@gideonfarrell.co.uk>
+*/
+
+@import "../../../libraries/bootstrap/lib/variables";
+@import "../../../libraries/bootstrap/lib/mixins";
+
+ul.horizontal {
+	.clearfix();
+	
+	li {
+		float:left;
+	}
+}
+
+ul.item_list {
+	li {
+		margin:1em;
+	}
+}
+
+ul.andlist {	
+	li {
+		display: inline;
+		margin:0;
+		
+		&:after {
+			content: ', ';
+			margin-left: 0;
+		}
+		
+		&:last-child{
+			&:before {
+				content: ' and ';
+			}
+			&:after {
+				content:'';
+			}
+		}
+	}
+}
+
+ul.orlist {
+	li {
+		display: inline;
+		margin:0;
+		
+		&:after {
+			content: ', ';
+			margin-left: 0;
+		}
+		
+		&:last-child{
+			&:before {
+				content: ' or ';
+			}
+			&:after {
+				content:'';
+			}
+		}
+	}
+}

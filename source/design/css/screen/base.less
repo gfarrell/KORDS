@@ -2,13 +2,20 @@
  * KORDS 4 | Base LESS
  *
  * @file	base.less
- * @pkg		screen/base
+ * @pkg		css/screen
  * @author	Gideon Farrell <me@gideonfarrell.co.uk>
 */
 
-@import "../dep/colours";
+@import "colours";
+@import "elements";
+@import "../../../libraries/bootstrap/lib/variables";
+@import "../../../libraries/bootstrap/lib/mixins";
 
 body {
 	color: @tx;
 	background: @bg_main;
+}
+
+.tiled_light {
+	background-image:url(/img/tiles_light.png)
 }

@@ -1,23 +1,22 @@
 /**
- * KORDS 4 | Typography LESS
+ * KORDS 4 | Additional Typography
  *
  * @file	typography.less
- * @pkg		screen/base
+ * @pkg		css/screen
  * @author	Gideon Farrell <me@gideonfarrell.co.uk>
 */
 
-@import '../dep/colours';
-
-body {
-	font-family: 'Lato', 'Helvetica', sans-serif;
-}
-
-h1, h2 {
-	font-family: 'Sansita One', serif;
-	color: @mmdrk_grey;
-}
+@import "colours";
+@import "../../../libraries/bootstrap/lib/variables";
+@import "../../../libraries/bootstrap/lib/mixins";
 
 h1 {
-	font-size: 36pt;
-	text-align: center;
+	font-family:'Sansita One', Helvetica;
+	font-size:3em;
+	text-align:center;
+	color:@mmdrk_grey;
+}
+
+.centre {
+	text-align:center;
 }

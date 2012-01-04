@@ -32,11 +32,17 @@
 	<!-- ================ -->
 
 	<!-- ! Core -->
-	<package name="CoreCSS" language="css">
+	<package name="BaseCSS" language="css">
 		<source dir="design/css/screen">
-			<file>reset.css</file>
+			<!-- Auxiliary Files -->
 			<file>typography.css</file>
+			<file>lists.css</file>
+			
+			<!-- Base CSS Rules -->
 			<file>base.css</file>
+			
+			<!-- Page Specifics -->
+			<file>homepage.css</file>
 		</source>
 		<output dir="software/site/app/webroot/css/">
 			<file license="false" compression="enabled">screen.css</file>

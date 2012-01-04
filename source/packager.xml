@@ -37,6 +37,7 @@
 			<!-- Auxiliary Files -->
 			<file>typography.css</file>
 			<file>lists.css</file>
+			<file>forms.css</file>
 			
 			<!-- Base CSS Rules -->
 			<file>base.css</file>

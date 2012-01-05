@@ -1,4 +1,5 @@
 <div id="Sidebar" class="sidebar">
+	<h1>KORDS 4</h1>
 	<div id="RoomsFilter">
 		<?php
 			/**

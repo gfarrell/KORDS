@@ -9,6 +9,7 @@
 		<source dir="software/javascript/dep">
 			<file>mootools-core.js</file>
 			<file>raphael.js</file>
+			<file>onhashchange.js</file>
 		</source>
 		<output dir="software/site/app/webroot/js/">
 			<file license="false" compression="enabled">dep.js</file>

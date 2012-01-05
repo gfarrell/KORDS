@@ -17,24 +17,24 @@
 					
 					'Ensuite' 	=> array(
 						'name'		=>	'data[Filter][ensuite]',
+						'empty'		=>	'All',
 						'options'	=>	array(
-										'#'	=>	'All',
 										'1'	=>	'Yes',
 										'0'	=>	'No'
-										)
+										),
 					),
 					'Piano'		=>	array(
 						'name'		=>	'data[Filter][piano]',
+						'empty'		=>	'All',
 						'options'	=>	array(
-										'#'	=>	'All',
 										'1'	=>	'Yes',
 										'0'	=>	'No'
 										)
 					),
 					'Smoking'	=>	array(
 						'name'		=>	'data[Filter][smoking]',
+						'empty'		=>	'All',
 						'options'	=>	array(
-										'#'	=>	'All',
 										'1'	=>	'Yes',
 										'0'	=>	'No'
 										)

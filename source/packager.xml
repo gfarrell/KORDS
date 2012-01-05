@@ -20,6 +20,7 @@
 	<!-- ! BaseJS -->
 	<package name="KordsJS" language="js">
 		<source dir="software/javascript/core">
+			<file>RoomFilterController.js</file>
 		</source>
 		<output dir="software/site/app/webroot/js/">
 			<file license="false" compression="enabled">kords.js</file>

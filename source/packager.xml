@@ -23,8 +23,8 @@
 			<file>RoomFilterController.js</file>
 		</source>
 		<output dir="software/site/app/webroot/js/">
-			<file license="false" compression="enabled">kords.js</file>
-			<file license="false">kords-nocompression.js</file>
+			<file license="false" compression="enabled">core.js</file>
+			<file license="false">core-nocompression.js</file>
 		</output>
 	</package>
 

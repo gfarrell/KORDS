@@ -44,7 +44,11 @@ class RoomsController extends AppController {
 	);
 	
 	public function beforeFilter() {
-		$this->Security->validatePost = false;		
+		parent::beforeFilter();
+		if(in_array($this->params['action'], array('index', 'view'))) {
+			$this->Security->validatePost = false;
+			$this->Security->csrfCheck = false;
+		}
 	}
 
 /**

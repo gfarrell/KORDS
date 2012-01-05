@@ -18,6 +18,18 @@
 		</output>
 	</package>
 	
+	<!-- ! UIKit (Gideon's infant library) -->
+	<package name="UIKit" language="js">
+		<source dir="software/javascript/uikit">
+			<file>UI.js</file>
+			<file>UIActivityIndicator.js</file>
+		</source>
+		<output dir="software/site/app/webroot/js/">
+			<file license="false" compression="enabled">uikit.js</file>
+			<file license="false">uikit-nocompression.js</file>
+		</output>
+	</package>
+	
 	<!-- ! BaseJS -->
 	<package name="KordsJS" language="js">
 		<source dir="software/javascript/core">

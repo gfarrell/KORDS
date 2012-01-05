@@ -19,6 +19,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic|Sansita+One' rel='stylesheet' type='text/css'>
 		
 		<script language="javascript" type="text/javascript" src="/js/dep.js"></script>
+		<script language="javascript" type="text/javascript" src="/js/uikit.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/core.js"></script>
 	</head>
 	<body>

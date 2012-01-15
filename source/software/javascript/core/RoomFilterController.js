@@ -26,6 +26,7 @@ var RoomFilterController = new Class({
 	__filters: [],
 	__sorter: null,
 	hashFilter: null,
+	behavior: null,
 
 	initialize: function (form_filter, container, options) {
 		this.setOptions(options);
@@ -37,6 +38,8 @@ var RoomFilterController = new Class({
 			filter:		$(form_filter),
 			content:	ul
 		};
+		
+		this.behavior = new Behavior({container: ul});
 		
 		this.request = new Request.JSON({
 			url:		(!this.options.data_url ? window.location.pathname : this.options.data_url),
@@ -117,6 +120,7 @@ var RoomFilterController = new Class({
 		this.request.send(data_string);
 	},
 	clearData: function () {
+		this.behavior.cleanup(this.containers.content);
 		this.containers.content.getChildren().destroy();
 	},
 
@@ -159,6 +163,8 @@ var RoomFilterController = new Class({
 				el.inject(this.containers.content);
 			}
 		}
+		
+		this.behavior.apply(this.containers.content);
 	},
 	_requestError: function (xhr) {
 		
@@ -177,15 +183,15 @@ var RoomFilterController = new Class({
 		for(var i = 0; i < this.options.flags.length; i++) {
 			var flag = this.options.flags[i];
 			var cls = (room[flag] == 1) ? 'label success' : 'label important';
-			pcontent += '<span class="'+cls+'">'+flag+'</span>&npsb;';
+			pcontent += '<span class="'+cls+'">'+flag+'</span> ';
 		}
 		
 		var a = new Element('a', {
 				'href': this.options.room_url_format.replace('__id__', room.id),
 				'html': room.number,
-				'data-behavior': 'BS.Popover',
-				'title': room.number,
-				'data-popover-content': pcontent
+				'data-behavior': 'BS.Twipsy',
+				'title': pcontent,
+				'data-bs-twipsy-options': "'location': 'left'"
 		});
 		
 		a.inject(li);

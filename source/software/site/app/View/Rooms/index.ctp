@@ -18,43 +18,49 @@
 					'Ensuite' 	=> array(
 						'name'		=>	'data[Filter][ensuite]',
 						'empty'		=>	'All',
+						'class'		=>	'filter',
 						'options'	=>	array(
-										'1'	=>	'Yes',
-										'0'	=>	'No'
+										true	=>	'Yes',
+										false	=>	'No'
 										),
 					),
 					'Piano'		=>	array(
 						'name'		=>	'data[Filter][piano]',
 						'empty'		=>	'All',
+						'class'		=>	'filter',
 						'options'	=>	array(
-										'1'	=>	'Yes',
-										'0'	=>	'No'
+										true	=>	'Yes',
+										false	=>	'No'
 										)
 					),
 					'Smoking'	=>	array(
 						'name'		=>	'data[Filter][smoking]',
 						'empty'		=>	'All',
+						'class'		=>	'filter',
 						'options'	=>	array(
-										'1'	=>	'Yes',
-										'0'	=>	'No'
+										true	=>	'Yes',
+										false	=>	'No'
 										)
 					),
 					'Location'	=> array(
 						'name'		=>	'data[Filter][location]',
+						'class'		=>	'filter',
 						'empty'		=>	'All'
 					),
 					'RentBand'	=> array(
 						'name'		=>	'data[Filter][rent_band]',
+						'class'		=>	'filter',
 						'empty'		=>	'All'
 					)
 				));
 				
 				echo $this->Form->input('Sort', array(
 					'name'		=>	'data[Sort]',
+					'class'		=>	'sorter',
 					'options'	=>	array(
 						'Room.number'		=>	'Room Number',
 						'Room.location_id'	=>	'Location',
-						'Room.rent_band'	=>	'Rent Band'
+						'Room.rent_band_id'	=>	'Rent Band'
 					)
 				));
 				
@@ -64,5 +70,14 @@
 </div>
 
 <div id="Primary" class="content">
-	
 </div>
+
+<script language="javascript" type="text/javascript" defer="defer">
+	var RoomControl = new RoomFilterController(
+		$('FilterIndexForm'),
+		$('Primary'),
+		{
+			data_url:	'/json/rooms/'
+		}
+	);
+</script>

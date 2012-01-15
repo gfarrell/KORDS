@@ -124,7 +124,9 @@ var RoomFilterController = new Class({
 		this.containers.content.getChildren().destroy();
 	},
 
-	loadRoom: function (id) {},
+	loadRoom: function (id) {
+		
+	},
 
 	_processHash: function (hash) {
 		hash = (hash.substr(0,1) == '#') ? hash.substr(1) : hash;
@@ -198,5 +200,38 @@ var RoomFilterController = new Class({
 		
 		return li;
 	}.protect(),
-	_generateRoomPage: function (data) {}.protect()
+	
+	_generateRoomPage: function (data) {
+		var popup = new Element('div', {
+			'class': 'modal fade',
+			'data-behavior': 'BS.Popup'
+		});
+		
+		var header = new Element('div', {
+			'class': 'modal-header'
+		});
+		header.adopt(
+			(new Element('a', {'class':'close','html':'x'})),
+			(new Element('h3', {'html':data.Room.number}))
+		);
+		header.inject(popup);
+		
+		var body = new Element('div', {
+			'class': 'modal-body'
+		});
+		body.inject(popup);
+		
+		var propsTable = new HtmlTable();
+		for(var i = 0; i < this.options.flags.length; i++) {
+			var flag = this.options.flags[i];
+			propsTable.push([flag, data.Room[flag]]);
+		}
+		propsTable.inject(body);
+		
+		popup.inject(document.body);
+		
+		// ! This needs finishing, for the meantime we'll have a page redirect.
+		
+		this.behavior.apply(popup);
+	}.protect()
 });

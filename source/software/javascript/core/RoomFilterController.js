@@ -19,7 +19,7 @@ var RoomFilterController = new Class({
 		room_data_url:		'/json/rooms/view/__id__',
 		room_url_format:	'/rooms/#/view/__id__',
 		dynamic_page:		true,
-		tenant_types:		{'neither': 1, 'undergraduate': 2, 'graduate': 3}
+		tenant_types:		{'neither': 0, 'undergraduate': 1, 'graduate': 2}
 	},
 
 	__filters: [],

@@ -36,7 +36,7 @@ var RoomFilterController = new Class({
 		};
 		
 		this.request = new Request.JSON({
-			url:		(!this.options.url ? window.location.pathname : this.options.url),
+			url:		(!this.options.data_url ? window.location.pathname : this.options.data_url),
 			secure:		true,
 			link:		'cancel',
 			

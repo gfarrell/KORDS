@@ -58,6 +58,7 @@
 			
 			<!-- Page Specifics -->
 			<file>homepage.css</file>
+			<file>rooms.css</file>
 		</source>
 		<output dir="software/site/app/webroot/css/">
 			<file license="false" compression="enabled">screen.css</file>

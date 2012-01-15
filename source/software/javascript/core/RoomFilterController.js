@@ -23,6 +23,7 @@ var RoomFilterController = new Class({
 	},
 
 	__filters: [],
+	__sorter: null,
 
 	initialize: function (form_filter, container, options) {
 		this.setOptions(options);
@@ -65,19 +66,51 @@ var RoomFilterController = new Class({
 			input.addEvent('change', this.filter.bind(this));
 		}
 	},
-
 	removeFilter: function (input) {
 		if(this.__filters.contains(input)) {
 			this.__filters.remove(input);
 			input.removeEvent('change', this.filter.bind(this));
 		}
 	},
-
+	
+	addSorter: function(input) {
+		if(input !== null && this.__sorter !== input) {
+			if(this.__sorter !== null) {
+				this.removeSorter();
+			}
+			this.__sorter = input;
+			input.addEvent('change', this.filter.bind(this));
+		}
+	},
+	removeSorter: function() {
+		if(this.__sorter !== null) {
+			this.__sorter = null;
+			this.__sorter.removeEvent('change', this.filter.bind(this));
+		}
+	},
+	
+	filter: function() {
+		var filters = {};
+		this.__filters.each(function(f){
+			var name = f.name;
+			var val = f.value;
+			
+			filters[name] = val;
+		}, this);
+		if(this.__sorter !== null) {
+			filters[this.__sorter.name] = this.__sorter.value;
+		}
+		
+		this.fetchData(filters);
+	},
 	fetchData: function (filter_options) {
 		var data_string = '';
+		var i = 0;
 		for(var filter in filter_options) {
 			if(filter_options[filter] == '') continue;
+			if(i > 0) data_string += '&';
 			data_string += filter + '=' + filter_options[filter];
+			i++;
 		}
 		this.request.send(data_string);
 	},

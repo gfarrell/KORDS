@@ -1,6 +1,6 @@
 
-//This library: http://dev.clientcide.com/depender/build?download=true&version=MooTools+Bootstrap&require=Core%2FBrowser&require=Core%2FClass.Extras&require=Core%2FClass&require=Core%2FCore&require=Core%2FElement.Delegation&require=Core%2FElement.Dimensions&require=Core%2FElement.Event&require=Core%2FElement.Style&require=Core%2FElement&require=Core%2FFx.CSS&require=Core%2FFx.Morph&require=Core%2FFx.Transitions&require=Core%2FFx.Tween&require=Core%2FFx&require=Core%2FRequest.HTML&require=Core%2FRequest.JSON&require=Core%2FRequest&require=Core%2FSlick.Finder&require=Core%2FSlick.Parser&require=Core%2FArray&require=Core%2FEvent&require=Core%2FFunction&require=Core%2FNumber&require=Core%2FObject&require=Core%2FString&require=Core%2FCookie&require=Core%2FDOMReady&require=Core%2FJSON&require=Core%2FSwiff&require=Bootstrap%2FBehavior.BS.Alert&require=Bootstrap%2FBehavior.BS.Dropdown&require=Bootstrap%2FBehavior.BS.FormValidator&require=Bootstrap%2FBehavior.BS.Popover&require=Bootstrap%2FBehavior.BS.Popup.FormRequest&require=Bootstrap%2FBehavior.Popup&require=Bootstrap%2FBehavior.BS.Tabs&require=Bootstrap%2FBehavior.BS.Twipsy&require=Bootstrap%2FBootstrap.Dropdown&require=Bootstrap%2FBootstrap.Popover&require=Bootstrap%2FPopup&require=Bootstrap%2FBootstrap.Twipsy&require=Bootstrap%2FBootstrap&require=Bootstrap%2FCSSEvents&require=Bootstrap%2FDelegator.BS.ShowPopup&require=More-Behaviors%2FBehavior.OverText&require=More%2FDrag.Move&require=More%2FDrag&require=More%2FSlider&require=More%2FSortables&require=More%2FFx.Elements&require=More%2FFx.Move&require=More%2FFx.Reveal&require=More%2FFx.Scroll&require=More%2FFx.Slide&require=More%2FFx.SmoothScroll&require=More%2FLocale.en-GB.Date&require=More%2FMore&require=More%2FArray.Extras&require=More%2FAssets&require=More%2FColor
-//Contents: Bootstrap:Source/UI/Bootstrap.js, Core:Source/Core/Core.js, Core:Source/Types/Array.js, Core:Source/Types/Function.js, Core:Source/Types/Number.js, Core:Source/Types/String.js, Core:Source/Browser/Browser.js, Core:Source/Types/Object.js, Core:Source/Slick/Slick.Parser.js, Core:Source/Slick/Slick.Finder.js, Core:Source/Element/Element.js, Core:Source/Types/DOMEvent.js, Core:Source/Element/Element.Event.js, Core:Source/Utilities/DOMReady.js, Bootstrap:Source/UI/CSSEvents.js, Core:Source/Class/Class.js, Core:Source/Class/Class.Extras.js, Core:Source/Element/Element.Style.js, Core:Source/Element/Element.Dimensions.js, More:Source/More/More.js, More:Source/Element/Element.Measure.js, More:Source/Element/Element.Position.js, More:Source/Utilities/Table.js, Core:Source/Utilities/JSON.js, Behavior:Source/Element.Data.js, Behavior:Source/BehaviorAPI.js, Behavior:Source/Behavior.js, Bootstrap:Source/UI/Bootstrap.Twipsy.js, Core:Source/Request/Request.js, Core:Source/Request/Request.JSON.js, Core:Source/Element/Element.Delegation.js, More:Source/Element/Element.Shortcuts.js, Bootstrap:Source/UI/Bootstrap.Dropdown.js, Bootstrap:Source/Behaviors/Behavior.BS.Dropdown.js, Behavior:Source/Event.Mock.js, Behavior:Source/Delegator.js, Bootstrap:Source/UI/Delegator.BS.ShowPopup.js, Core:Source/Fx/Fx.js, Core:Source/Fx/Fx.CSS.js, Core:Source/Fx/Fx.Morph.js, More:Source/Types/Object.Extras.js, Core:Source/Fx/Fx.Tween.js, Core:Source/Fx/Fx.Transitions.js, More:Source/Class/Class.Binds.js, More:Source/Class/Class.Occlude.js, More:Source/Utilities/IframeShim.js, More:Source/Interface/Mask.js, More:Source/Element/Elements.From.js, More:Source/Class/Events.Pseudos.js, Bootstrap:Source/UI/Bootstrap.Popup.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.js, Core:Source/Request/Request.HTML.js, More:Source/Class/Class.Refactor.js, More:Source/Interface/Spinner.js, More:Source/Types/String.QueryString.js, More:Source/Element/Element.Event.Pseudos.js, More:Source/Forms/Form.Request.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.FormRequest.js, More:Source/Fx/Fx.Elements.js, More:Source/Fx/Fx.Move.js, More:Source/Fx/Fx.Scroll.js, More:Source/Locale/Locale.js, More:Source/Locale/Locale.en-US.Date.js, More:Source/Types/Date.js, More:Source/Types/String.Extras.js, More:Source/Element/Element.Forms.js, More:Source/Locale/Locale.en-US.Form.Validator.js, More:Source/Forms/Form.Validator.js, More:Source/Forms/Form.Validator.Inline.js, More-Behaviors:Source/Forms/Behavior.FormValidator.js, Bootstrap:Source/Behaviors/Behavior.BS.FormValidator.js, More:Source/Types/Array.Extras.js, More:Source/Drag/Drag.js, Clientcide:Source/Layout/TabSwapper.js, Clientcide:Source/Behaviors/Behavior.Tabs.js, Bootstrap:Source/Behaviors/Behavior.BS.Tabs.js, More:Source/Drag/Slider.js, Bootstrap:Source/UI/Bootstrap.Popover.js, More:Source/Drag/Drag.Move.js, More:Source/Fx/Fx.SmoothScroll.js, More:Source/Fx/Fx.Reveal.js, More-Behaviors:Source/Delegators/Delegator.FxReveal.js, Bootstrap:Source/Behaviors/Behavior.BS.Alert.js, More:Source/Utilities/Color.js, Bootstrap:Source/Behaviors/Behavior.BS.Twipsy.js, More:Source/Forms/OverText.js, More-Behaviors:Source/Forms/Behavior.OverText.js, Bootstrap:Source/Behaviors/Behavior.BS.Popover.js, More:Source/Locale/Locale.en-GB.Date.js, Core:Source/Utilities/Cookie.js, More:Source/Utilities/Assets.js, Core:Source/Utilities/Swiff.js, More:Source/Fx/Fx.Slide.js, More:Source/Drag/Sortables.js
+//This library: http://dev.clientcide.com/depender/build?download=true&version=MooTools+Bootstrap&require=Core%2FBrowser&require=Core%2FClass.Extras&require=Core%2FClass&require=Core%2FCore&require=Core%2FElement.Delegation&require=Core%2FElement.Dimensions&require=Core%2FElement.Event&require=Core%2FElement.Style&require=Core%2FElement&require=Core%2FFx.CSS&require=Core%2FFx.Morph&require=Core%2FFx.Transitions&require=Core%2FFx.Tween&require=Core%2FFx&require=Core%2FRequest.HTML&require=Core%2FRequest.JSON&require=Core%2FRequest&require=Core%2FSlick.Finder&require=Core%2FSlick.Parser&require=Core%2FArray&require=Core%2FEvent&require=Core%2FFunction&require=Core%2FNumber&require=Core%2FObject&require=Core%2FString&require=Core%2FCookie&require=Core%2FDOMReady&require=Core%2FJSON&require=Core%2FSwiff&require=Bootstrap%2FBehavior.BS.Alert&require=Bootstrap%2FBehavior.BS.Dropdown&require=Bootstrap%2FBehavior.BS.FormValidator&require=Bootstrap%2FBehavior.BS.Popover&require=Bootstrap%2FBehavior.BS.Popup.FormRequest&require=Bootstrap%2FBehavior.Popup&require=Bootstrap%2FBehavior.BS.Tabs&require=Bootstrap%2FBehavior.BS.Twipsy&require=Bootstrap%2FBootstrap.Dropdown&require=Bootstrap%2FBootstrap.Popover&require=Bootstrap%2FPopup&require=Bootstrap%2FBootstrap.Twipsy&require=Bootstrap%2FBootstrap&require=Bootstrap%2FCSSEvents&require=Bootstrap%2FDelegator.BS.ShowPopup&require=More-Behaviors%2FBehavior.OverText&require=More%2FDrag.Move&require=More%2FDrag&require=More%2FSlider&require=More%2FSortables&require=More%2FFx.Elements&require=More%2FFx.Move&require=More%2FFx.Reveal&require=More%2FFx.Scroll&require=More%2FFx.Slide&require=More%2FFx.SmoothScroll&require=More%2FLocale.en-GB.Date&require=More%2FMore&require=More%2FArray.Extras&require=More%2FAssets&require=More%2FColor&require=More%2FHtmlTable
+//Contents: Bootstrap:Source/UI/Bootstrap.js, Core:Source/Core/Core.js, Core:Source/Types/Array.js, Core:Source/Types/Function.js, Core:Source/Types/Number.js, Core:Source/Types/String.js, Core:Source/Browser/Browser.js, Core:Source/Types/Object.js, Core:Source/Slick/Slick.Parser.js, Core:Source/Slick/Slick.Finder.js, Core:Source/Element/Element.js, Core:Source/Types/DOMEvent.js, Core:Source/Element/Element.Event.js, Core:Source/Utilities/DOMReady.js, Bootstrap:Source/UI/CSSEvents.js, Core:Source/Class/Class.js, Core:Source/Class/Class.Extras.js, Core:Source/Element/Element.Style.js, Core:Source/Element/Element.Dimensions.js, More:Source/More/More.js, More:Source/Element/Element.Measure.js, More:Source/Element/Element.Position.js, More:Source/Utilities/Table.js, Core:Source/Utilities/JSON.js, Behavior:Source/Element.Data.js, Behavior:Source/BehaviorAPI.js, Behavior:Source/Behavior.js, Bootstrap:Source/UI/Bootstrap.Twipsy.js, Core:Source/Request/Request.js, Core:Source/Request/Request.JSON.js, Core:Source/Element/Element.Delegation.js, More:Source/Element/Element.Shortcuts.js, Bootstrap:Source/UI/Bootstrap.Dropdown.js, Bootstrap:Source/Behaviors/Behavior.BS.Dropdown.js, Behavior:Source/Event.Mock.js, Behavior:Source/Delegator.js, Bootstrap:Source/UI/Delegator.BS.ShowPopup.js, Core:Source/Fx/Fx.js, Core:Source/Fx/Fx.CSS.js, Core:Source/Fx/Fx.Morph.js, More:Source/Types/Object.Extras.js, Core:Source/Fx/Fx.Tween.js, Core:Source/Fx/Fx.Transitions.js, More:Source/Class/Class.Binds.js, More:Source/Class/Class.Occlude.js, More:Source/Utilities/IframeShim.js, More:Source/Interface/Mask.js, More:Source/Element/Elements.From.js, More:Source/Class/Events.Pseudos.js, Bootstrap:Source/UI/Bootstrap.Popup.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.js, Core:Source/Request/Request.HTML.js, More:Source/Class/Class.Refactor.js, More:Source/Interface/Spinner.js, More:Source/Types/String.QueryString.js, More:Source/Element/Element.Event.Pseudos.js, More:Source/Forms/Form.Request.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.FormRequest.js, More:Source/Fx/Fx.Elements.js, More:Source/Fx/Fx.Move.js, More:Source/Fx/Fx.Scroll.js, More:Source/Locale/Locale.js, More:Source/Locale/Locale.en-US.Date.js, More:Source/Types/Date.js, More:Source/Types/String.Extras.js, More:Source/Element/Element.Forms.js, More:Source/Locale/Locale.en-US.Form.Validator.js, More:Source/Forms/Form.Validator.js, More:Source/Forms/Form.Validator.Inline.js, More-Behaviors:Source/Forms/Behavior.FormValidator.js, Bootstrap:Source/Behaviors/Behavior.BS.FormValidator.js, More:Source/Types/Array.Extras.js, More:Source/Drag/Drag.js, Clientcide:Source/Layout/TabSwapper.js, Clientcide:Source/Behaviors/Behavior.Tabs.js, Bootstrap:Source/Behaviors/Behavior.BS.Tabs.js, More:Source/Drag/Slider.js, Bootstrap:Source/UI/Bootstrap.Popover.js, More:Source/Drag/Drag.Move.js, More:Source/Fx/Fx.SmoothScroll.js, More:Source/Fx/Fx.Reveal.js, More-Behaviors:Source/Delegators/Delegator.FxReveal.js, Bootstrap:Source/Behaviors/Behavior.BS.Alert.js, More:Source/Utilities/Color.js, Bootstrap:Source/Behaviors/Behavior.BS.Twipsy.js, More:Source/Forms/OverText.js, More-Behaviors:Source/Forms/Behavior.OverText.js, Bootstrap:Source/Behaviors/Behavior.BS.Popover.js, More:Source/Locale/Locale.en-GB.Date.js, Core:Source/Utilities/Cookie.js, More:Source/Interface/HtmlTable.js, More:Source/Utilities/Assets.js, Core:Source/Utilities/Swiff.js, More:Source/Fx/Fx.Slide.js, More:Source/Drag/Sortables.js
 
 // Begin: Source/UI/Bootstrap.js
 /*
@@ -14247,6 +14247,166 @@ Cookie.read = function(key){
 Cookie.dispose = function(key, options){
 	return new Cookie(key, options).dispose();
 };
+
+
+// Begin: Source/Interface/HtmlTable.js
+/*
+---
+
+script: HtmlTable.js
+
+name: HtmlTable
+
+description: Builds table elements with methods to add rows.
+
+license: MIT-style license
+
+authors:
+  - Aaron Newton
+
+requires:
+  - Core/Options
+  - Core/Events
+  - /Class.Occlude
+
+provides: [HtmlTable]
+
+...
+*/
+
+var HtmlTable = new Class({
+
+	Implements: [Options, Events, Class.Occlude],
+
+	options: {
+		properties: {
+			cellpadding: 0,
+			cellspacing: 0,
+			border: 0
+		},
+		rows: [],
+		headers: [],
+		footers: []
+	},
+
+	property: 'HtmlTable',
+
+	initialize: function(){
+		var params = Array.link(arguments, {options: Type.isObject, table: Type.isElement, id: Type.isString});
+		this.setOptions(params.options);
+		if (!params.table && params.id) params.table = document.id(params.id);
+		this.element = params.table || new Element('table', this.options.properties);
+		if (this.occlude()) return this.occluded;
+		this.build();
+	},
+
+	build: function(){
+		this.element.store('HtmlTable', this);
+
+		this.body = document.id(this.element.tBodies[0]) || new Element('tbody').inject(this.element);
+		$$(this.body.rows);
+
+		if (this.options.headers.length) this.setHeaders(this.options.headers);
+		else this.thead = document.id(this.element.tHead);
+
+		if (this.thead) this.head = this.getHead();
+		if (this.options.footers.length) this.setFooters(this.options.footers);
+
+		this.tfoot = document.id(this.element.tFoot);
+		if (this.tfoot) this.foot = document.id(this.tfoot.rows[0]);
+
+		this.options.rows.each(function(row){
+			this.push(row);
+		}, this);
+	},
+
+	toElement: function(){
+		return this.element;
+	},
+
+	empty: function(){
+		this.body.empty();
+		return this;
+	},
+
+	set: function(what, items){
+		var target = (what == 'headers') ? 'tHead' : 'tFoot',
+			lower = target.toLowerCase();
+
+		this[lower] = (document.id(this.element[target]) || new Element(lower).inject(this.element, 'top')).empty();
+		var data = this.push(items, {}, this[lower], what == 'headers' ? 'th' : 'td');
+
+		if (what == 'headers') this.head = this.getHead();
+		else this.foot = this.getHead();
+
+		return data;
+	},
+
+	getHead: function(){
+		var rows = this.thead.rows;
+		return rows.length > 1 ? $$(rows) : rows.length ? document.id(rows[0]) : false;
+	},
+
+	setHeaders: function(headers){
+		this.set('headers', headers);
+		return this;
+	},
+
+	setFooters: function(footers){
+		this.set('footers', footers);
+		return this;
+	},
+
+	update: function(tr, row, tag){
+		var tds = tr.getChildren(tag || 'td'), last = tds.length - 1;
+
+		row.each(function(data, index){
+			var td = tds[index] || new Element(tag || 'td').inject(tr),
+				content = (data ? data.content : '') || data,
+				type = typeOf(content);
+
+			if (data && data.properties) td.set(data.properties);
+			if (/(element(s?)|array|collection)/.test(type)) td.empty().adopt(content);
+			else td.set('html', content);
+
+			if (index > last) tds.push(td);
+			else tds[index] = td;
+		});
+
+		return {
+			tr: tr,
+			tds: tds
+		};
+	},
+
+	push: function(row, rowProperties, target, tag, where){
+		if (typeOf(row) == 'element' && row.get('tag') == 'tr'){
+			row.inject(target || this.body, where);
+			return {
+				tr: row,
+				tds: row.getChildren('td')
+			};
+		}
+		return this.update(new Element('tr', rowProperties).inject(target || this.body, where), row, tag);
+	},
+
+	pushMany: function(rows, rowProperties, target, tag, where){
+		return rows.map(function(row){
+			return this.push(row, rowProperties, target, tag, where);
+		}, this);
+	}
+
+});
+
+
+['adopt', 'inject', 'wraps', 'grab', 'replaces', 'dispose'].each(function(method){
+	HtmlTable.implement(method, function(){
+		this.element[method].apply(this.element, arguments);
+		return this;
+	});
+});
+
+
 
 
 // Begin: Source/Utilities/Assets.js

@@ -82,7 +82,8 @@
 		$('FilterIndexForm'),
 		$('Primary'),
 		{
-			data_url:	'/json/rooms/'
+			data_url:			'/json/rooms/',
+			room_url_format:	'/rooms/view/__id__'
 		}
 	);
 </script>

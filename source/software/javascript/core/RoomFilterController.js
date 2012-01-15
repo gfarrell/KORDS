@@ -115,7 +115,9 @@ var RoomFilterController = new Class({
 		}
 		this.request.send(data_string);
 	},
-	clearData: function () {},
+	clearData: function () {
+		this.containers.content.getChildren().destroy();
+	},
 
 	loadRoom: function (id) {},
 
@@ -148,7 +150,7 @@ var RoomFilterController = new Class({
 	},
 
 	_reloadData: function (json_response) {
-		this.containers.content.getChildren().destroy();
+		this.clearData();
 		for(var i in json_response) {
 			var room = json_response[i].Room;
 			if(room) {

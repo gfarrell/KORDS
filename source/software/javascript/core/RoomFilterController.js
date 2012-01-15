@@ -24,6 +24,7 @@ var RoomFilterController = new Class({
 
 	__filters: [],
 	__sorter: null,
+	hashFilter: null,
 
 	initialize: function (form_filter, container, options) {
 		this.setOptions(options);
@@ -49,10 +50,10 @@ var RoomFilterController = new Class({
 		
 		this.indicator = new UIActivityIndicator({attachTo: document.body});
 		
-		form_filter.getChildren('input,select').each(function (input) {
+		form_filter.getElements('input.filter, select.filter').each(function (input) {
 			this.addFilter(input);
 		}, this);
-		
+		this.addSorter(form_filter.getElement('input.sorter, select.sorter'));
 		window.addEvent('hashchange', this._processHash.bind(this));
 		
 		this._processHash(window.location.hash);
@@ -123,10 +124,26 @@ var RoomFilterController = new Class({
 		
 		var parts = hash.split('/');
 		
+		if(parts[0] == '') parts.shift();
+		
 		if(parts[0] == 'view' && parts.length > 1) {
 			this.loadRoom(parts[1]);
 		} else if (parts[0].match(/^for=(\w+)$/)) {
-			this.addFilter
+			var hVal = parts[0].match(/^for=(\w+)$/)[1];
+			if(this.hashFilter === null) {
+				this.hashFilter = new Element('input', {
+					'name':		'data[Filter][tenant_type]',
+					'class':	'filter',
+					'type':		'hidden'
+				});
+				this.hashFilter.inject(this.containers.filter);
+				this.addFilter(this.hashFilter);
+			}
+			if(typeof this.options.tenant_types[hVal] != 'undefined') {
+				this.hashFilter.value = this.options.tenant_types[hVal];
+			}
+			
+			this.filter();
 		}
 	},
 

@@ -33,7 +33,8 @@ class RoomsController extends AppController {
 				'type'		=>	'id'
 			),
 			'tenant_type'	=>	array(
-				'type'		=>	'id'
+				'type'		=>	'id',
+				'ignore'	=>	'0'
 			),
 			'room_status'	=>	array(
 				'type'		=>	'id'
@@ -63,6 +64,7 @@ class RoomsController extends AppController {
 			foreach($this->data['Filter'] as $f => $c) {
 				if(array_key_exists($f, $this->filters)) {
 					$filter = $this->filters[$f];
+					if(array_key_exists('ignore', $filter) && $filter['ignore'] == $c) continue;
 					switch($filter['type']) {
 						case 'id':
 							$model = Inflector::camelize($f);

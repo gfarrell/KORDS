@@ -39,6 +39,13 @@ class Room extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'RoomStatus' => array(
+			'className' => 'RoomStatus',
+			'foreignKey' => 'room_status_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'TenantType' => array(
 			'className' => 'TenantType',
 			'foreignKey' => 'tenant_type_id',

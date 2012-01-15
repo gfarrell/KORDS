@@ -51,6 +51,11 @@
 						'name'		=>	'data[Filter][rent_band]',
 						'class'		=>	'filter',
 						'empty'		=>	'All'
+					),
+					'RoomStatus'=>	array(
+						'name'		=>	'data[Filter][room_status]',
+						'class'		=>	'filter',
+						'empty'		=>	'All'
 					)
 				));
 				

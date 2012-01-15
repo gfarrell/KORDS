@@ -105,9 +105,14 @@ class RoomsController extends AppController {
 			$this->set('json', $rooms);
 			$this->render(false);
 		} else {
-			$this->set('rooms', $rooms);
-			$this->set('locations', $this->Room->Location->find('list'));
-			$this->set('rentBands', $this->Room->RentBand->find('list'));
+			$locations = $this->Room->Location->find('list');
+			$rentBands = $this->Room->RentBand->find('list');
+			
+			$humanise = function($n) { return Inflector::humanize($n); };
+			
+			$roomStatuses = array_map($humanise, $this->Room->RoomStatus->find('list'));
+			
+			$this->set(compact('rooms', 'locations', 'rentBands', 'roomStatuses'));
 		}
 	}
 

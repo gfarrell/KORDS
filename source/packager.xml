@@ -7,8 +7,7 @@
 	<!-- ! Dependencies -->
 	<package name="Dependencies" language="js">
 		<source dir="software/javascript/dep">
-			<file>mootools-core.js</file>
-			<file>mootools-more.js</file>
+			<file>bootstrap.js</file>
 			<file>raphael.js</file>
 			<file>onhashchange.js</file>
 		</source>

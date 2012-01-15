@@ -73,7 +73,8 @@ class Room extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
+		'RoomImage'
 	);
 
 }

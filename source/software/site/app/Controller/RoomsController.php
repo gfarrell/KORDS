@@ -131,7 +131,9 @@ class RoomsController extends AppController {
 		$this->Room->contain(array(
 			'RentBand',
 			'Location',
-			'TenantType'
+			'TenantType',
+			'RoomStatus',
+			'RoomImage'
 		));
 		$room = $this->Room->findById($id);
 		

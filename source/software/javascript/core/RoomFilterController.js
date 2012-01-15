@@ -19,7 +19,8 @@ var RoomFilterController = new Class({
 		room_data_url:		'/json/rooms/view/__id__',
 		room_url_format:	'/rooms/#/view/__id__',
 		dynamic_page:		true,
-		tenant_types:		{'neither': 0, 'undergraduate': 1, 'graduate': 2}
+		tenant_types:		{'neither': 0, 'undergraduate': 1, 'graduate': 2},
+		flags:				['ensuite','piano','smoking','double']
 	},
 
 	__filters: [],
@@ -159,7 +160,9 @@ var RoomFilterController = new Class({
 			}
 		}
 	},
-	_requestError: function (xhr) {},
+	_requestError: function (xhr) {
+		
+	},
 
 	_showLoading: function () {
 		this.indicator.start();
@@ -170,9 +173,19 @@ var RoomFilterController = new Class({
 
 	_generateRoom: function (room) {
 		var li = new Element('li', {'class':'room'});
+		var pcontent = '';
+		for(var i = 0; i < this.options.flags.length; i++) {
+			var flag = this.options.flags[i];
+			var cls = (room[flag] == 1) ? 'label success' : 'label important';
+			pcontent += '<span class="'+cls+'">'+flag+'</span>&npsb;';
+		}
+		
 		var a = new Element('a', {
 				'href': this.options.room_url_format.replace('__id__', room.id),
-				'html': room.number
+				'html': room.number,
+				'data-behavior': 'BS.Popover',
+				'title': room.number,
+				'data-popover-content': pcontent
 		});
 		
 		a.inject(li);

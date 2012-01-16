@@ -1,3 +1,4 @@
+<div class="alert-message warning centre">KORDS4 is still very much in its beta stages, please be aware of this and visit <?= $this->Html->link('http://github.com/gfarrell/KORDS'); ?> to report any issues.</div>
 <div class="row">
 	<div id="LandingWelcome" class="span10 offset3 voffset25">
 		<div class="row">

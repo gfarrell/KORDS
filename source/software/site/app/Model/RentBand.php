@@ -11,7 +11,7 @@ class RentBand extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'cost';
+	public $displayField = 'humanised';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -35,5 +35,11 @@ class RentBand extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
+	
+	function __construct($id = false, $table = null, $ds = null) {
+		parent::__construct($id, $table, $ds);
+		$this->virtualFields = array(
+			'humanised'	=>	sprintf('CONCAT("Band ", %s.id, " - £", ROUND(%s.cost/100, 2))', $this->alias, $this->alias)
+		);
+	}
 }

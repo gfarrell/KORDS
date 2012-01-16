@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td>Rent</td>
-				<td>Band <?= $room['Room']['rent_band_id']; ?> - &pound;<?= $room['RentBand']['cost']/100; ?></td>
+				<td><?= $room['RentBand']['humanised']; ?></td>
 			</tr>
 			<tr>
 				<td>Ensuite</td>

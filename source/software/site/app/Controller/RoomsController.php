@@ -130,7 +130,6 @@ class RoomsController extends AppController {
 			'RentBand',
 			'Location',
 			'TenantType',
-			'RoomStatus',
 			'RoomImage'
 		));
 		$room = $this->Room->findById($id);

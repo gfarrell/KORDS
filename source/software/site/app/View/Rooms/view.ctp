@@ -36,8 +36,12 @@
 				<td><?= $room['Room']['floor']; ?></td>
 			</tr>
 			<tr>
+				<td>Available to</td>
+				<td><?= Inflector::humanize($room['TenantType']['name']); ?></td>
+			</tr>
+			<tr>
 				<td>Ballot Status</td>
-				<td><?= Inflector::humanize($room['RoomStatus']['name']); ?></td>
+				<td class="<?= ($room['Room']['smoking'] ? 'green' : 'red'); ?>"><?= ($room['Room']['smoking']) ? 'available' : 'taken'; ?></td>
 			</tr>
 		</table>
 		

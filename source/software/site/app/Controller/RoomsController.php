@@ -110,7 +110,7 @@ class RoomsController extends AppController {
 			
 			$humanise = function($n) { return Inflector::humanize($n); };
 			
-			$roomStatuses = array_map($humanise, $this->Room->RoomStatus->find('list'));
+			$roomStatuses = $this->Room->RoomStatus->find('list');
 			
 			$this->set(compact('rooms', 'locations', 'rentBands', 'roomStatuses'));
 		}

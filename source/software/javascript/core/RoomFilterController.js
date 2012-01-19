@@ -20,11 +20,14 @@ var RoomFilterController = new Class({
 		room_url_format:	'/rooms/#/view/__id__',
 		dynamic_page:		true,
 		tenant_types:		{'neither': 0, 'undergraduate': 1, 'graduate': 2},
-		flags:				['ensuite','piano','smoking','double']
+		flags:				['ensuite','piano','smoking','double'],
+		split_sort:			['Location.name', 'RoomStatus.name']
 	},
 
 	__filters: [],
 	__sorter: null,
+	sortKey: null,
+	__sortKeyCurrent: null,
 	hashFilter: null,
 	behavior: null,
 
@@ -104,6 +107,8 @@ var RoomFilterController = new Class({
 		}, this);
 		if(this.__sorter !== null) {
 			filters[this.__sorter.name] = this.__sorter.value;
+			
+			this.sortKey = this.options.split_sort.contains(this.__sorter.value) ? this.__sorter.value : null;
 		}
 		
 		this.fetchData(filters);
@@ -120,6 +125,7 @@ var RoomFilterController = new Class({
 		this.request.send(data_string);
 	},
 	clearData: function () {
+		this.__sortKeyCurrent = null;
 		this.behavior.cleanup(this.containers.content);
 		this.containers.content.getChildren().destroy();
 	},
@@ -158,11 +164,38 @@ var RoomFilterController = new Class({
 
 	_reloadData: function (json_response) {
 		this.clearData();
+		
+		var container = this.containers.content;
+		
+		if(this.sortKey !== null) {
+			var sort = {model:false, key:false};
+			var sortKey_tmp = this.sortKey.split('.');
+			
+			if(sortKey_tmp.length == 1) {
+				sort.key = sortKey_tmp[0];
+			} else {
+				sort.model = sortKey_tmp[0];
+				sort.key = sortKey_tmp[1];
+			}
+		}
+		
+		
 		for(var i in json_response) {
 			var room = json_response[i].Room;
 			if(room) {
+				if(this.sortKey !== null) {
+					var iSortKey = sort.model ? json_response[i][sort.model][sort.key] : room[sort.key];
+					if(this.__sortKeyCurrent != iSortKey) {
+						this.__sortKeyCurrent = iSortKey;
+						(this._generateListSortHeader()).inject(this.containers.content);
+						var ncontainer = new Element('ul', {'class':'horizontal unstyled item_list'});
+						ncontainer.inject(this.containers.content);
+						container = ncontainer;
+					}
+				}
+				
 				var el = this._generateRoom(room);
-				el.inject(this.containers.content);
+				el.inject(container);
 			}
 		}
 		
@@ -199,6 +232,10 @@ var RoomFilterController = new Class({
 		a.inject(li);
 		
 		return li;
+	}.protect(),
+	
+	_generateListSortHeader: function() {
+		return new Element('h2', {'html':this.__sortKeyCurrent, 'class':'sortHeader'});
 	}.protect(),
 	
 	_generateRoomPage: function (data) {

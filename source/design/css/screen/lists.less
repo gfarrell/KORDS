@@ -8,6 +8,7 @@
 
 @import "../../../libraries/bootstrap/lib/variables";
 @import "../../../libraries/bootstrap/lib/mixins";
+@import "colours";
 
 ul.horizontal {
 	.clearfix();
@@ -68,4 +69,11 @@ ul.orlist {
 li.room {
 	width:50px;
 	text-align:center;
+}
+
+.sortHeader {
+	clear:both;
+	text-align:center;
+	margin-top:1em;
+	background: darken(@bg_main, 10%);
 }

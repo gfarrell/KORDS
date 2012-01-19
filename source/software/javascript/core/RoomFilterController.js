@@ -229,6 +229,8 @@ var RoomFilterController = new Class({
 				'data-bs-twipsy-options': "'location': 'left'"
 		});
 		
+		if(room.available != 1) li.addClass('taken');
+		
 		a.inject(li);
 		
 		return li;

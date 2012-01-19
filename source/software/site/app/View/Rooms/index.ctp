@@ -64,8 +64,9 @@
 					'class'		=>	'sorter',
 					'options'	=>	array(
 						'Room.number'		=>	'Room Number',
-						'Room.location_id'	=>	'Location',
-						'Room.rent_band_id'	=>	'Rent Band'
+						'Location.name'		=>	'Location',
+						'Room.rent_band_id'	=>	'Rent Band',
+						'RoomStatus.name'	=>	'Room Status'
 					)
 				));
 				

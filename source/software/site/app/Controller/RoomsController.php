@@ -97,7 +97,7 @@ class RoomsController extends AppController {
 		$rooms = $this->Room->find('all', array(
 			'conditions'	=>	$filter_conds,
 			'order'			=>	$sort,
-			'contain'		=>	array()
+			'contain'		=>	array('Location', 'RoomStatus')
 		));
 		
 		if($this->params['json']) {

@@ -29,15 +29,15 @@ class RoomsController extends AppController {
 			'smoking'	=>	array(
 				'type'		=>	'boolean'
 			),
+			'available'	=>	array(
+				'type'		=>	'boolean'
+			),
 			'rent_band'	=>	array(
 				'type'		=>	'id'
 			),
 			'tenant_type'	=>	array(
 				'type'		=>	'id',
 				'ignore'	=>	'0'
-			),
-			'room_status'	=>	array(
-				'type'		=>	'id'
 			),
 			'location'	=>	array(
 				'type'		=>	'id'	
@@ -97,7 +97,7 @@ class RoomsController extends AppController {
 		$rooms = $this->Room->find('all', array(
 			'conditions'	=>	$filter_conds,
 			'order'			=>	$sort,
-			'contain'		=>	array('Location', 'RoomStatus')
+			'contain'		=>	array('Location')
 		));
 		
 		if($this->params['json']) {
@@ -108,11 +108,9 @@ class RoomsController extends AppController {
 			$locations = $this->Room->Location->find('list');
 			$rentBands = $this->Room->RentBand->find('list');
 			
-			$humanise = function($n) { return Inflector::humanize($n); };
+			$tenantTypes = $this->Room->TenantType->find('list');
 			
-			$roomStatuses = $this->Room->RoomStatus->find('list');
-			
-			$this->set(compact('rooms', 'locations', 'rentBands', 'roomStatuses'));
+			$this->set(compact('rooms', 'locations', 'rentBands', 'tenantTypes'));
 		}
 	}
 

@@ -52,10 +52,14 @@
 						'class'		=>	'filter',
 						'empty'		=>	'All'
 					),
-					'RoomStatus'=>	array(
-						'name'		=>	'data[Filter][room_status]',
+					'Available'	=>	array(
+						'name'		=>	'data[Filter][available]',
+						'empty'		=>	'All',
 						'class'		=>	'filter',
-						'empty'		=>	'All'
+						'options'	=>	array(
+										true	=>	'Yes',
+										false	=>	'No'
+						)
 					)
 				));
 				
@@ -84,7 +88,8 @@
 		$('Primary'),
 		{
 			data_url:			'/json/rooms/',
-			room_url_format:	'/rooms/view/__id__'
+			room_url_format:	'/rooms/view/__id__',
+			tenant_types:		<?= json_encode(array_merge(array('All'=>0), array_flip($tenantTypes))); ?>
 		}
 	);
 </script>

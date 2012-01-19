@@ -6,7 +6,14 @@
 		<?php foreach($tenant_types as $t) { 
 			$name = $t['TenantType']['name'];
 			echo '<li>';
-			echo $this->Html->link($name . ' rooms', '/rooms/#/for='.$name, array('class'=>'btn primary', 'title'=>$name));
+			echo $this->Html->link(
+				Inflector::humanize($name) . ' rooms',
+				'/rooms/#/for='.$name,
+				array(
+					'class'	=>	'btn primary',
+					'title'	=>	$name
+				)
+			);
 			echo '</li>';
 		} ?>
 	</ul>

@@ -1,5 +1,5 @@
 <div id="Sidebar" class="sidebar">
-	<h1>KORDS 4</h1>
+	<h1><a href="/" title="KORDS 4">KORDS 4</a></h1>
 	<div id="RoomsFilter">
 		<?php
 			/**

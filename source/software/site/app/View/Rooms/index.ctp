@@ -76,10 +76,10 @@
 					'name'		=>	'data[Sort]',
 					'class'		=>	'sorter',
 					'options'	=>	array(
-						'Room.number'		=>	'Room Number',
-						'Location.name'		=>	'Location',
-						'Room.rent_band_id'	=>	'Rent Band',
-						'Room.available'	=>	'Room Availability'
+						'Room.number'			=>	'Room Number',
+						'Location.name'			=>	'Location',
+						'Room.rent_band_id'		=>	'Rent Band',
+						'Room.available DESC'	=>	'Room Availability'
 					)
 				));
 				

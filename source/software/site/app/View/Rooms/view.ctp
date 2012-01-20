@@ -9,7 +9,7 @@
 			</tr>
 			<tr>
 				<td>Contract</td>
-				<td><?= $room['Room']['contract']; ?></td>
+				<td><?= ($room['Room']['short_contract'] ? 'short only' : 'long or short'); ?></td>
 			</tr>
 			<tr>
 				<td>Rent</td>

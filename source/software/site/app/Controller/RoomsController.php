@@ -13,9 +13,8 @@ class RoomsController extends AppController {
 		)
 	);
 	var $filters = array(
-			'contract'	=>	array(
-				'type'		=>	'string',
-				'allowed'	=>	array('', 'long', 'short')
+			'short_contract'=>	array(
+				'type'		=>	'boolean'
 			),
 			'ensuite'	=>	array(
 				'type'		=>	'boolean'

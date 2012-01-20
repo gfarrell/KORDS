@@ -15,7 +15,16 @@
 				echo $this->Form->inputs(array(
 					'legend'	=> 'Filter Rooms',
 					
-					'Ensuite' 	=> array(
+					'Contract'	=>	array(
+						'name'		=>	'data[Filter][short_contract]',
+						'empty'		=>	'All',
+						'class'		=>	'filter',
+						'options'	=>	array(
+										false	=>	'Either',
+										true	=>	'Short Only'
+						)
+					),
+					'Ensuite' 	=>	array(
 						'name'		=>	'data[Filter][ensuite]',
 						'empty'		=>	'All',
 						'class'		=>	'filter',

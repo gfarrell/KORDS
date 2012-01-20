@@ -39,7 +39,11 @@ class RentBand extends AppModel {
 	function __construct($id = false, $table = null, $ds = null) {
 		parent::__construct($id, $table, $ds);
 		$this->virtualFields = array(
-			'humanised'	=>	sprintf('CONCAT("Band ", %s.id, " - £", ROUND(%s.cost/100, 2))', $this->alias, $this->alias)
+			'humanised'	=>	sprintf(
+								'CONCAT("Band ", %s.id, " - £", ROUND(%s.cost_short/100, 2), " / £", ROUND(%s.cost_long/100, 2))',
+								$this->alias,
+								$this->alias,
+								$this->alias)
 		);
 	}
 }

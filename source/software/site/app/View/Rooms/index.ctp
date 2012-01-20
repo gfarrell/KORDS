@@ -79,7 +79,7 @@
 						'Room.number'		=>	'Room Number',
 						'Location.name'		=>	'Location',
 						'Room.rent_band_id'	=>	'Rent Band',
-						'RoomStatus.name'	=>	'Room Status'
+						'Room.available'	=>	'Room Availability'
 					)
 				));
 				

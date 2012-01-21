@@ -55,4 +55,31 @@
 			?>
 		</div>
 	</section>
+	
+	<?php if($this->Session->check('Kords.user_authorised')): ?>
+	<section class="centre">
+		<?php 
+			echo $this->Html->link('Edit', array('id'=>$room['Room']['id'], 'action'=>'edit'), array('class'=>'btn'));
+			
+			echo '&nbsp;';
+			
+			echo $this->Form->create('Delete', array(
+				'url'		=>	array(
+					'controller'	=>	'rooms',
+					'id'			=>	$room['Room']['id'],
+					'action'		=>	'delete'
+				),
+				'method'	=>	'post',
+				'class'		=>	'form-discrete'
+			));
+			echo $this->Form->hidden('Room.id');
+			echo $this->Form->end(array(
+				'label'	=>	'Delete',
+				'value'	=>	'Delete',
+				'class'	=>	'btn danger',
+				'div'	=>	false
+			));
+		?>
+	</section>
+	<?php endif; ?>
 </div>

@@ -20,14 +20,7 @@
 		
 		<script language="javascript" type="text/javascript" src="/js/dep.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/uikit.js"></script>
-		<script language="javascript" type="text/javascript" src="/js/core.js"></script>
-		
-		<script language="javascript" type="text/javascript">
-			window.addEvent('domready', function() {
-				var GlobalBehaviour = new Behavior().apply(document.body);
-			});
-		</script>
-		
+		<script language="javascript" type="text/javascript" src="/js/core.js"></script>		
 		<title><?= $title_for_layout; ?></title>
 	</head>
 	<body>
@@ -35,5 +28,11 @@
 			<?= $this->Session->flash('flash', array('element'=>'info_message')); ?>
 			<?= $content_for_layout; ?>
 		</div>
+		<script language="javascript" type="text/javascript" defer="defer">
+			var behaviour = new Behavior().apply(document.body);
+			var delegator = new Delegator({
+				getBehavior: function(){ return behaviour; }
+			}).attach(document.body);
+		</script>
 	</body>
 </html>

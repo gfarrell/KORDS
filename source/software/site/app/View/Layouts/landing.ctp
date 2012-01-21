@@ -21,6 +21,8 @@
 		<script language="javascript" type="text/javascript" src="/js/dep.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/uikit.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/core.js"></script>
+		
+		<title>Welcome to KORDS</title>
 	</head>
 	<body class="tiled_light">
 		<div class="container">

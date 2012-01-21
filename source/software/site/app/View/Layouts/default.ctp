@@ -21,6 +21,13 @@
 		<script language="javascript" type="text/javascript" src="/js/dep.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/uikit.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/core.js"></script>
+		
+		<script language="javascript" type="text/javascript">
+			window.addEvent('domready', function() {
+				var GlobalBehaviour = new Behavior().apply(document.body);
+			});
+		</script>
+		
 		<title><?= $title_for_layout; ?></title>
 	</head>
 	<body>

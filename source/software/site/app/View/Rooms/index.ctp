@@ -84,6 +84,15 @@
 					)
 				));
 				
+				echo $this->Form->input('AutoRefresh', array(
+					'name'		=>	'auto_refresh',
+					'class'		=>	'control',
+					'options'	=>	array(
+						false		=>	'Off',
+						true		=>	'On'
+					)
+				));
+				
 			echo $this->Form->end();
 		?>
 	</div>
@@ -91,7 +100,6 @@
 
 <div id="Primary" class="content">
 </div>
-
 <script language="javascript" type="text/javascript" defer="defer">
 	var RoomControl = new RoomFilterController(
 		$('FilterIndexForm'),
@@ -99,7 +107,7 @@
 		{
 			data_url:			'/json/rooms/',
 			room_url_format:	'/rooms/view/__id__',
-			tenant_types:		<?= json_encode(array_merge(array('All'=>0), array_flip($tenantTypes))); ?>
+			tenant_types:		<?= json_encode(array_merge(array(0=>'all'), $tenantTypes)); ?>
 		}
 	);
 </script>

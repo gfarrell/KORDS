@@ -187,12 +187,26 @@ class RoomsController extends AppController {
 		if($id === null) $id = $this->params['id'];
 		$this->Room->id = $id;
 		if (!$this->Room->exists()) {
-			throw new NotFoundException(__('Invalid room'));
+			$this->_title('New Room');
+			$this->set('breadcrumbs', array(
+				array('name'=>'KORDS', 'url'=>'/'),
+				array('name'=>'Rooms', 'url'=>'/rooms/'),
+				array('name'=>'New Room', 'url'=>$this->request['url'])
+			));
+		} else {
+			$this->_title('Editing '.$this->Room->field('number'));
+			
+			$this->set('breadcrumbs', array(
+				array('name'=>'KORDS', 'url'=>'/'),
+				array('name'=>'Rooms', 'url'=>'/rooms/'),
+				array('name'=>$this->Room->field('number'), 'url'=>'/rooms/'.$id),
+				array('name'=>'Edit', 'url'=>$this->request['url'])
+			));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Room->save($this->request->data)) {
 				$this->Session->setFlash(__('The room has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('id'=>$this->Room->id, 'action' => 'view'));
 			} else {
 				$this->Session->setFlash(__('The room could not be saved. Please, try again.'));
 			}
@@ -202,6 +216,7 @@ class RoomsController extends AppController {
 		$locations = $this->Room->Location->find('list');
 		$rentBands = $this->Room->RentBand->find('list');
 		$tenantTypes = $this->Room->TenantType->find('list');
+			$tenantTypes = array_map(function($val) { return Inflector::humanize($val); }, $tenantTypes);
 		$this->set(compact('locations', 'rentBands', 'tenantTypes'));
 	}
 
@@ -225,6 +240,6 @@ class RoomsController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(__('Room was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('id'=>$id, 'action' => 'view'));
 	}
 }

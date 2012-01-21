@@ -157,27 +157,6 @@ class RoomsController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Room->create();
-			if ($this->Room->save($this->request->data)) {
-				$this->Session->setFlash(__('The room has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The room could not be saved. Please, try again.'));
-			}
-		}
-		$locations = $this->Room->Location->find('list');
-		$rentBands = $this->Room->RentBand->find('list');
-		$tenantTypes = $this->Room->TenantType->find('list');
-		$this->set(compact('locations', 'rentBands', 'tenantTypes'));
-	}
-
-/**
  * edit method
  *
  * @param string $id

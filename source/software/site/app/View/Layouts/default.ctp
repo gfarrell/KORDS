@@ -24,6 +24,7 @@
 	</head>
 	<body>
 		<div class="container-fluid">
+			<?= $this->Session->flash('flash', array('element'=>'info_message')); ?>
 			<?= $content_for_layout; ?>
 		</div>
 	</body>

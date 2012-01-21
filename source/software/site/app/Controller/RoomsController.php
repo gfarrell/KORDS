@@ -113,6 +113,10 @@ class RoomsController extends AppController {
 			
 			$this->_title('Room Index');
 			
+			$this->set('breadcrumbs', array(
+				array('name'=>'KORDS', 'url'=>'/'),
+				array('name'=>'Index', 'url'=>$this->request['url'])
+			));
 		}
 	}
 
@@ -144,6 +148,11 @@ class RoomsController extends AppController {
 		} else {
 			$this->_title('Room '.$room['Room']['number']);
 			$this->set('room', $room);
+			$this->set('breadcrumbs', array(
+				array('name'=>'KORDS', 'url'=>'/'),
+				array('name'=>'Rooms', 'url'=>'/rooms/'),
+				array('name'=>$room['Room']['number'], 'url'=>$this->request['url'])				
+			));
 		}
 	}
 

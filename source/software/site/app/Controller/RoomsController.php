@@ -107,7 +107,7 @@ class RoomsController extends AppController {
 			$locations = $this->Room->Location->find('list');
 			$rentBands = $this->Room->RentBand->find('list');
 			
-			$tenantTypes = $this->Room->TenantType->find('list');
+			$tenantTypes = $this->Room->TenantType->find('list', array('order'=>'TenantType.id'));
 			
 			$this->set(compact('rooms', 'locations', 'rentBands', 'tenantTypes'));
 			

@@ -86,6 +86,6 @@ class PagesController extends AppController {
 	public function home() {
 		$this->layout = 'landing';
 		$this->loadModel('TenantType');
-		$this->set('tenant_types', $this->TenantType->find('all', array('sort'=>'id ASC')));	
+		$this->set('tenant_types', $this->TenantType->find('all', array('order'=>'id')));	
 	}
 }

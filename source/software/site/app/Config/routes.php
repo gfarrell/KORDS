@@ -42,6 +42,9 @@
 		array(),
 		array('id'=>'(\d+)')
 	);
+	Router::connect('/:controller/add',
+		array('action'=>'edit')		
+	);
 	
 /**
  * JSON Routing (/json/controller/action/params)

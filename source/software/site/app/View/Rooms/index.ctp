@@ -1,5 +1,6 @@
 <div id="Sidebar" class="sidebar">
 	<h1><a href="/" title="KORDS 4">KORDS 4</a></h1>
+	<?= $this->element('breadcrumbs'); ?>
 	<div id="RoomsFilter">
 		<?php
 			/**

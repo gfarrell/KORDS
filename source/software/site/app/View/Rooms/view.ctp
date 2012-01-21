@@ -1,6 +1,6 @@
 <div id="Room" class="span16">
 	<h1><?= $room['Location']['name'] . ' - ' . $room['Room']['number']; ?></h1>
-	
+	<?= $this->element('breadcrumbs'); ?>
 	<section id="RoomInfo" class="row">
 		<table id="InfoTable" class="zebra-striped condensed-table span8">
 			<tr>

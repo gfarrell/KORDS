@@ -120,6 +120,7 @@ class RoomsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		if($id === null) $id = $this->params['id'];
 		$this->Room->id = $id;
 		if (!$this->Room->exists()) {
 			throw new NotFoundException(__('Invalid room'));
@@ -171,6 +172,7 @@ class RoomsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		if($id === null) $id = $this->params['id'];
 		$this->Room->id = $id;
 		if (!$this->Room->exists()) {
 			throw new NotFoundException(__('Invalid room'));
@@ -198,6 +200,7 @@ class RoomsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
+		if($id === null) $id = $this->params['id'];
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}

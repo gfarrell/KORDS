@@ -30,7 +30,7 @@ class AppController extends Controller {
 			
 			if($u) {
 				$auth = true;
-				$this->Session->write('Kords.user_authorised');
+				$this->Session->write('Kords.user_authorised', true);
 			} else {
 				$auth = false;
 			}
@@ -42,6 +42,7 @@ class AppController extends Controller {
 			}
 		} else {
 			// mod_ucam_webauth isn't enabled, so there is no authentication system...
+			$this->Session->write('Kords.user_authorised', true);
 			return true;
 		}
 	}

@@ -19,17 +19,25 @@ var RoomFilterController = new Class({
 		room_data_url:		'/json/rooms/view/__id__',
 		room_url_format:	'/rooms/#/view/__id__',
 		dynamic_page:		true,
-		tenant_types:		{'neither': 0, 'undergraduate': 1, 'graduate': 2},
+		tenant_types:		{0: 'neither', 1: 'undergraduate', 2: 'graduate'},
 		flags:				['ensuite','piano','smoking','double'],
-		split_sort:			['Location.name', 'RoomStatus.name']
+		split_sort:			['Location.name', 'RoomStatus.name'],
+		auto_refresh_time:	30000
 	},
 
 	__filters: [],
 	__sorter: null,
+	__controls: {},
+	
 	sortKey: null,
 	__sortKeyCurrent: null,
+	
 	hashFilter: null,
-	behavior: null,
+	
+	behaviour: null,
+	delegator: null,
+	
+	auto_timer: null,
 
 	initialize: function (form_filter, container, options) {
 		this.setOptions(options);
@@ -42,7 +50,17 @@ var RoomFilterController = new Class({
 			content:	ul
 		};
 		
-		this.behavior = new Behavior({container: ul});
+		var behaviour = (!window.hasOwnProperty('behaviour'))
+							? new Behavior({container:ul})
+							: window.behaviour;
+		var delegator = (!window.hasOwnProperty('delegator') == 'undefined')
+							? new Delegator({
+									getBehavior: function(){ return behaviour; }
+								}).attach(ul)
+							: window.delegator;
+		
+		this.behaviour = behaviour;
+		this.delegator = delegator;
 		
 		this.request = new Request.JSON({
 			url:		(!this.options.data_url ? window.location.pathname : this.options.data_url),
@@ -61,6 +79,8 @@ var RoomFilterController = new Class({
 			this.addFilter(input);
 		}, this);
 		this.addSorter(form_filter.getElement('input.sorter, select.sorter'));
+		this.addControl(form_filter.getElement('input.control, select.control'));
+		
 		window.addEvent('hashchange', this._processHash.bind(this));
 		
 		this._processHash(window.location.hash);
@@ -97,6 +117,34 @@ var RoomFilterController = new Class({
 		}
 	},
 	
+	addControl: function(input) {
+		if(Object.contains(this.__controls, input)) {
+			return;
+		} else {
+			this.__controls[input.name] = input;
+			switch(input.name) {
+				case 'auto_refresh':
+					input.addEvent('change', this.toggleAutoRefresh.bind(this));
+					this.toggleAutoRefresh();
+					break;
+				default:
+					// Do Nothing
+			}
+		}
+	},
+	removeControl: function(input) {
+		if(Object.contains(this.__controls, input)) {
+			delete this.__controls[input.name];
+			switch(input.name) {
+				case 'auto_refresh':
+					input.removeEvent('change', this.toggleAutoRefresh.bind(this));
+					break;
+				default:
+					// Do Nothing
+			}
+		}
+	},
+	
 	filter: function() {
 		var filters = {};
 		this.__filters.each(function(f){
@@ -126,16 +174,41 @@ var RoomFilterController = new Class({
 	},
 	clearData: function () {
 		this.__sortKeyCurrent = null;
-		this.behavior.cleanup(this.containers.content);
+		this.behaviour.cleanup(this.containers.content);
 		this.containers.content.getChildren().destroy();
 	},
 
 	loadRoom: function (id) {
 		
 	},
+	
+	toggleAutoRefresh: function() {
+		var ctrl = this.__controls.auto_refresh;
+		var state = (ctrl.type == 'checkbox' ? ctrl.checked : ctrl.value);
+
+		if(state == true && this.auto_timer === null) {
+			this.auto_timer = this.filter.periodical(this.options.auto_refresh_time, this);
+		} else if(state == false) {
+			if(this.auto_timer !== null) {
+				clearInterval(this.auto_timer);
+				this.auto_timer = null;
+			}
+		}
+	},
 
 	_processHash: function (hash) {
 		hash = (hash.substr(0,1) == '#') ? hash.substr(1) : hash;
+
+		if(hash == '') {
+			var prevHash = Cookie.read('Filter.tenant_type');
+			if(prevHash !== null) {
+				hash = '/for='+prevHash+'/';
+			} else {
+				hash = '/for='+this.options.tenant_types[0]+'/';
+			}
+			window.sethash('#'+hash);
+			return;
+		}
 		
 		var parts = hash.split('/');
 		
@@ -154,9 +227,11 @@ var RoomFilterController = new Class({
 				this.hashFilter.inject(this.containers.filter);
 				this.addFilter(this.hashFilter);
 			}
-			if(typeof this.options.tenant_types[hVal] != 'undefined') {
-				this.hashFilter.value = this.options.tenant_types[hVal];
+			if(Object.contains(this.options.tenant_types, hVal)) {
+				this.hashFilter.value = Object.keyOf(this.options.tenant_types, hVal);
 			}
+			
+			Cookie.write('Filter.tenant_type', hVal);
 			
 			this.filter();
 		}
@@ -199,10 +274,10 @@ var RoomFilterController = new Class({
 			}
 		}
 		
-		this.behavior.apply(this.containers.content);
+		this.behaviour.apply(this.containers.content);
 	},
 	_requestError: function (xhr) {
-		
+		this._showError('There was an error fetching data from the database');
 	},
 
 	_showLoading: function () {
@@ -210,6 +285,29 @@ var RoomFilterController = new Class({
 	},
 	_hideLoading: function () {
 		this.indicator.stop();
+	},
+	_showError: function(message, type) {
+		if(!type) type='error';
+		
+		var e = new Element('div', {
+			'class':'alert-message fade in '+type,
+			'data-alert':'alert'
+		});
+		var x = new Element('a', {
+			'class':'close',
+			'data-trigger':'nix',
+			'data-nix-options':'"target":"!div.alert-message"',
+			'html':'&times;'
+		}).inject(e);
+		var p = new Element('p', {
+			'html':message
+		}).inject(e);
+		
+		e.inject(this.containers.content, 'before');
+		
+		this.behaviour.apply(e);
+		
+		return e;
 	},
 
 	_generateRoom: function (room) {
@@ -271,6 +369,6 @@ var RoomFilterController = new Class({
 		
 		// ! This needs finishing, for the meantime we'll have a page redirect.
 		
-		this.behavior.apply(popup);
+		this.behaviour.apply(popup);
 	}.protect()
 });

@@ -21,6 +21,7 @@
 		<script language="javascript" type="text/javascript" src="/js/dep.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/uikit.js"></script>
 		<script language="javascript" type="text/javascript" src="/js/core.js"></script>
+		<title><?= $title_for_layout; ?></title>
 	</head>
 	<body>
 		<div class="container-fluid">

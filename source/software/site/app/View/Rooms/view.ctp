@@ -41,7 +41,7 @@
 			</tr>
 			<tr>
 				<td>Ballot Status</td>
-				<td class="<?= ($room['Room']['smoking'] ? 'green' : 'red'); ?>"><?= ($room['Room']['smoking']) ? 'available' : 'taken'; ?></td>
+				<td class="<?= ($room['Room']['available'] ? 'green' : 'red'); ?>"><?= ($room['Room']['available']) ? 'available' : 'taken'; ?></td>
 			</tr>
 		</table>
 		

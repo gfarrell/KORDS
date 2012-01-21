@@ -94,6 +94,11 @@
 				));
 				
 			echo $this->Form->end();
+			
+			if($this->Session->check('Kords.user_authorised')) {
+				echo $this->Html->tag('br');
+				echo $this->Html->link('Add a Room', array('action'=>'add'), array('class'=>'btn'));
+			}
 		?>
 	</div>
 </div>

@@ -110,6 +110,9 @@ class RoomsController extends AppController {
 			$tenantTypes = $this->Room->TenantType->find('list');
 			
 			$this->set(compact('rooms', 'locations', 'rentBands', 'tenantTypes'));
+			
+			$this->_title('Room Index');
+			
 		}
 	}
 

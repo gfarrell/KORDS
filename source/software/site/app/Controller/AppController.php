@@ -20,7 +20,7 @@ class AppController extends Controller {
 	function isAuthorised() {}
 	
 	protected function _title($title) {
-		$this->set('title_for_content', $title . '&laquo; KORDS');
+		$this->set('title_for_layout', $title . '&lsaquo; KORDS');
 	}
 }
 ?>

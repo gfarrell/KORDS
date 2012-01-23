@@ -1,14 +1,9 @@
-# ************************************************************
-# Sequel Pro SQL dump
-# Version 3408
-#
-# http://www.sequelpro.com/
-# http://code.google.com/p/sequel-pro/
-#
-# Host: localhost (MySQL 5.1.44)
-# Database: kords
-# Generation Time: 2012-01-21 15:47:05 +0000
-# ************************************************************
+/**
+ * KORDS 4 Database Schema
+ *
+ * @file    schema.sql
+ * @author  Gideon Farrell <me@gideonfarrell.co.uk>
+*/
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -87,7 +82,7 @@ DROP TABLE IF EXISTS `rooms`;
 
 CREATE TABLE `rooms` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `number` varchar(5) NOT NULL DEFAULT '',
+  `number` varchar(12) NOT NULL DEFAULT '',
   `short_contract` tinyint(1) NOT NULL DEFAULT '0',
   `location_id` int(11) unsigned NOT NULL,
   `rent_band_id` int(1) unsigned NOT NULL,
@@ -124,6 +119,19 @@ CREATE TABLE `tenant_types` (
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `crsid` varchar(6) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

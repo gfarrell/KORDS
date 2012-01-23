@@ -23,8 +23,10 @@ DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `room_id` int(11) unsigned NOT NULL,
-  `author` varchar(50) NOT NULL,
+  `author` varchar(10) NOT NULL DEFAULT '',
+  `date` date NOT NULL,
   `body` longtext NOT NULL,
+  `public` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`,`room_id`),
   KEY `fk_comments_rooms` (`room_id`),
   CONSTRAINT `fk_comments_rooms` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -130,7 +132,7 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `crsid` varchar(6) NOT NULL DEFAULT '',
+  `crsid` varchar(10) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

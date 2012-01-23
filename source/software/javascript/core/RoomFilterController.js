@@ -21,7 +21,7 @@ var RoomFilterController = new Class({
 		dynamic_page:		true,
 		tenant_types:		{0: 'neither', 1: 'undergraduate', 2: 'graduate'},
 		flags:				['ensuite','piano','smoking','double'],
-		split_sort:			['Location.name', 'RoomStatus.name'],
+		split_sort:			['Location.name', 'RoomStatus.name', 'Room.rent_band_id'],
 		auto_refresh_time:	30000
 	},
 

@@ -44,7 +44,7 @@
 										),
 					),
 					'Double'	=>	array(
-						'name'		=>	'data[Filter][ensuite]',
+						'name'		=>	'data[Filter][double]',
 						'empty'		=>	'All',
 						'class'		=>	'filter',
 						'options'	=>	array(

@@ -20,7 +20,7 @@ var RoomFilterController = new Class({
 		room_url_format:	'/rooms/#/view/__id__',
 		dynamic_page:		true,
 		tenant_types:		{0: 'neither', 1: 'undergraduate', 2: 'graduate'},
-		flags:				['ensuite','piano','smoking','double','set'],
+		flags:				['ensuite','piano','smoking','set'],
 		split_sort:			['Location.name', 'RoomStatus.name', 'Room.rent_band_id'],
 		auto_refresh_time:	30000
 	},

@@ -34,6 +34,15 @@
 										false	=>	'No'
 										),
 					),
+					'Set'		=>	array(
+						'name'		=>	'data[Filter][set]',
+						'empty'		=>	'All',
+						'class'		=>	'filter',
+						'options'	=>	array(
+										true	=>	'Yes',
+										false	=>	'No'
+										),
+					),
 					'Double'	=>	array(
 						'name'		=>	'data[Filter][ensuite]',
 						'empty'		=>	'All',

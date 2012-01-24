@@ -19,6 +19,9 @@ class RoomsController extends AppController {
 			'ensuite'	=>	array(
 				'type'		=>	'boolean'
 			),
+			'set'	=>	array(
+				'type'		=>	'boolean'
+			),
 			'double'	=>	array(
 				'type'		=>	'boolean'
 			),

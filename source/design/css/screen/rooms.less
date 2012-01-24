@@ -6,6 +6,9 @@
  * @author	Gideon Farrell <me@gideonfarrell.co.uk>
 */
 
+@import "colours";
+@import "elements";
+
 #MainImage {
 	
 }
@@ -13,3 +16,48 @@
 #InfoTable {
     display:table;
 }
+
+#Comments {
+	margin-top: 1em;
+	border-top: 1px solid #DDDDDD;
+	
+	h3 {
+		font-family: 'Sansita One', Helvetica;
+	}
+}
+
+.comment.row {
+	margin:1em 0;
+	position: relative;
+
+	.comment.body {
+		text-align: justify;
+		padding:1em;
+
+		&:hover {
+			background-color: #f5f5f5;
+		}
+	}
+
+	.comment.info {
+		font-family:'Sansita One', Helvetica;
+		height:3em;
+		position:absolute;
+		top:50%;
+		margin-top:-1.5em;
+
+		.author {
+			color: @mmdrk_grey;
+			padding-left:1em;
+		}
+		.date {
+			color: @light_grey;
+			padding-left:1em;
+		}
+	}
+}
+
+.comment.row:nth-child(odd) .comment.body {
+	background-color: #f9f9f9;
+}
+

@@ -37,10 +37,7 @@
 					'Double'	=>	array(
 						'name'		=>	'data[Filter][ensuite]',
 						'empty'		=>	'All',
-<<<<<<< HEAD
 						'class'		=>	'filter',
-=======
->>>>>>> fdfef3b96104517ba2801d4e2b55945f750bd73e
 						'options'	=>	array(
 										true	=>	'Yes',
 										false	=>	'No'

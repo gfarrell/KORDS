@@ -91,6 +91,7 @@ CREATE TABLE `rooms` (
   `tenant_type_id` int(11) unsigned NOT NULL,
   `floor` int(1) unsigned DEFAULT '0',
   `ensuite` tinyint(1) NOT NULL DEFAULT '0',
+  `set` tinyint(1) NOT NULL DEFAULT '0',
   `double` tinyint(1) NOT NULL DEFAULT '0',
   `smoking` tinyint(1) NOT NULL DEFAULT '0',
   `catering` varchar(45) DEFAULT NULL,

@@ -61,7 +61,6 @@
 	</section>
 
 	<section id="Comments" class="row hrule">
-		<h3 class="offset1">Comments</h3>
 		<div class="rows">
 			<?php foreach($room['Comment'] as $comment): ?>
 				<div class="comment row">

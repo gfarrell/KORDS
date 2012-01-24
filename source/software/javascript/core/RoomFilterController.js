@@ -3,8 +3,8 @@
 	RoomFilterController Class
 	--------------------------
 
-	@file 		RoomFilterController.js
-	@author 	Gideon Farrell <me@gideonfarrell.co.uk>
+	@file		RoomFilterController.js
+	@author		Gideon Farrell <me@gideonfarrell.co.uk>
 
 	Copyright (c) 2011 Gideon Farrell <http://www.gideonfarrell.co.uk>
 
@@ -50,14 +50,10 @@ var RoomFilterController = new Class({
 			content:	ul
 		};
 		
-		var behaviour = (!window.hasOwnProperty('behaviour'))
-							? new Behavior({container:ul})
-							: window.behaviour;
-		var delegator = (!window.hasOwnProperty('delegator') == 'undefined')
-							? new Delegator({
+		var behaviour = (!window.hasOwnProperty('behaviour')) ? new Behavior({container:ul}) : window.behaviour;
+		var delegator = (!window.hasOwnProperty('delegator')) ? new Delegator({
 									getBehavior: function(){ return behaviour; }
-								}).attach(ul)
-							: window.delegator;
+								}).attach(ul) : window.delegator;
 		
 		this.behaviour = behaviour;
 		this.delegator = delegator;
@@ -165,7 +161,7 @@ var RoomFilterController = new Class({
 		var data_string = '';
 		var i = 0;
 		for(var filter in filter_options) {
-			if(filter_options[filter] == '') continue;
+			if(filter_options[filter] === '') continue;
 			if(i > 0) data_string += '&';
 			data_string += filter + '=' + filter_options[filter];
 			i++;
@@ -199,7 +195,7 @@ var RoomFilterController = new Class({
 	_processHash: function (hash) {
 		hash = (hash.substr(0,1) == '#') ? hash.substr(1) : hash;
 
-		if(hash == '') {
+		if(hash === '') {
 			var prevHash = Cookie.read('Filter.tenant_type');
 			if(prevHash !== null) {
 				hash = '/for='+prevHash+'/';
@@ -212,7 +208,7 @@ var RoomFilterController = new Class({
 		
 		var parts = hash.split('/');
 		
-		if(parts[0] == '') parts.shift();
+		if(parts[0] === '') parts.shift();
 		
 		if(parts[0] == 'view' && parts.length > 1) {
 			this.loadRoom(parts[1]);
@@ -239,11 +235,13 @@ var RoomFilterController = new Class({
 
 	_reloadData: function (json_response) {
 		this.clearData();
+
+		var container, sort;
 		
-		var container = this.containers.content;
+		container = this.containers.content;
+		sort = {model:false, key:false};
 		
 		if(this.sortKey !== null) {
-			var sort = {model:false, key:false};
 			var sortKey_tmp = this.sortKey.split('.');
 			
 			if(sortKey_tmp.length == 1) {

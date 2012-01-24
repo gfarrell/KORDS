@@ -20,6 +20,10 @@
 				<td class="<?= ($room['Room']['ensuite'] ? 'green' : 'red'); ?>"><?= ($room['Room']['ensuite']) ? 'yes' : 'no'; ?></td>
 			</tr>
 			<tr>
+				<td>Set</td>
+				<td class="<?= ($room['Room']['set'] ? 'green' : 'red'); ?>"><?= ($room['Room']['set']) ? 'yes' : 'no'; ?></td>
+			</tr>
+			<tr>
 				<td>Double</td>
 				<td class="<?= ($room['Room']['double'] ? 'green' : 'red'); ?>"><?= ($room['Room']['double']) ? 'yes' : 'no'; ?></td>
 			</tr>

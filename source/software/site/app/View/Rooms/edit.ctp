@@ -64,6 +64,7 @@ $edit = (is_array($this->data) && isset($this->data['Room']));
 		'legend'		=>	'Other Details',
 		'Room.ensuite'	=>	array('div'=>'clearfix'),
 		'Room.double'	=>	array('div'=>'clearfix'),
+		'Room.set'		=>	array('div'=>'clearfix'),
 		'Room.piano'	=>	array('div'=>'clearfix'),
 		'Room.smoking'	=>	array('div'=>'clearfix'),
 		'Room.floor'	=>	array(

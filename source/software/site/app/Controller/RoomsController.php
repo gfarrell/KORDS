@@ -140,7 +140,8 @@ class RoomsController extends AppController {
 			'RentBand',
 			'Location',
 			'TenantType',
-			'RoomImage'
+			'RoomImage',
+			'Comment'
 		));
 		$room = $this->Room->findById($id);
 		
@@ -154,8 +155,10 @@ class RoomsController extends AppController {
 			$this->set('breadcrumbs', array(
 				array('name'=>'KORDS', 'url'=>'/'),
 				array('name'=>'Rooms', 'url'=>'/rooms/'),
-				array('name'=>$room['Room']['number'], 'url'=>$this->request['url'])				
+				array('name'=>$room['Room']['number'], 'url'=>$this->request['url'])
 			));
+
+			App::import('Vendor', 'Markdown/markdown');
 		}
 	}
 

@@ -7,3 +7,6 @@
 [submodule "source/libraries/bootstrap"]
 	path = source/libraries/bootstrap
 	url = git://github.com/twitter/bootstrap.git
+[submodule "source/software/site/app/Vendor/Markdown"]
+	path = source/software/site/app/Vendor/Markdown
+	url = git://github.com/michelf/php-markdown.git

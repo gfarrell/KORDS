@@ -34,6 +34,15 @@
 										false	=>	'No'
 										),
 					),
+					'Double'	=>	array(
+						'name'		=>	'data[Filter][ensuite]',
+						'empty'		=>	'All',
+						'class'		=>	'filter',
+						'options'	=>	array(
+										true	=>	'Yes',
+										false	=>	'No'
+						)
+					),
 					'Piano'		=>	array(
 						'name'		=>	'data[Filter][piano]',
 						'empty'		=>	'All',

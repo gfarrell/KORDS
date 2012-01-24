@@ -59,9 +59,52 @@
 			?>
 		</div>
 	</section>
+
+	<section id="Comments" class="row hrule">
+		<h3 class="offset1">Comments</h3>
+		<div class="rows">
+			<?php foreach($room['Comment'] as $comment): ?>
+				<div class="comment row">
+					<div class="span11 offset1 comment body">
+						<?= Markdown($comment['body']); ?>
+					</div>
+					<div class="span3 comment info">
+						<div class="author">
+							<?= $comment['author']; ?>
+						</div>
+						<div class="date">
+							<?= date('jS M Y', strtotime($comment['date'])); ?>
+						</div>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		</div>
+		<div id="AddComment" class="centre">
+			<?php
+				echo $this->Form->create('Comment', array(
+					'url'	=>	array('controller'=>'comments', 'action'=>'add')
+				));
+
+				echo $this->Form->input('Comment.body', array(
+					'div'	=>	'clearfix',
+					'type'	=>	'textarea',
+					'class'	=>	'span10',
+					'label'	=>	false
+				));
+
+				echo $this->Form->end(array(
+					'label'	=>	'Add Comment',
+					'value'	=>	'Add Comment',
+					'class'	=>	'btn primary',
+					'div'	=>	false
+				));
+			?>
+
+		</div>
+	</section>
 	
 	<?php if($this->Session->check('Kords.user_authorised')): ?>
-	<section class="centre">
+	<section class="controls centre">
 		<?php 
 			echo $this->Html->link('Edit', array('id'=>$room['Room']['id'], 'action'=>'edit'), array('class'=>'btn'));
 			

@@ -66,6 +66,40 @@
 				<div class="comment row">
 					<div class="span11 offset1 comment body">
 						<?= Markdown($comment['body']); ?>
+						<?php
+							if(
+								$comment['author'] == $this->Session->read('Raven.crsid')
+								|| $this->Session->read('Kords.user_authorised')
+							) {
+								echo '<div>';
+								echo $this->Html->link('edit comment', array(
+										'controller'	=>	'comments',
+										'id'			=>	$comment['id'],
+										'action'		=>	'edit',
+									), array('class'=>'btn small'));
+								echo '&nbsp;';
+								echo $this->Form->create('Delete', array(
+									'url'		=>	array(
+										'controller'	=>	'rooms',
+										'id'			=>	$room['Room']['id'],
+										'action'		=>	'delete'
+									),
+									'method'	=>	'post',
+									'class'		=>	'form-discrete'
+								));
+								echo $this->Form->hidden('Comment.id', array(
+									'value'=>$comment['id']
+								));
+								echo $this->Form->end(array(
+									'label'		=>	'delete comment',
+									'value'		=>	'delete comment',
+									'class'		=>	'btn small danger',
+									'div'		=>	false,
+									'escape'	=>	false
+								));
+								echo '</div>';
+							}
+						?>
 					</div>
 					<div class="span3 comment info">
 						<div class="author">

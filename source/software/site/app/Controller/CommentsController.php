@@ -84,7 +84,7 @@ class CommentsController extends AppController {
 		if($edit) {
 			if(
 				!$this->Session->read('Kords.user_authorised')
-				&& $this->request->data['Comment']['author'] != $this->Session->read('Raven.crsid')
+				&& $this->request->data['Comment']['author'] != $this->Session->read('Raven.user')
 			) {
 				throw new ForbiddenException('You do not have permission to edit this comment.');
 			}
@@ -96,7 +96,7 @@ class CommentsController extends AppController {
 			}
 
 			if(!$edit) {
-				$user = $this->Session->check('Raven.crsid') ? $this->Session->read('Raven.crsid') : 'admin';
+				$user = $this->Session->check('Raven.user') ? $this->Session->read('Raven.user') : 'admin';
 				$this->request->data['Comment']['author'] = $user;
 			}
 
@@ -144,7 +144,7 @@ class CommentsController extends AppController {
 
 		if(
 			!$this->Session->read('Kords.user_authorised')
-			&& $this->Comment->field('author') != $this->Session->read('Raven.crsid')
+			&& $this->Comment->field('author') != $this->Session->read('Raven.user')
 		) {
 			throw new ForbiddenException('You do not have permission to delete this comment.');
 		}

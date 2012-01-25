@@ -85,8 +85,8 @@
 									'value'=>$comment['id']
 								));
 								echo $this->Form->end(array(
-									'label'		=>	'delete comment',
-									'value'		=>	'delete comment',
+									'label'		=>	'delete',
+									'value'		=>	'delete',
 									'class'		=>	'btn small danger',
 									'div'		=>	false,
 									'escape'	=>	false

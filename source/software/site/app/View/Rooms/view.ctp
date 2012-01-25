@@ -68,7 +68,7 @@
 						<?= Markdown($comment['body']); ?>
 						<?php
 							if(
-								$comment['author'] == $this->Session->read('Raven.crsid')
+								$comment['author'] == $this->Session->read('Raven.user')
 								|| $this->Session->read('Kords.user_authorised')
 							) {
 								echo '<div>';

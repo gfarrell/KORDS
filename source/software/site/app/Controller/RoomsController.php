@@ -135,13 +135,17 @@ class RoomsController extends AppController {
 		if (!$this->Room->exists()) {
 			throw new NotFoundException(__('Invalid room'));
 		}
+
+		$comment_conditions = $this->Session->read('Kords.user_authorised') ? array() : array('conditions'=>array('Comment.public'=>true));
+
+		$comment_conditions['order'] = array('Comment.date ASC');
 		
 		$this->Room->contain(array(
 			'RentBand',
 			'Location',
 			'TenantType',
 			'RoomImage',
-			'Comment'
+			'Comment'	=>	$comment_conditions
 		));
 		$room = $this->Room->findById($id);
 		

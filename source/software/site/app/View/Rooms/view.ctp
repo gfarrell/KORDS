@@ -72,16 +72,10 @@
 								|| $this->Session->read('Kords.user_authorised')
 							) {
 								echo '<div>';
-								echo $this->Html->link('edit comment', array(
-										'controller'	=>	'comments',
-										'id'			=>	$comment['id'],
-										'action'		=>	'edit',
-									), array('class'=>'btn small'));
-								echo '&nbsp;';
 								echo $this->Form->create('Delete', array(
 									'url'		=>	array(
-										'controller'	=>	'rooms',
-										'id'			=>	$room['Room']['id'],
+										'controller'	=>	'comments',
+										'id'			=>	$comment['id'],
 										'action'		=>	'delete'
 									),
 									'method'	=>	'post',
@@ -124,6 +118,8 @@
 					'class'	=>	'span10',
 					'label'	=>	false
 				));
+
+				echo $this->Form->hidden('Comment.room_id', array('value'=>$room['Room']['id']));
 
 				echo $this->Form->end(array(
 					'label'	=>	'Add Comment',

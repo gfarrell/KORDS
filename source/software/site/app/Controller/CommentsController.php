@@ -6,49 +6,67 @@ App::uses('AppController', 'Controller');
  * @property Comment $Comment
  */
 class CommentsController extends AppController {
+	var $acl = array('pending');
 
+	public function beforeFilter() {
+		parent::beforeFilter();
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Comment->recursive = 0;
-		$this->set('comments', $this->paginate());
+		// This is necessary to prevent SecurityComponent black holing add/edit request from the /rooms/ url.
+		$this->Security->validatePost = false;
+		$this->Security->csrfCheck = false;
 	}
 
-/**
- * view method
- *
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
+	public function pending() {
+		$this->_title('Comment Pending Approval');
+
+		$this->set('comments', $this->Comment->find('all', array(
+			'conditions'	=>	array(
+				'Comment.public'	=>	false
+			),
+			'order'			=>	array('Comment.date ASC')
+		)));
+
+		$this->set('breadcrumbs', array(
+			array('name'=>'KORDS','url'=>'/'),
+			array('name'=>'Moderation', 'url'=>$this->request['url'])
+		));
+
+		App::import('Vendor', 'Markdown/markdown');
+	}
+
+	public function approve($id = null) {
+		if($id === null) $id = $this->params['id'];
+
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+
 		$this->Comment->id = $id;
-		if (!$this->Comment->exists()) {
-			throw new NotFoundException(__('Invalid comment'));
-		}
-		$this->set('comment', $this->Comment->read(null, $id));
-	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Comment->create();
-			if ($this->Comment->save($this->request->data)) {
-				$this->Session->setFlash(__('The comment has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
-			}
+		if(!$this->Comment->exists()) {
+			throw new NotFoundException(__('Invalid Comment.'));
 		}
-		$rooms = $this->Comment->Room->find('list');
-		$this->set(compact('rooms'));
+
+		$save =  $this->Comment->saveField('public', true);
+		$message = ($save) ? 'Comment approved.' : 'Comment could not be approved.';
+		if($save) {
+			$redirect = array(
+				'controller'	=>	'rooms',
+				'id'			=>	$this->Comment->field('room_id'),
+				'action'		=>	'view'
+			);
+		} else {
+			$redirect = array('action'=>'pending');
+		}
+
+		if($this->params['json']) {
+			$this->viewClass = 'Json.Json';
+			$this->set('json', array('message'=>__($message)));
+			$this->render(false);
+		} else {
+			$this->Session->setFlash(__($message));
+			$this->redirect($redirect);
+		}
 	}
 
 /**
@@ -58,22 +76,54 @@ class CommentsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		if($id === null) $id = $this->params['id'];
 		$this->Comment->id = $id;
-		if (!$this->Comment->exists()) {
-			throw new NotFoundException(__('Invalid comment'));
+		
+		$edit = $this->Comment->exists();
+
+		if($edit) {
+			if(
+				!$this->Session->read('Kords.user_authorised')
+				&& $this->request->data['Comment']['author'] != $this->Session->read('Raven.crsid')
+			) {
+				throw new ForbiddenException('You do not have permission to edit this comment.');
+			}
 		}
+
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Comment->save($this->request->data)) {
-				$this->Session->setFlash(__('The comment has been saved'));
-				$this->redirect(array('action' => 'index'));
+			if(!($edit && $this->request->data['preserve_date'])) {
+				$this->request->data['Comment']['date'] = date('Y-m-d');
+			}
+
+			if(!$edit) {
+				$user = $this->Session->check('Raven.crsid') ? $this->Session->read('Raven.crsid') : 'admin';
+				$this->request->data['Comment']['author'] = $user;
+			}
+
+			$this->request->data['Comment']['public'] = ($this->Session->read('Kords.user_authorised'));
+			
+			$save = $this->Comment->save($this->request->data);
+
+			$message = ($save) ? 'Comment saved and may be awaiting moderation.' : 'Comment could not be saved.';
+			$redirect = array(
+				'controller'	=> 'rooms',
+				'id'			=> $this->request->data['Comment']['room_id'],
+				'action'		=> 'view'
+			);
+
+			if($this->params['json']) {
+				$this->viewClass = 'Json.Json';
+				$this->set('json', array('message'=>__($message)));
+				$this->render(false);
 			} else {
-				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
+				$this->Session->setFlash(__($message));
+				$this->redirect($redirect);
 			}
 		} else {
-			$this->request->data = $this->Comment->read(null, $id);
+			if($edit) $this->request->data = $this->Comment->read(null, $id);
 		}
-		$rooms = $this->Comment->Room->find('list');
-		$this->set(compact('rooms'));
+
+		// This controller is not designed to have any non-json rooms. I want everything to be just submitted to it.
 	}
 
 /**
@@ -83,6 +133,7 @@ class CommentsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
+		if($id === null) $id = $this->params['id'];
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
@@ -90,11 +141,30 @@ class CommentsController extends AppController {
 		if (!$this->Comment->exists()) {
 			throw new NotFoundException(__('Invalid comment'));
 		}
-		if ($this->Comment->delete()) {
-			$this->Session->setFlash(__('Comment deleted'));
-			$this->redirect(array('action'=>'index'));
+
+		if(
+			!$this->Session->read('Kords.user_authorised')
+			&& $this->Comment->field('author') != $this->Session->read('Raven.crsid')
+		) {
+			throw new ForbiddenException('You do not have permission to delete this comment.');
 		}
-		$this->Session->setFlash(__('Comment was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$room_id = $this->Comment->field('room_id');
+		$del = $this->Comment->delete();
+
+		$message = ($del) ? 'Comment deleted.' : 'Comment could not be deleted.';
+		$redirect = array(
+			'controller'	=> 'rooms',
+			'id'			=> $room_id,
+			'action'		=> 'view'
+		);
+
+		if($this->params['json']) {
+			$this->viewClass = 'Json.Json';
+			$this->set('json', array('message'=>__($message)));
+			$this->render(false);
+		} else {
+			$this->Session->setFlash(__($message));
+			$this->redirect($redirect);
+		}
 	}
 }

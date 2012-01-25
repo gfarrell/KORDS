@@ -100,7 +100,7 @@ class CommentsController extends AppController {
 				$this->request->data['Comment']['author'] = $user;
 			}
 
-			$this->request->data['Comment']['public'] = ($this->Session->read('Kords.user_authorised'));
+			$this->request->data['Comment']['public'] = ($this->Session->read('Kords.user_authorised') ? 1 : 0);
 			
 			$save = $this->Comment->save($this->request->data);
 

@@ -11,7 +11,17 @@
 				-> Location: #/[locations/]
 				-> Rent Band: #/[rent bands/]
 			*/	
-			echo $this->Form->create('Filter', array('class'=>'form-stacked'));
+			echo $this->Form->create('Filter', array(
+				'class'			=>	'form-stacked',
+				'inputDefaults'	=>	array(
+					'empty'			=>	'All',
+					'class'			=>	'filter',
+					'options'		=>	array(
+						true	=>	'Yes',
+						false	=>	'No'
+					)
+				)
+			));
 				
 				echo $this->Form->inputs(array(
 					'legend'	=> 'Filter Rooms',
@@ -26,68 +36,30 @@
 						)
 					),
 					'Ensuite' 	=>	array(
-						'name'		=>	'data[Filter][ensuite]',
-						'empty'		=>	'All',
-						'class'		=>	'filter',
-						'options'	=>	array(
-										true	=>	'Yes',
-										false	=>	'No'
-										),
+						'name'		=>	'data[Filter][ensuite]'
 					),
 					'Set'		=>	array(
-						'name'		=>	'data[Filter][set]',
-						'empty'		=>	'All',
-						'class'		=>	'filter',
-						'options'	=>	array(
-										true	=>	'Yes',
-										false	=>	'No'
-										),
+						'name'		=>	'data[Filter][set]'
 					),
 					'Double'	=>	array(
-						'name'		=>	'data[Filter][double]',
-						'empty'		=>	'All',
-						'class'		=>	'filter',
-						'options'	=>	array(
-										true	=>	'Yes',
-										false	=>	'No'
-						)
+						'name'		=>	'data[Filter][double]'
 					),
 					'Piano'		=>	array(
-						'name'		=>	'data[Filter][piano]',
-						'empty'		=>	'All',
-						'class'		=>	'filter',
-						'options'	=>	array(
-										true	=>	'Yes',
-										false	=>	'No'
-										)
+						'name'		=>	'data[Filter][piano]'
 					),
 					'Smoking'	=>	array(
-						'name'		=>	'data[Filter][smoking]',
-						'empty'		=>	'All',
-						'class'		=>	'filter',
-						'options'	=>	array(
-										true	=>	'Yes',
-										false	=>	'No'
-										)
+						'name'		=>	'data[Filter][smoking]'
 					),
 					'Location'	=> array(
 						'name'		=>	'data[Filter][location]',
-						'class'		=>	'filter',
-						'empty'		=>	'All'
+						'options'	=>	$locations
 					),
 					'RentBand'	=> array(
 						'name'		=>	'data[Filter][rent_band]',
-						'class'		=>	'filter',
-						'empty'		=>	'All'
+						'options'	=>	$rentBands
 					),
 					'Available'	=>	array(
-						'name'		=>	'data[Filter][available]',
-						'empty'		=>	'All',
-						'class'		=>	'filter',
-						'options'	=>	array(
-										true	=>	'Yes',
-										false	=>	'No'
-						)
+						'name'		=>	'data[Filter][available]'
 					)
 				));
 				

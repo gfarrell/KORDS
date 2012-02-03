@@ -49,15 +49,6 @@ class CommentsController extends AppController {
 
 		$save =  $this->Comment->saveField('public', true);
 		$message = ($save) ? 'Comment approved.' : 'Comment could not be approved.';
-		if($save) {
-			$redirect = array(
-				'controller'	=>	'rooms',
-				'id'			=>	$this->Comment->field('room_id'),
-				'action'		=>	'view'
-			);
-		} else {
-			$redirect = array('action'=>'pending');
-		}
 
 		if($this->params['json']) {
 			$this->viewClass = 'Json.Json';
@@ -65,7 +56,7 @@ class CommentsController extends AppController {
 			$this->render(false);
 		} else {
 			$this->Session->setFlash(__($message));
-			$this->redirect($redirect);
+			$this->redirect(array('action'=>'pending'));
 		}
 	}
 

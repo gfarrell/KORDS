@@ -87,7 +87,7 @@
 								echo $this->Form->end(array(
 									'label'		=>	'delete',
 									'value'		=>	'delete',
-									'class'		=>	'btn-small btn-danger',
+									'class'		=>	'btn btn-small btn-danger',
 									'div'		=>	false,
 									'escape'	=>	false
 								));
@@ -124,7 +124,7 @@
 				echo $this->Form->end(array(
 					'label'	=>	'Add Comment',
 					'value'	=>	'Add Comment',
-					'class'	=>	'btn-primary',
+					'class'	=>	'btn btn-primary',
 					'div'	=>	false
 				));
 			?>
@@ -152,7 +152,7 @@
 			echo $this->Form->end(array(
 				'label'	=>	'Delete',
 				'value'	=>	'Delete',
-				'class'	=>	'btn-danger',
+				'class'	=>	'btn btn-danger',
 				'div'	=>	false
 			));
 		?>

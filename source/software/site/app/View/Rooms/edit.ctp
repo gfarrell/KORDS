@@ -93,7 +93,7 @@ $edit = (is_array($this->data) && isset($this->data['Room']));
 	)); ?>
 	
 	<div class="actions">
-		<?= $this->Form->end(array('label'=>'Save', 'value'=>'Save', 'class'=>'btn-primary', 'div'=>false)); ?>
+		<?= $this->Form->end(array('label'=>'Save', 'value'=>'Save', 'class'=>'btn btn-primary', 'div'=>false)); ?>
 		
 		<?php
 			$cancel_link = ( !$edit
@@ -123,7 +123,7 @@ $edit = (is_array($this->data) && isset($this->data['Room']));
 				echo $this->Form->end(array(
 					'label'	=>	'Delete Room',
 					'value'	=>	'Delete Room',
-					'class'	=>	'btn-danger',
+					'class'	=>	'btn btn-danger',
 					'div'	=>	false
 				));
 			}

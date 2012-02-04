@@ -49,7 +49,7 @@
 					echo $this->Form->end(array(
 						'label'		=>	'approve',
 						'value'		=>	'approve',
-						'class'		=>	'btn-small btn-success',
+						'class'		=>	'btn btn-small btn-success',
 						'div'		=>	false,
 						'escape'	=>	false
 					));
@@ -70,7 +70,7 @@
 					echo $this->Form->end(array(
 						'label'		=>	'delete',
 						'value'		=>	'delete',
-						'class'		=>	'btn-small btn-danger',
+						'class'		=>	'btn btn-small btn-danger',
 						'div'		=>	false,
 						'escape'	=>	false
 					));

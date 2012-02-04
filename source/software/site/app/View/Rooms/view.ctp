@@ -54,7 +54,7 @@
 				if(count($room['RoomImage']) > 0) {
 					echo $this->Html->image('/rooms/'.$room['RoomImage'][0]['id'].'.jpg');
 				} else {
-					echo $this->Html->tag('span', 'No Images', array('class'=>'label important'));
+					echo $this->Html->tag('span', 'No Images', array('class'=>'label label-warning'));
 				}
 			?>
 		</div>

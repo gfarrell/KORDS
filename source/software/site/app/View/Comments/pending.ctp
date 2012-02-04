@@ -12,7 +12,7 @@
 */
 ?>
 
-<div class="span16">
+<div class="span12">
 	<h1>Comments pending approval</h1>
 
 	<?= $this->element('breadcrumbs'); ?>

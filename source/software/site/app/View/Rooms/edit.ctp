@@ -12,7 +12,7 @@
 */
 $edit = (is_array($this->data) && isset($this->data['Room']));
 ?>
-<div class="span16">
+<div class="span12">
 	<h1><?= (!$edit ? 'New Room' : 'Editing '.$this->data['Room']['number']); ?></h1>
 	
 	<?php

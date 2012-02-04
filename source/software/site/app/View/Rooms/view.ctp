@@ -1,8 +1,8 @@
-<div id="Room" class="span16">
+<div id="Room" class="span12">
 	<h1><?= $room['Location']['name'] . ' - ' . $room['Room']['number']; ?></h1>
 	<?= $this->element('breadcrumbs'); ?>
 	<section id="RoomInfo" class="row">
-		<table id="InfoTable" class="zebra-striped condensed-table span8">
+		<table id="InfoTable" class="zebra-striped condensed-table span6">
 			<tr>
 				<td>Location</td>
 				<td><?= $room['Location']['name']; ?></td>
@@ -49,7 +49,7 @@
 			</tr>
 		</table>
 		
-		<div id="MainImage" class="span8 centre">
+		<div id="MainImage" class="span6 centre">
 			<?php
 				if(count($room['RoomImage']) > 0) {
 					echo $this->Html->image('/rooms/'.$room['RoomImage'][0]['id'].'.jpg');
@@ -64,7 +64,7 @@
 		<div class="rows">
 			<?php foreach($room['Comment'] as $comment): ?>
 				<div class="comment row">
-					<div class="span11 offset1 comment body">
+					<div class="span8 offset1 comment body">
 						<?= Markdown($comment['body']); ?>
 						<?php
 							if(
@@ -95,7 +95,7 @@
 							}
 						?>
 					</div>
-					<div class="span3 comment info">
+					<div class="span2 comment info">
 						<div class="author">
 							<?= $comment['author']; ?>
 						</div>
@@ -115,7 +115,7 @@
 				echo $this->Form->input('Comment.body', array(
 					'div'	=>	'clearfix',
 					'type'	=>	'textarea',
-					'class'	=>	'span10',
+					'class'	=>	'span8',
 					'label'	=>	false
 				));
 

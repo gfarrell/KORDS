@@ -313,7 +313,7 @@ var RoomFilterController = new Class({
 		var pcontent = '';
 		for(var i = 0; i < this.options.flags.length; i++) {
 			var flag = this.options.flags[i];
-			var cls = (room[flag] == 1) ? 'label success' : 'label important';
+			var cls = (room[flag] == 1) ? 'label label-success' : 'label label-important';
 			pcontent += '<span class="'+cls+'">'+flag+'</span> ';
 		}
 		

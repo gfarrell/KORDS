@@ -288,13 +288,13 @@ var RoomFilterController = new Class({
 		if(!type) type='error';
 		
 		var e = new Element('div', {
-			'class':'alert-message fade in '+type,
+			'class':'alert fade in '+type,
 			'data-alert':'alert'
 		});
 		var x = new Element('a', {
 			'class':'close',
 			'data-trigger':'nix',
-			'data-nix-options':'"target":"!div.alert-message"',
+			'data-nix-options':'"target":"!div.alert"',
 			'html':'&times;'
 		}).inject(e);
 		var p = new Element('p', {

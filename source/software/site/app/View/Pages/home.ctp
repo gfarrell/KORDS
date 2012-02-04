@@ -1,4 +1,4 @@
-<div class="alert-message warning centre">KORDS4 is still very much in its beta stages, please be aware of this and visit <?= $this->Html->link('http://github.com/gfarrell/KORDS'); ?> to report any issues.</div>
+<div class="alert alert-warning centre">KORDS4 is still very much in its beta stages, please be aware of this and visit <?= $this->Html->link('http://github.com/gfarrell/KORDS'); ?> to report any issues.</div>
 <div id="LandingWelcome" class="centre">
 	<h1>KORDS 4<br/><small>what are you looking for?</small></h1>
 	<ul data-behavior="SelectNavigation" class="unstyled item_list">

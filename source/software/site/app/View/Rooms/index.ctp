@@ -12,7 +12,6 @@
 				-> Rent Band: #/[rent bands/]
 			*/	
 			echo $this->Form->create('Filter', array(
-				'class'			=>	'form-stacked',
 				'inputDefaults'	=>	array(
 					'empty'			=>	'All',
 					'class'			=>	'filter',

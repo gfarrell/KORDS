@@ -48,7 +48,7 @@ class RoomsController extends AppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-		if(in_array($this->params['action'], array('index', 'view'))) {
+		if(in_array($this->params['action'], array('index', 'view', 'delete'))) {
 			$this->Security->validatePost = false;
 			$this->Security->csrfCheck = false;
 		}

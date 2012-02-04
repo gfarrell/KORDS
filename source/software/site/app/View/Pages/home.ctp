@@ -2,7 +2,7 @@
 <div id="LandingWelcome" class="centre">
 	<h1>KORDS 4<br/><small>what are you looking for?</small></h1>
 	<ul data-behavior="SelectNavigation" class="unstyled item_list">
-		<li><?= $this->Html->link('All rooms', '/rooms/#/for=all/', array('class'=>'btn primary', 'title'=>'All')); ?></li>
+		<li><?= $this->Html->link('All rooms', '/rooms/#/for=all/', array('class'=>'btn-primary', 'title'=>'All')); ?></li>
 		<?php foreach($tenant_types as $t) { 
 			$name = $t['TenantType']['name'];
 			echo '<li>';
@@ -10,7 +10,7 @@
 				Inflector::humanize($name) . ' rooms',
 				'/rooms/#/for='.$name,
 				array(
-					'class'	=>	'btn primary',
+					'class'	=>	'btn-primary',
 					'title'	=>	$name
 				)
 			);

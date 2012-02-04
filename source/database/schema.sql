@@ -70,6 +70,7 @@ DROP TABLE IF EXISTS `room_images`;
 CREATE TABLE `room_images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `room_id` int(11) unsigned NOT NULL,
+  `image` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `room_id` (`room_id`),
   CONSTRAINT `room_images_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE

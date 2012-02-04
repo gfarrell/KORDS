@@ -2,7 +2,7 @@
 	<h1><?= $room['Location']['name'] . ' - ' . $room['Room']['number']; ?></h1>
 	<?= $this->element('breadcrumbs'); ?>
 	<section id="RoomInfo" class="row">
-		<table id="InfoTable" class="zebra-striped condensed-table span6">
+		<table id="InfoTable" class="table-striped table-condensed span6">
 			<tr>
 				<td>Location</td>
 				<td><?= $room['Location']['name']; ?></td>

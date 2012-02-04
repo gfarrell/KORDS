@@ -17,7 +17,7 @@
 
 	<?= $this->element('breadcrumbs'); ?>
 
-	<table class="zebra-striped">
+	<table class="table-zebra">
 		<thead>
 			<tr>
 				<th>Author</th>

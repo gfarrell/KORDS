@@ -92,7 +92,7 @@ $edit = (is_array($this->data) && isset($this->data['Room']));
 		'Room.public'		=>	array('div'=>'clearfix')
 	)); ?>
 	
-	<div class="actions">
+	<div class="controls centre">
 		<?= $this->Form->end(array('label'=>'Save', 'value'=>'Save', 'class'=>'btn btn-primary', 'div'=>false)); ?>
 		
 		<?php

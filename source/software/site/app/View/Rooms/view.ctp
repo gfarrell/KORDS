@@ -48,16 +48,40 @@
 				<td class="<?= ($room['Room']['available'] ? 'green' : 'red'); ?>"><?= ($room['Room']['available']) ? 'available' : 'taken'; ?></td>
 			</tr>
 		</table>
-		
-		<div id="MainImage" class="span6 centre">
-			<?php
-				if(count($room['RoomImage']) > 0) {
-					echo $this->Html->image('/rooms/'.$room['RoomImage'][0]['id'].'.jpg');
-				} else {
-					echo $this->Html->tag('span', 'No Images', array('class'=>'label label-warning'));
-				}
-			?>
+
+		<div class="centre thumbnails">
+			<?php if(count($room['RoomImage']) > 0): ?>
+			<ul class="thumbnails">
+				<li class="span6">
+					<div class="thumbnail">
+						<?= $this->Html->image('rooms/'.$room['RoomImage'][0]['image'], array('id'=>'MainImage')); ?>
+					</div>
+				</li>
+			</ul>
+			<?php else: ?>
+			<span class="label label-warning">No Images</span>
+			<?php endif; ?>
 		</div>
+
+		<?php if(count($room['RoomImage']) > 1): ?>
+		<div class="centre well">
+			<ul class="thumbnails" data-behavior="Thumbs" data-thumbs-options="'display':'MainImage'">
+				<?php
+					foreach($room['RoomImage'] as $photo) {
+						echo '<li class="span2">';
+						echo $this->Html->link(
+								$this->Html->image('rooms/'.$photo['image']),
+								'/img/rooms/'.$photo['image'],
+								array(
+									'escape'				=>	false,
+									'class'					=>	'thumbnail'
+								));
+						echo '</li>';
+					}
+				?>
+			</ul>
+		</div>
+		<?php endif; ?>
 	</section>
 
 	<section id="Comments" class="row hrule">

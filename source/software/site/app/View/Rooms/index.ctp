@@ -88,6 +88,7 @@
 			if($this->Session->check('Kords.user_authorised')) {
 				echo $this->Html->tag('br');
 				echo $this->Html->link('Add a Room', array('action'=>'add'), array('class'=>'btn'));
+				echo $this->Html->link('View Comments', array('controller'=>'comments', 'action'=>'pending'), array('class'=>'btn'));
 			}
 		?>
 	</div>

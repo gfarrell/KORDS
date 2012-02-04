@@ -3,3 +3,4 @@
 tmp
 *.css
 source/software/site/app/webroot/js/*.js
+source/software/site/app/webroot/img/rooms/*.jpg

@@ -3,8 +3,8 @@
 	SelectNavigation Class
 	-----------------------
 
-	@file 		SelectNavigation.js
-	@author 	Gideon Farrell <me@gideonfarrell.co.uk>
+	@file		SelectNavigation.js
+	@author		Gideon Farrell <me@gideonfarrell.co.uk>
 
 	Copyright (c) 2011 Gideon Farrell <http://www.gideonfarrell.co.uk>
 

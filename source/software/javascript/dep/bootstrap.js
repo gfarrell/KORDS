@@ -6251,10 +6251,10 @@ Bootstrap.Twipsy = new Class({
 
 	_makeTip: function(){
 		if (!this.tip){
-			this.tip = new Element('div.twipsy').addClass(this.options.location)
-				 .adopt(new Element('div.twipsy-arrow'))
+			this.tip = new Element('div.tooltip').addClass(this.options.location)
+				 .adopt(new Element('div.tooltip-arrow'))
 				 .adopt(
-				   new Element('div.twipsy-inner', {
+				   new Element('div.tooltip-inner', {
 				     html: this.options.override || this.options.getContent.apply(this, [this.element]) || this.options.fallback
 				   })
 				 );

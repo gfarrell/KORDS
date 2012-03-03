@@ -36,6 +36,7 @@
 			<file>RoomFilterController.js</file>
 			<file>SelectNavigation.js</file>
 			<file>Thumbs.js</file>
+			<file>DeleteModal.js</file>
 		</source>
 		<output dir="software/site/app/webroot/js/">
 			<file license="false" compression="enabled">core.js</file>

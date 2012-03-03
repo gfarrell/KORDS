@@ -8,6 +8,7 @@
 	<package name="Dependencies" language="js">
 		<source dir="software/javascript/dep">
 			<file>bootstrap.js</file>
+			<file>jstorage.js</file>
 			<file>raphael.js</file>
 			<file>onhashchange.js</file>
 			<file>milkbox.js</file>

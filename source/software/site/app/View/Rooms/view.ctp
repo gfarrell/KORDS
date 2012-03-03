@@ -176,3 +176,7 @@
 	</section>
 	<?php endif; ?>
 </div>
+
+<script language="javascript" type="text/javascript" defer="defer">
+	var Navigator = new RoomNavigator(<?= $room['Room']['id']; ?>);
+</script>

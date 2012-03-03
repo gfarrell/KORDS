@@ -273,6 +273,9 @@ var RoomFilterController = new Class({
 		}
 		
 		this.behaviour.apply(this.containers.content);
+
+		// Store the data
+		this._storeRoomsList(json_response);
 	},
 	_requestError: function (xhr) {
 		this._showError('There was an error fetching data from the database');
@@ -368,5 +371,15 @@ var RoomFilterController = new Class({
 		// ! This needs finishing, for the meantime we'll have a page redirect.
 		
 		this.behaviour.apply(popup);
+	}.protect(),
+
+	_storeRoomsList: function(rooms) {
+		var ids = [];
+
+		rooms.each(function(r) {
+			ids.push(parseInt(r.Room.id, 10));
+		});
+
+		$.jStorage.set('roomslist', ids);
 	}.protect()
 });

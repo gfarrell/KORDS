@@ -1,6 +1,13 @@
 <div id="Room" class="span12">
 	<h1><?= $room['Location']['name'] . ' - ' . $room['Room']['number']; ?></h1>
 	<?= $this->element('breadcrumbs'); ?>
+
+	<!-- Hint about arrow keys -->
+	<div id="arrow_hint" class="alert alert-info fade in">
+		<a class="close" data-trigger="nix" data-nix-options="'target': '!div.alert'">&times;</a>
+		You can use the left and right arrows to scroll between rooms. Try it!
+	</div>
+
 	<section id="RoomInfo" class="row">
 		<table id="InfoTable" class="table-striped table-condensed span6">
 			<tr>
@@ -179,4 +186,12 @@
 
 <script language="javascript" type="text/javascript" defer="defer">
 	var Navigator = new RoomNavigator(<?= $room['Room']['id']; ?>);
+
+	$('arrow_hint').getElement('a').addEvent('click', function() {
+		Cookie.write('seen_arrow_hint', 1);
+	});
+
+	if(Cookie.read('seen_arrow_hint')) {
+		$('arrow_hint').hide();
+	}
 </script>

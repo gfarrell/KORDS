@@ -110,21 +110,14 @@ $edit = (is_array($this->data) && isset($this->data['Room']));
 		
 		<?php
 			if($edit) {
-				echo $this->Form->create('Delete', array(
-					'url'		=>	array(
+				echo $this->element('delete_button', array(
+					'url'	=>	array(
 						'controller'	=>	'rooms',
 						'id'			=>	$this->data['Room']['id'],
 						'action'		=>	'delete'
 					),
-					'method'	=>	'post',
-					'class'		=>	'form-discrete'
-				));
-				echo $this->Form->hidden('Room.id');
-				echo $this->Form->end(array(
-					'label'	=>	'Delete Room',
-					'value'	=>	'Delete Room',
-					'class'	=>	'btn btn-danger',
-					'div'	=>	false
+					'model'	=>	'Room',
+					'id'	=>	$this->data['Room']['id']
 				));
 			}
 		?>

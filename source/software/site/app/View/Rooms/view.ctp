@@ -163,21 +163,14 @@
 			
 			echo '&nbsp;';
 			
-			echo $this->Form->create('Delete', array(
-				'url'		=>	array(
+			echo $this->element('delete_button', array(
+				'url'	=>	array(
 					'controller'	=>	'rooms',
 					'id'			=>	$room['Room']['id'],
 					'action'		=>	'delete'
 				),
-				'method'	=>	'post',
-				'class'		=>	'form-discrete'
-			));
-			echo $this->Form->hidden('Room.id');
-			echo $this->Form->end(array(
-				'label'	=>	'Delete',
-				'value'	=>	'Delete',
-				'class'	=>	'btn btn-danger',
-				'div'	=>	false
+				'model'	=>	'Room',
+				'id'	=>	$room['Room']['id']
 			));
 		?>
 	</section>

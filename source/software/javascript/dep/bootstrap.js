@@ -1,6 +1,6 @@
 
 //This library: http://dev.clientcide.com/depender/build?download=true&version=MooTools+Bootstrap&require=Core%2FBrowser&require=Core%2FClass.Extras&require=Core%2FClass&require=Core%2FCore&require=Core%2FElement.Delegation&require=Core%2FElement.Dimensions&require=Core%2FElement.Event&require=Core%2FElement.Style&require=Core%2FElement&require=Core%2FFx.CSS&require=Core%2FFx.Morph&require=Core%2FFx.Transitions&require=Core%2FFx.Tween&require=Core%2FFx&require=Core%2FRequest.HTML&require=Core%2FRequest.JSON&require=Core%2FRequest&require=Core%2FSlick.Finder&require=Core%2FSlick.Parser&require=Core%2FArray&require=Core%2FEvent&require=Core%2FFunction&require=Core%2FNumber&require=Core%2FObject&require=Core%2FString&require=Core%2FCookie&require=Core%2FDOMReady&require=Core%2FJSON&require=Core%2FSwiff&require=Bootstrap%2FBehavior.BS.Alert&require=Bootstrap%2FBehavior.BS.Dropdown&require=Bootstrap%2FBehavior.BS.FormValidator&require=Bootstrap%2FBehavior.BS.Popover&require=Bootstrap%2FBehavior.BS.Popup.FormRequest&require=Bootstrap%2FBehavior.Popup&require=Bootstrap%2FBehavior.BS.Tabs&require=Bootstrap%2FBehavior.BS.Twipsy&require=Bootstrap%2FBootstrap.Dropdown&require=Bootstrap%2FBootstrap.Popover&require=Bootstrap%2FPopup&require=Bootstrap%2FBootstrap.Twipsy&require=Bootstrap%2FBootstrap&require=Bootstrap%2FCSSEvents&require=Bootstrap%2FDelegator.BS.ShowPopup&require=More-Behaviors%2FBehavior.OverText&require=More%2FDrag.Move&require=More%2FDrag&require=More%2FSlider&require=More%2FSortables&require=More%2FFx.Elements&require=More%2FFx.Move&require=More%2FFx.Reveal&require=More%2FFx.Scroll&require=More%2FFx.Slide&require=More%2FFx.SmoothScroll&require=More%2FLocale.en-GB.Date&require=More%2FMore&require=More%2FArray.Extras&require=More%2FAssets&require=More%2FColor&require=More%2FHtmlTable
-//Contents: Bootstrap:Source/UI/Bootstrap.js, Core:Source/Core/Core.js, Core:Source/Types/Array.js, Core:Source/Types/Function.js, Core:Source/Types/Number.js, Core:Source/Types/String.js, Core:Source/Browser/Browser.js, Core:Source/Types/Object.js, Core:Source/Slick/Slick.Parser.js, Core:Source/Slick/Slick.Finder.js, Core:Source/Element/Element.js, Core:Source/Types/DOMEvent.js, Core:Source/Element/Element.Event.js, Core:Source/Utilities/DOMReady.js, Bootstrap:Source/UI/CSSEvents.js, Core:Source/Class/Class.js, Core:Source/Class/Class.Extras.js, Core:Source/Element/Element.Style.js, Core:Source/Element/Element.Dimensions.js, More:Source/More/More.js, More:Source/Element/Element.Measure.js, More:Source/Element/Element.Position.js, More:Source/Utilities/Table.js, Core:Source/Utilities/JSON.js, Behavior:Source/Element.Data.js, Behavior:Source/BehaviorAPI.js, Behavior:Source/Behavior.js, Bootstrap:Source/UI/Bootstrap.Twipsy.js, Core:Source/Request/Request.js, Core:Source/Request/Request.JSON.js, Core:Source/Element/Element.Delegation.js, More:Source/Element/Element.Shortcuts.js, Bootstrap:Source/UI/Bootstrap.Dropdown.js, Bootstrap:Source/Behaviors/Behavior.BS.Dropdown.js, Behavior:Source/Event.Mock.js, Behavior:Source/Delegator.js, Bootstrap:Source/UI/Delegator.BS.ShowPopup.js, Core:Source/Fx/Fx.js, Core:Source/Fx/Fx.CSS.js, Core:Source/Fx/Fx.Morph.js, More:Source/Types/Object.Extras.js, Core:Source/Fx/Fx.Tween.js, Core:Source/Fx/Fx.Transitions.js, More:Source/Class/Class.Binds.js, More:Source/Class/Class.Occlude.js, More:Source/Utilities/IframeShim.js, More:Source/Interface/Mask.js, More:Source/Element/Elements.From.js, More:Source/Class/Events.Pseudos.js, Bootstrap:Source/UI/Bootstrap.Popup.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.js, Core:Source/Request/Request.HTML.js, More:Source/Class/Class.Refactor.js, More:Source/Interface/Spinner.js, More:Source/Types/String.QueryString.js, More:Source/Element/Element.Event.Pseudos.js, More:Source/Forms/Form.Request.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.FormRequest.js, More:Source/Fx/Fx.Elements.js, More:Source/Fx/Fx.Move.js, More:Source/Fx/Fx.Scroll.js, More:Source/Locale/Locale.js, More:Source/Locale/Locale.en-US.Date.js, More:Source/Types/Date.js, More:Source/Types/String.Extras.js, More:Source/Element/Element.Forms.js, More:Source/Locale/Locale.en-US.Form.Validator.js, More:Source/Forms/Form.Validator.js, More:Source/Forms/Form.Validator.Inline.js, More-Behaviors:Source/Forms/Behavior.FormValidator.js, Bootstrap:Source/Behaviors/Behavior.BS.FormValidator.js, More:Source/Types/Array.Extras.js, More:Source/Drag/Drag.js, Clientcide:Source/Layout/TabSwapper.js, Clientcide:Source/Behaviors/Behavior.Tabs.js, Bootstrap:Source/Behaviors/Behavior.BS.Tabs.js, More:Source/Drag/Slider.js, Bootstrap:Source/UI/Bootstrap.Popover.js, More:Source/Drag/Drag.Move.js, More:Source/Fx/Fx.SmoothScroll.js, More:Source/Fx/Fx.Reveal.js, More-Behaviors:Source/Delegators/Delegator.FxReveal.js, Bootstrap:Source/Behaviors/Behavior.BS.Alert.js, More:Source/Utilities/Color.js, Bootstrap:Source/Behaviors/Behavior.BS.Twipsy.js, More:Source/Forms/OverText.js, More-Behaviors:Source/Forms/Behavior.OverText.js, Bootstrap:Source/Behaviors/Behavior.BS.Popover.js, More:Source/Locale/Locale.en-GB.Date.js, Core:Source/Utilities/Cookie.js, More:Source/Interface/HtmlTable.js, More:Source/Utilities/Assets.js, Core:Source/Utilities/Swiff.js, More:Source/Fx/Fx.Slide.js, More:Source/Drag/Sortables.js
+//Contents: Bootstrap:Source/UI/Bootstrap.js, Core:Source/Core/Core.js, Core:Source/Types/Array.js, Core:Source/Types/Function.js, Core:Source/Types/Number.js, Core:Source/Types/String.js, Core:Source/Browser/Browser.js, Core:Source/Types/Object.js, Core:Source/Slick/Slick.Parser.js, Core:Source/Slick/Slick.Finder.js, Core:Source/Element/Element.js, Core:Source/Types/DOMEvent.js, Core:Source/Element/Element.Event.js, Core:Source/Utilities/DOMReady.js, Bootstrap:Source/UI/CSSEvents.js, Core:Source/Class/Class.js, Core:Source/Class/Class.Extras.js, Core:Source/Element/Element.Style.js, Core:Source/Element/Element.Dimensions.js, More:Source/More/More.js, More:Source/Element/Element.Measure.js, More:Source/Element/Element.Position.js, More:Source/Utilities/Table.js, Core:Source/Utilities/JSON.js, Behavior:Source/Element.Data.js, Behavior:Source/BehaviorAPI.js, Behavior:Source/Behavior.js, Bootstrap:Source/UI/Bootstrap.Tooltip.js, Core:Source/Request/Request.js, Core:Source/Request/Request.JSON.js, Core:Source/Element/Element.Delegation.js, More:Source/Element/Element.Shortcuts.js, Bootstrap:Source/UI/Bootstrap.Dropdown.js, Bootstrap:Source/Behaviors/Behavior.BS.Dropdown.js, Behavior:Source/Event.Mock.js, Behavior:Source/Delegator.js, Bootstrap:Source/UI/Delegator.BS.ShowPopup.js, Core:Source/Fx/Fx.js, Core:Source/Fx/Fx.CSS.js, Core:Source/Fx/Fx.Morph.js, More:Source/Types/Object.Extras.js, Core:Source/Fx/Fx.Tween.js, Core:Source/Fx/Fx.Transitions.js, More:Source/Class/Class.Binds.js, More:Source/Class/Class.Occlude.js, More:Source/Utilities/IframeShim.js, More:Source/Interface/Mask.js, More:Source/Element/Elements.From.js, More:Source/Class/Events.Pseudos.js, Bootstrap:Source/UI/Bootstrap.Popup.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.js, Core:Source/Request/Request.HTML.js, More:Source/Class/Class.Refactor.js, More:Source/Interface/Spinner.js, More:Source/Types/String.QueryString.js, More:Source/Element/Element.Event.Pseudos.js, More:Source/Forms/Form.Request.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.FormRequest.js, More:Source/Fx/Fx.Elements.js, More:Source/Fx/Fx.Move.js, More:Source/Fx/Fx.Scroll.js, More:Source/Locale/Locale.js, More:Source/Locale/Locale.en-US.Date.js, More:Source/Types/Date.js, More:Source/Types/String.Extras.js, More:Source/Element/Element.Forms.js, More:Source/Locale/Locale.en-US.Form.Validator.js, More:Source/Forms/Form.Validator.js, More:Source/Forms/Form.Validator.Inline.js, More-Behaviors:Source/Forms/Behavior.FormValidator.js, Bootstrap:Source/Behaviors/Behavior.BS.FormValidator.js, More:Source/Types/Array.Extras.js, More:Source/Drag/Drag.js, Clientcide:Source/Layout/TabSwapper.js, Clientcide:Source/Behaviors/Behavior.Tabs.js, Bootstrap:Source/Behaviors/Behavior.BS.Tabs.js, More:Source/Drag/Slider.js, Bootstrap:Source/UI/Bootstrap.Popover.js, More:Source/Drag/Drag.Move.js, More:Source/Fx/Fx.SmoothScroll.js, More:Source/Fx/Fx.Reveal.js, More-Behaviors:Source/Delegators/Delegator.FxReveal.js, Bootstrap:Source/Behaviors/Behavior.BS.Alert.js, More:Source/Utilities/Color.js, Bootstrap:Source/Behaviors/Behavior.BS.Tooltip.js, More:Source/Forms/OverText.js, More-Behaviors:Source/Forms/Behavior.OverText.js, Bootstrap:Source/Behaviors/Behavior.BS.Popover.js, More:Source/Locale/Locale.en-GB.Date.js, Core:Source/Utilities/Cookie.js, More:Source/Interface/HtmlTable.js, More:Source/Utilities/Assets.js, Core:Source/Utilities/Swiff.js, More:Source/Fx/Fx.Slide.js, More:Source/Drag/Sortables.js
 
 // Begin: Source/UI/Bootstrap.js
 /*
@@ -30,7 +30,7 @@ description: The heart of MooTools.
 
 license: MIT-style license.
 
-copyright: Copyright (c) 2006-2010 [Valerio Proietti](http://mad4milk.net/).
+copyright: Copyright (c) 2006-2012 [Valerio Proietti](http://mad4milk.net/).
 
 authors: The MooTools production team (http://mootools.net/developers/)
 
@@ -46,15 +46,15 @@ provides: [Core, MooTools, Type, typeOf, instanceOf, Native]
 (function(){
 
 this.MooTools = {
-	version: '1.4.1',
-	build: 'd1fb25710e3c5482a219ab9dc675a4e0ad2176b6'
+	version: '1.4.4',
+	build: 'adb02e676407521b516ffa10d2dc6b54237a80f9'
 };
 
 // typeOf, instanceOf
 
 var typeOf = this.typeOf = function(item){
 	if (item == null) return 'null';
-	if (item.$family) return item.$family();
+	if (item.$family != null) return item.$family();
 
 	if (item.nodeName){
 		if (item.nodeType == 1) return 'element';
@@ -74,6 +74,9 @@ var instanceOf = this.instanceOf = function(item, object){
 		if (constructor === object) return true;
 		constructor = constructor.parent;
 	}
+	/*<ltIE8>*/
+	if (!item.hasOwnProperty) return false;
+	/*</ltIE8>*/
 	return item instanceof object;
 };
 
@@ -266,14 +269,18 @@ var force = function(name, object, methods){
 			proto = prototype[key];
 
 		if (generic) generic.protect();
-
-		if (isType && proto){
-			delete prototype[key];
-			prototype[key] = proto.protect();
-		}
+		if (isType && proto) object.implement(key, proto.protect());
 	}
 
-	if (isType) object.implement(prototype);
+	if (isType){
+		var methodsEnumerable = prototype.propertyIsEnumerable(methods[0]);
+		object.forEachMethod = function(fn){
+			if (!methodsEnumerable) for (var i = 0, l = methods.length; i < l; i++){
+				fn.call(prototype, prototype[methods[i]], methods[i]);
+			}
+			for (var key in prototype) fn.call(prototype, prototype[key], key)
+		};
+	}
 
 	return force;
 };
@@ -563,8 +570,9 @@ Array.implement({
 
 	filter: function(fn, bind){
 		var results = [];
-		for (var i = 0, l = this.length >>> 0; i < l; i++){
-			if ((i in this) && fn.call(bind, this[i], i, this)) results.push(this[i]);
+		for (var value, i = 0, l = this.length >>> 0; i < l; i++) if (i in this){
+			value = this[i];
+			if (fn.call(bind, value, i, this)) results.push(value);
 		}
 		return results;
 	},
@@ -1007,17 +1015,6 @@ provides: [Browser, Window, Document]
 
 var document = this.document;
 var window = document.window = this;
-
-var UID = 1;
-
-this.$uid = (window.ActiveXObject) ? function(item){
-	return (item.uid || (item.uid = [UID++]))[0];
-} : function(item){
-	return item.uid || (item.uid = UID++);
-};
-
-$uid(window);
-$uid(document);
 
 var ua = navigator.userAgent.toLowerCase(),
 	platform = navigator.platform.toLowerCase(),
@@ -1906,8 +1903,14 @@ local.setDocument = function(document){
 
 	// contains
 	// FIXME: Add specs: local.contains should be different for xml and html documents?
-	features.contains = (root && this.isNativeCode(root.contains)) ? function(context, node){
+	var nativeRootContains = root && this.isNativeCode(root.contains),
+		nativeDocumentContains = document && this.isNativeCode(document.contains);
+
+	features.contains = (nativeRootContains && nativeDocumentContains) ? function(context, node){
 		return context.contains(node);
+	} : (nativeRootContains && !nativeDocumentContains) ? function(context, node){
+		// IE8 does not have .contains on document.
+		return context === node || ((context === document) ? document.documentElement : context).contains(node);
 	} : (root && root.compareDocumentPosition) ? function(context, node){
 		return context === node || !!(context.compareDocumentPosition(node) & 16);
 	} : function(context, node){
@@ -2302,7 +2305,7 @@ local.matchSelector = function(node, tag, id, classes, attributes, pseudos){
 
 	var i, part, cls;
 	if (classes) for (i = classes.length; i--;){
-		cls = node.getAttribute('class') || node.className;
+		cls = this.getAttribute(node, 'class');
 		if (!(cls && classes[i].regexp.test(cls))) return false;
 	}
 	if (attributes) for (i = attributes.length; i--;){
@@ -2488,7 +2491,7 @@ var pseudos = {
 	'nth-last-of-type': local.createNTHPseudo('lastChild', 'previousSibling', 'posNTHTypeLast', true),
 
 	'index': function(node, index){
-		return this['pseudo:nth-child'](node, '' + index + 1);
+		return this['pseudo:nth-child'](node, '' + (index + 1));
 	},
 
 	'even': function(node){
@@ -2560,10 +2563,6 @@ for (var p in pseudos) local['pseudo:' + p] = pseudos[p];
 
 var attributeGetters = local.attributeGetters = {
 
-	'class': function(){
-		return this.getAttribute('class') || this.className;
-	},
-
 	'for': function(){
 		return ('htmlFor' in this) ? this.htmlFor : this.getAttribute('for');
 	},
@@ -2598,7 +2597,7 @@ attributeGetters.MAXLENGTH = attributeGetters.maxLength = attributeGetters.maxle
 
 var Slick = local.Slick = (this.Slick || {});
 
-Slick.version = '1.1.6';
+Slick.version = '1.1.7';
 
 // Slick finder
 
@@ -2728,7 +2727,16 @@ var Element = function(tag, props){
 	return document.newElement(tag, props);
 };
 
-if (Browser.Element) Element.prototype = Browser.Element.prototype;
+
+if (Browser.Element){
+	Element.prototype = Browser.Element.prototype;
+	// IE8 and IE9 require the wrapping.
+	Element.prototype._fireEvent = (function(fireEvent){
+		return function(type, event){
+			return fireEvent.call(this, type, event);
+		};
+	})(Element.prototype.fireEvent);
+}
 
 new Type('Element', Element).mirror(function(name){
 	if (Array.prototype[name]) return;
@@ -2749,7 +2757,10 @@ new Type('Element', Element).mirror(function(name){
 if (!Browser.Element){
 	Element.parent = Object;
 
-	Element.Prototype = {'$family': Function.from('element').hide()};
+	Element.Prototype = {
+		'$constructor': Element,
+		'$family': Function.from('element').hide()
+	};
 
 	Element.mirror(function(name, method){
 		Element.Prototype[name] = method;
@@ -2872,16 +2883,17 @@ if (object[1] == 1) Elements.implement('splice', function(){
 	return result;
 }.protect());
 
-Elements.implement(Array.prototype);
+Array.forEachMethod(function(method, name){
+	Elements.implement(name, method);
+});
 
 Array.mirror(Elements);
 
 /*<ltIE8>*/
 var createElementAcceptsHTML;
 try {
-	var x = document.createElement('<input name=x>');
-	createElementAcceptsHTML = (x.name == 'x');
-} catch(e){}
+    createElementAcceptsHTML = (document.createElement('<input name=x>').name == 'x');
+} catch (e){}
 
 var escapeQuotes = function(html){
 	return ('' + html).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -2909,6 +2921,11 @@ Document.implement({
 
 })();
 
+(function(){
+
+Slick.uidOf(window);
+Slick.uidOf(document);
+
 Document.implement({
 
 	newTextNode: function(text){
@@ -2933,8 +2950,13 @@ Document.implement({
 			},
 
 			element: function(el, nocash){
-				$uid(el);
+				Slick.uidOf(el);
 				if (!nocash && !el.$family && !(/^(?:object|embed)$/i).test(el.tagName)){
+					var fireEvent = el.fireEvent;
+					// wrapping needed in IE7, or else crash
+					el._fireEvent = function(type, event){
+						return fireEvent(type, event);
+					};
 					Object.append(el, Element.Prototype);
 				}
 				return el;
@@ -2952,7 +2974,7 @@ Document.implement({
 		};
 
 		return function(el, nocash, doc){
-			if (el && el.$family && el.uid) return el;
+			if (el && el.$family && el.uniqueNumber) return el;
 			var type = typeOf(el);
 			return (types[type]) ? types[type](el, nocash, doc || document) : null;
 		};
@@ -3123,8 +3145,6 @@ if (window.$$ == null) Window.implement('$$', function(selector){
 	return new Elements(arguments);
 });
 
-(function(){
-
 // Inserters
 
 var inserters = {
@@ -3184,18 +3204,13 @@ var propertyGetters = {}, propertySetters = {};
 var properties = {};
 Array.forEach([
 	'type', 'value', 'defaultValue', 'accessKey', 'cellPadding', 'cellSpacing', 'colSpan',
-	'frameBorder', 'readOnly', 'rowSpan', 'tabIndex', 'useMap'
+	'frameBorder', 'rowSpan', 'tabIndex', 'useMap'
 ], function(property){
 	properties[property.toLowerCase()] = property;
 });
 
-Object.append(properties, {
-	'html': 'innerHTML',
-	'text': (function(){
-		var temp = document.createElement('div');
-		return (temp.textContent == null) ? 'innerText': 'textContent';
-	})()
-});
+properties.html = 'innerHTML';
+properties.text = (document.createElement('div').textContent == null) ? 'innerText': 'textContent';
 
 Object.forEach(properties, function(real, key){
 	propertySetters[key] = function(node, value){
@@ -3232,7 +3247,7 @@ Array.forEach(bools, function(bool){
 Object.append(propertySetters, {
 
 	'class': function(node, value){
-		('className' in node) ? node.className = value : node.setAttribute('class', value);
+		('className' in node) ? node.className = (value || '') : node.setAttribute('class', value);
 	},
 
 	'for': function(node, value){
@@ -3241,26 +3256,73 @@ Object.append(propertySetters, {
 
 	'style': function(node, value){
 		(node.style) ? node.style.cssText = value : node.setAttribute('style', value);
+	},
+
+	'value': function(node, value){
+		node.value = (value != null) ? value : '';
 	}
 
 });
 
+propertyGetters['class'] = function(node){
+	return ('className' in node) ? node.className || null : node.getAttribute('class');
+};
+
+/* <webkit> */
+var el = document.createElement('button');
+// IE sets type as readonly and throws
+try { el.type = 'button'; } catch(e){}
+if (el.type != 'button') propertySetters.type = function(node, value){
+	node.setAttribute('type', value);
+};
+el = null;
+/* </webkit> */
+
+/*<IE>*/
+var input = document.createElement('input');
+input.value = 't';
+input.type = 'submit';
+if (input.value != 't') propertySetters.type = function(node, type){
+	var value = node.value;
+	node.type = type;
+	node.value = value;
+};
+input = null;
+/*</IE>*/
+
 /* getProperty, setProperty */
+
+/* <ltIE9> */
+var pollutesGetAttribute = (function(div){
+	div.random = 'attribute';
+	return (div.getAttribute('random') == 'attribute');
+})(document.createElement('div'));
+
+/* <ltIE9> */
 
 Element.implement({
 
 	setProperty: function(name, value){
-		var lower = name.toLowerCase();
-		if (value == null){
-			if (!booleans[lower]){
+		var setter = propertySetters[name.toLowerCase()];
+		if (setter){
+			setter(this, value);
+		} else {
+			/* <ltIE9> */
+			if (pollutesGetAttribute) var attributeWhiteList = this.retrieve('$attributeWhiteList', {});
+			/* </ltIE9> */
+
+			if (value == null){
 				this.removeAttribute(name);
-				return this;
+				/* <ltIE9> */
+				if (pollutesGetAttribute) delete attributeWhiteList[name];
+				/* </ltIE9> */
+			} else {
+				this.setAttribute(name, value);
+				/* <ltIE9> */
+				if (pollutesGetAttribute) attributeWhiteList[name] = true;
+				/* </ltIE9> */
 			}
-			value = false;
 		}
-		var setter = propertySetters[lower];
-		if (setter) setter(this, value);
-		else this.setAttribute(name, value);
 		return this;
 	},
 
@@ -3272,6 +3334,18 @@ Element.implement({
 	getProperty: function(name){
 		var getter = propertyGetters[name.toLowerCase()];
 		if (getter) return getter(this);
+		/* <ltIE9> */
+		if (pollutesGetAttribute){
+			var attr = this.getAttributeNode(name), attributeWhiteList = this.retrieve('$attributeWhiteList', {});
+			if (!attr) return null;
+			if (attr.expando && !attributeWhiteList[name]){
+				var outer = this.outerHTML;
+				// segment by the opening tag and find mention of attribute name
+				if (outer.substr(0, outer.search(/\/?['"]?>(?![^<]*<['"])/)).indexOf(name) < 0) return null;
+				attributeWhiteList[name] = true;
+			}
+		}
+		/* </ltIE9> */
 		var result = Slick.getAttribute(this, name);
 		return (!result && !Slick.hasAttribute(this, name)) ? null : result;
 	},
@@ -3398,7 +3472,7 @@ var get = function(uid){
 };
 
 var clean = function(item){
-	var uid = item.uid;
+	var uid = item.uniqueNumber;
 	if (item.removeEvents) item.removeEvents();
 	if (item.clearAttributes) item.clearAttributes();
 	if (uid != null){
@@ -3444,7 +3518,7 @@ Element.implement({
 			if (node.clearAttributes){
 				node.clearAttributes();
 				node.mergeAttributes(element);
-				node.removeAttribute('uid');
+				node.removeAttribute('uniqueNumber');
 				if (node.options){
 					var no = node.options, eo = element.options;
 					for (var j = no.length; j--;) no[j].selected = eo[j].selected;
@@ -3476,7 +3550,7 @@ Element.implement({
 				old();
 			};
 		} else {
-			collected[$uid(this)] = this;
+			collected[Slick.uidOf(this)] = this;
 		}
 		if (this.addEventListener) this.addEventListener(type, fn, !!arguments[2]);
 		else this.attachEvent('on' + type, fn);
@@ -3490,19 +3564,19 @@ Element.implement({
 	},
 
 	retrieve: function(property, dflt){
-		var storage = get($uid(this)), prop = storage[property];
+		var storage = get(Slick.uidOf(this)), prop = storage[property];
 		if (dflt != null && prop == null) prop = storage[property] = dflt;
 		return prop != null ? prop : null;
 	},
 
 	store: function(property, value){
-		var storage = get($uid(this));
+		var storage = get(Slick.uidOf(this));
 		storage[property] = value;
 		return this;
 	},
 
 	eliminate: function(property){
-		var storage = get($uid(this));
+		var storage = get(Slick.uidOf(this));
 		delete storage[property];
 		return this;
 	}
@@ -3548,60 +3622,77 @@ Element.Properties.tag = {
 
 };
 
-/*<!webkit>*/
-Element.Properties.html = (function(){
+Element.Properties.html = {
 
-	var tableTest = Function.attempt(function(){
-		var table = document.createElement('table');
-		table.innerHTML = '<tr><td></td></tr>';
-	});
+	set: function(html){
+		if (html == null) html = '';
+		else if (typeOf(html) == 'array') html = html.join('');
+		this.innerHTML = html;
+	},
 
-	var wrapper = document.createElement('div');
-
-	var translations = {
-		table: [1, '<table>', '</table>'],
-		select: [1, '<select>', '</select>'],
-		tbody: [2, '<table><tbody>', '</tbody></table>'],
-		tr: [3, '<table><tbody><tr>', '</tr></tbody></table>']
-	};
-	translations.thead = translations.tfoot = translations.tbody;
-
-	/*<ltIE9>*/
-	// technique by jdbarlett - http://jdbartlett.com/innershiv/
-	wrapper.innerHTML = '<nav></nav>';
-	var HTML5Test = wrapper.childNodes.length == 1;
-	if (!HTML5Test){
-		var tags = 'abbr article aside audio canvas datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' '),
-			fragment = document.createDocumentFragment(), l = tags.length;
-		while (l--) fragment.createElement(tags[l]);
-		fragment.appendChild(wrapper);
+	erase: function(){
+		this.innerHTML = '';
 	}
-	/*</ltIE9>*/
 
-	var html = {
-		set: function(html){
-			if (typeOf(html) == 'array') html = html.join('');
+};
 
-			var wrap = (!tableTest && translations[this.get('tag')]);
-			/*<ltIE9>*/
-			if (!wrap && !HTML5Test) wrap = [0, '', ''];
-			/*</ltIE9>*/
-			if (wrap){
-				var first = wrapper;
-				first.innerHTML = wrap[1] + html + wrap[2];
-				for (var i = wrap[0]; i--;) first = first.firstChild;
-				this.empty().adopt(first.childNodes);
-			} else {
-				this.innerHTML = html;
-			}
-		}
-	};
+/*<ltIE9>*/
+// technique by jdbarlett - http://jdbartlett.com/innershiv/
+var div = document.createElement('div');
+div.innerHTML = '<nav></nav>';
+var supportsHTML5Elements = (div.childNodes.length == 1);
+if (!supportsHTML5Elements){
+	var tags = 'abbr article aside audio canvas datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' '),
+		fragment = document.createDocumentFragment(), l = tags.length;
+	while (l--) fragment.createElement(tags[l]);
+}
+div = null;
+/*</ltIE9>*/
 
-	html.erase = html.set;
+/*<IE>*/
+var supportsTableInnerHTML = Function.attempt(function(){
+	var table = document.createElement('table');
+	table.innerHTML = '<tr><td></td></tr>';
+	return true;
+});
 
-	return html;
-})();
-/*</!webkit>*/
+/*<ltFF4>*/
+var tr = document.createElement('tr'), html = '<td></td>';
+tr.innerHTML = html;
+var supportsTRInnerHTML = (tr.innerHTML == html);
+tr = null;
+/*</ltFF4>*/
+
+if (!supportsTableInnerHTML || !supportsTRInnerHTML || !supportsHTML5Elements){
+
+	Element.Properties.html.set = (function(set){
+
+		var translations = {
+			table: [1, '<table>', '</table>'],
+			select: [1, '<select>', '</select>'],
+			tbody: [2, '<table><tbody>', '</tbody></table>'],
+			tr: [3, '<table><tbody><tr>', '</tr></tbody></table>']
+		};
+
+		translations.thead = translations.tfoot = translations.tbody;
+
+		return function(html){
+			var wrap = translations[this.get('tag')];
+			if (!wrap && !supportsHTML5Elements) wrap = [0, '', ''];
+			if (!wrap) return set.call(this, html);
+
+			var level = wrap[0], wrapper = document.createElement('div'), target = wrapper;
+			if (!supportsHTML5Elements) fragment.appendChild(wrapper);
+			wrapper.innerHTML = [wrap[1], html, wrap[2]].flatten().join('');
+			while (level--) target = target.firstChild;
+			this.empty().adopt(target.childNodes);
+			if (!supportsHTML5Elements) fragment.removeChild(wrapper);
+			wrapper = null;
+		};
+
+	})(Element.Properties.html.set);
+}
+/*</IE>*/
 
 /*<ltIE9>*/
 var testForm = document.createElement('form');
@@ -3633,7 +3724,22 @@ if (testForm.firstChild.value != 's') Element.Properties.value = {
 	}
 
 };
+testForm = null;
 /*</ltIE9>*/
+
+/*<IE>*/
+if (document.createElement('div').getAttributeNode('id')) Element.Properties.id = {
+	set: function(id){
+		this.id = this.getAttributeNode('id').value = id;
+	},
+	get: function(){
+		return this.id || null;
+	},
+	erase: function(){
+		this.id = this.getAttributeNode('id').value = '';
+	}
+};
+/*</IE>*/
 
 })();
 
@@ -3772,7 +3878,7 @@ Event.Keys = new Hash(Event.Keys);
 
 name: Element.Event
 
-description: Contains Element methods for dealing with events. This file also includes mouseenter and mouseleave custom Element Events.
+description: Contains Element methods for dealing with events. This file also includes mouseenter and mouseleave custom Element Events, if necessary.
 
 license: MIT-style license.
 
@@ -3910,30 +4016,30 @@ Element.NativeEvents = {
 	error: 1, abort: 1, scroll: 1 //misc
 };
 
-var check = function(event){
-	var related = event.relatedTarget;
-	if (related == null) return true;
-	if (!related) return false;
-	return (related != this && related.prefix != 'xul' && typeOf(this) != 'document' && !this.contains(related));
-};
+Element.Events = {mousewheel: {
+	base: (Browser.firefox) ? 'DOMMouseScroll' : 'mousewheel'
+}};
 
-Element.Events = {
+if ('onmouseenter' in document.documentElement){
+	Element.NativeEvents.mouseenter = Element.NativeEvents.mouseleave = 2;
+} else {
+	var check = function(event){
+		var related = event.relatedTarget;
+		if (related == null) return true;
+		if (!related) return false;
+		return (related != this && related.prefix != 'xul' && typeOf(this) != 'document' && !this.contains(related));
+	};
 
-	mouseenter: {
+	Element.Events.mouseenter = {
 		base: 'mouseover',
 		condition: check
-	},
+	};
 
-	mouseleave: {
+	Element.Events.mouseleave = {
 		base: 'mouseout',
 		condition: check
-	},
-
-	mousewheel: {
-		base: (Browser.firefox) ? 'DOMMouseScroll' : 'mousewheel'
-	}
-
-};
+	};
+}
 
 /*<ltIE9>*/
 if (!window.addEventListener){
@@ -3944,7 +4050,7 @@ if (!window.addEventListener){
 			return (this.get('tag') == 'input' && (type == 'radio' || type == 'checkbox')) ? 'propertychange' : 'change'
 		},
 		condition: function(event){
-			return !!(this.type != 'radio' || this.checked);
+			return this.type != 'radio' || (event.event.propertyName == 'checked' && this.checked);
 		}
 	}
 }
@@ -4370,6 +4476,15 @@ provides: Element.Style
 
 var html = document.html;
 
+//<ltIE9>
+// Check for oldIE, which does not remove styles when they're set to null
+var el = document.createElement('div');
+el.style.color = 'red';
+el.style.color = null;
+var doesNotRemoveStyles = el.style.color == 'red';
+el = null;
+//</ltIE9>
+
 Element.Properties.styles = {set: function(styles){
 	this.setStyles(styles);
 }};
@@ -4380,17 +4495,19 @@ var hasOpacity = (html.style.opacity != null),
 
 var setVisibility = function(element, opacity){
 	element.store('$opacity', opacity);
-	element.style.visibility = opacity > 0 ? 'visible' : 'hidden';
+	element.style.visibility = opacity > 0 || opacity == null ? 'visible' : 'hidden';
 };
 
 var setOpacity = (hasOpacity ? function(element, opacity){
 	element.style.opacity = opacity;
 } : (hasFilter ? function(element, opacity){
-	if (!element.currentStyle || !element.currentStyle.hasLayout) element.style.zoom = 1;
-	opacity = (opacity * 100).limit(0, 100).round();
-	opacity = (opacity == 100) ? '' : 'alpha(opacity=' + opacity + ')';
-	var filter = element.style.filter || element.getComputedStyle('filter') || '';
-	element.style.filter = reAlpha.test(filter) ? filter.replace(reAlpha, opacity) : filter + opacity;
+	var style = element.style;
+	if (!element.currentStyle || !element.currentStyle.hasLayout) style.zoom = 1;
+	if (opacity == null) opacity = '';
+	else opacity = 'alpha(opacity=' + (opacity * 100).limit(0, 100).round() + ')';
+	var filter = style.filter || element.getComputedStyle('filter') || '';
+	style.filter = reAlpha.test(filter) ? filter.replace(reAlpha, opacity) : filter + opacity;
+	if (!style.filter) style.removeAttribute('filter');
 } : setVisibility));
 
 var getOpacity = (hasOpacity ? function(element){
@@ -4420,7 +4537,8 @@ Element.implement({
 
 	setStyle: function(property, value){
 		if (property == 'opacity'){
-			setOpacity(this, parseFloat(value));
+			if (value != null) value = parseFloat(value);
+			setOpacity(this, value);
 			return this;
 		}
 		property = (property == 'float' ? floatName : property).camelCase();
@@ -4434,6 +4552,11 @@ Element.implement({
 			value = Math.round(value);
 		}
 		this.style[property] = value;
+		//<ltIE9>
+		if ((value == '' || value == null) && doesNotRemoveStyles && this.style.removeAttribute){
+			this.style.removeAttribute(property);
+		}
+		//</ltIE9>
 		return this;
 	},
 
@@ -6144,13 +6267,13 @@ provides: [Behavior]
 })();
 
 
-// Begin: Source/UI/Bootstrap.Twipsy.js
+// Begin: Source/UI/Bootstrap.Tooltip.js
 /*
 ---
 
-name: Bootstrap.Twipsy
+name: Bootstrap.Tooltip
 
-description: A simple tooltip implementation (twipsy) that works with the Twitter Bootstrap css framework.
+description: A simple tooltip implementation that works with the Twitter Bootstrap css framework.
 
 authors: [Aaron Newton]
 
@@ -6162,17 +6285,17 @@ requires:
  - More/Element.Position
  - Behavior/Behavior
 
-provides: Bootstrap.Twipsy
+provides: [Bootstrap.Twipsy, Bootstrap.Tooltip]
 
 ...
 */
 
-Bootstrap.Twipsy = new Class({
+Bootstrap.Tooltip = Bootstrap.Twipsy = new Class({
 
 	Implements: [Options, Events],
 
 	options: {
-		location: 'above', //below, left, right
+		location: 'above', //below, left, right, bottom, top
 		animate: true,
 		delayIn: 200,
 		delayOut: 0,
@@ -6198,7 +6321,7 @@ Bootstrap.Twipsy = new Class({
 		this._makeTip();
 		var pos, edge, offset = {x: 0, y: 0};
 		switch(this.options.location){
-			case 'below':
+			case 'below': case 'bottom':
 				pos = 'centerBottom';
 				edge = 'centerTop';
 				offset.y = this.options.offset;
@@ -6251,7 +6374,10 @@ Bootstrap.Twipsy = new Class({
 
 	_makeTip: function(){
 		if (!this.tip){
-			this.tip = new Element('div.tooltip').addClass(this.options.location)
+			var location = this.options.location;
+			if (location == 'above') location = 'top';    //bootstrap 2.0
+			if (location == 'below') location = 'bottom'; //bootstrap 2.0
+			this.tip = new Element('div.tooltip').addClass(location)
 				 .adopt(new Element('div.tooltip-arrow'))
 				 .adopt(
 				   new Element('div.tooltip-inner', {
@@ -6544,7 +6670,7 @@ var Request = this.Request = new Class({
 		this.fireEvent('request');
 		xhr.send(data);
 		if (!this.options.async) this.onStateChange();
-		if (this.options.timeout) this.timer = this.timeout.delay(this.options.timeout, this);
+		else if (this.options.timeout) this.timer = this.timeout.delay(this.options.timeout, this);
 		return this;
 	},
 
@@ -6608,6 +6734,7 @@ Element.implement({
 });
 
 })();
+
 
 // Begin: Source/Request/Request.JSON.js
 /*
@@ -7004,7 +7131,7 @@ Bootstrap.Dropdown = new Class({
 		var el = e.target;
 		var open = el.getParent('li.open');
 		if (!el.match(this.options.ignore) || !open) this.hideAll();
-		if (this.element.contains(el) && (el.match('a.menu') || el.getParent('a.menu'))) {
+		if (this.element.contains(el) && (el.match('.dropdown-toggle') || el.getParent('.dropdown-toggle'))) {
 			e.preventDefault();
 			if (!open) this.show(el.getParent('li'));
 		}
@@ -7595,6 +7722,12 @@ Fx.CSS = new Class({
 		if (values[1] == null){
 			values[1] = values[0];
 			values[0] = element.getStyle(property);
+			// adapted from: https://github.com/ryanmorr/fx/blob/master/fx.js#L299
+			if (this.options.unit != 'px'){
+				element.setStyle(property, values[1] + this.options.unit);
+				values[0] = (values[1] || 1) / parseFloat(element.getComputedStyle(property)) * (parseFloat(values[0]) || 0);
+				element.setStyle(property, values[0] + this.options.unit);
+			}
 		}
 		var parsed = values.map(this.parse);
 		return {from: parsed[0], to: parsed[1]};
@@ -7939,27 +8072,29 @@ Element.implement({
 	},
 
 	fade: function(how){
-		var fade = this.get('tween'), method, to, toggle;
-		if (how == null) how = 'toggle';
-		switch (how){
-			case 'in': method = 'start'; to = 1; break;
-			case 'out': method = 'start'; to = 0; break;
-			case 'show': method = 'set'; to = 1; break;
-			case 'hide': method = 'set'; to = 0; break;
+		var fade = this.get('tween'), method, args = ['opacity'].append(arguments), toggle;
+		if (args[1] == null) args[1] = 'toggle';
+		switch (args[1]){
+			case 'in': method = 'start'; args[1] = 1; break;
+			case 'out': method = 'start'; args[1] = 0; break;
+			case 'show': method = 'set'; args[1] = 1; break;
+			case 'hide': method = 'set'; args[1] = 0; break;
 			case 'toggle':
 				var flag = this.retrieve('fade:flag', this.getStyle('opacity') == 1);
 				method = 'start';
-				to = flag ? 0 : 1;
+				args[1] = flag ? 0 : 1;
 				this.store('fade:flag', !flag);
 				toggle = true;
 			break;
-			default: method = 'start'; to = how;
+			default: method = 'start';
 		}
 		if (!toggle) this.eliminate('fade:flag');
-		fade[method]('opacity', to);
+		fade[method].apply(fade, args);
+		var to = args[args.length - 1];
 		if (method == 'set' || to != 0) this.setStyle('visibility', to == 0 ? 'hidden' : 'visible');
 		else fade.chain(function(){
 			this.element.setStyle('visibility', 'hidden');
+			this.callChain();
 		});
 		return this;
 	},
@@ -11973,7 +12108,7 @@ Behavior.addGlobalFilter('FormValidator', {
 			});
 		}
 		api.onCleanup(function(){
-			validator.disable();
+			validator.stop();
 		});
 		return validator;
 	}
@@ -12585,7 +12720,7 @@ var TabSwapper = new Class({
 name: Behavior.Tabs
 description: Adds a tab interface (TabSwapper instance) for elements with .css-tab_ui. Matched with tab elements that are .tabs and sections that are .tab_sections.
 provides: [Behavior.Tabs]
-requires: [Behavior/Behavior, /TabSwapper, More/String.QueryString]
+requires: [Behavior/Behavior, /TabSwapper, More/String.QueryString, More/Object.Extras]
 script: Behavior.Tabs.js
 
 ...
@@ -12606,7 +12741,7 @@ Behavior.addGlobalFilters({
 			var tabs = element.getElements(api.get('tabs-selector'));
 			var sections = element.getElements(api.get('sections-selector'));
 			if (tabs.length != sections.length || tabs.length == 0) {
-				api.fail('warning; sections and sections are not of equal number. tabs: %o, sections: %o', tabs, sections);
+				api.fail('warning; sections and sections are not of equal number. tabs: ' + tabs.length + ', sections: ' + sections.length);
 			}
 			var getHash = function(){
 				return window.location.hash.substring(1, window.location.hash.length).parseQueryString();
@@ -12675,7 +12810,7 @@ provides: [Behavior.BS.Tabs]
 	});
 
 	Behavior.setFilterDefaults('BS.Tabs', {
-		'tabs-selector': '>li',
+		'tabs-selector': 'a:not(.dropdown-toggle)',
 		'sections-selector': '+.tab-content >',
 		'selectedClass': 'active',
 		smooth: false,
@@ -12918,14 +13053,14 @@ var Slider = new Class({
 
 name: Bootstrap.Popover
 
-description: A simple tooltip (yet larger than twipsy) implementation that works with the Twitter Bootstrap css framework.
+description: A simple tooltip (yet larger than Bootstrap.Tooltip) implementation that works with the Twitter Bootstrap css framework.
 
 authors: [Aaron Newton]
 
 license: MIT-style license.
 
 requires:
- - /Bootstrap.Twipsy
+ - /Bootstrap.Tooltip
 
 provides: Bootstrap.Popover
 
@@ -12934,7 +13069,7 @@ provides: Bootstrap.Popover
 
 Bootstrap.Popover = new Class({
 
-	Extends: Bootstrap.Twipsy,
+	Extends: Bootstrap.Tooltip,
 
 	options: {
 		location: 'right',
@@ -12953,10 +13088,10 @@ Bootstrap.Popover = new Class({
 			this.tip = new Element('div.popover').addClass(this.options.location)
 				 .adopt(new Element('div.arrow'))
 				 .adopt(
-				   new Element('div.inner').adopt(
-				     new Element('h3.title', { html: this.options.getTitle.apply(this, [this.element]) || this.options.fallback })
+				   new Element('div.popover-inner').adopt(
+				     new Element('h3.popover-title', { html: this.options.getTitle.apply(this, [this.element]) || this.options.fallback })
 				   ).adopt(
-				     new Element('div.content').adopt(
+				     new Element('div.popover-content').adopt(
 				       new Element('p', { html: this.options.getContent.apply(this, [this.element])})
 				     )
 				   )
@@ -13724,29 +13859,29 @@ String.implement({
 
 
 
-// Begin: Source/Behaviors/Behavior.BS.Twipsy.js
+// Begin: Source/Behaviors/Behavior.BS.Tooltip.js
 /*
 ---
 
-name: Behavior.BS.Twipsy
+name: Behavior.BS.Tooltip
 
-description: Instantiates Bootstrap.Twipsy based on HTML markup.
+description: Instantiates Bootstrap.Tooltip based on HTML markup.
 
 license: MIT-style license.
 
 authors: [Aaron Newton]
 
 requires:
- - /Bootstrap.Twipsy
+ - /Bootstrap.Tooltip
  - Behavior/Behavior
  - More/Object.Extras
 
-provides: [Behavior.BS.Twipsy]
+provides: [Behavior.BS.Twipsy, Behavior.BS.Tooltip]
 
 ...
 */
-Behavior.addGlobalFilters({
-	'BS.Twipsy': {
+(function(){
+	var filter = {
 		defaults: {
 			location: 'above', //below, left, right
 			animate: true,
@@ -13757,7 +13892,7 @@ Behavior.addGlobalFilters({
 			trigger: 'hover' //focus, manual
 		},
 		delayUntil: 'mouseover,focus',
-		returns: Bootstrap.Twipsy,
+		returns: Bootstrap.Tooltip,
 		setup: function(el, api){
 			var options = Object.cleanValues(
 				api.getAs({
@@ -13774,13 +13909,17 @@ Behavior.addGlobalFilters({
 				})
 			);
 			options.getTitle = Function.from(api.get('content') || el.get('title'));
-			var tip = new Bootstrap.Twipsy(el, options);
+			var tip = new Bootstrap.Tooltip(el, options);
 			api.onCleanup(tip.destroy.bind(tip));
 			if (api.event) tip.show();
 			return tip;
 		}
-	}
-});
+	};
+	Behavior.addGlobalFilters({
+		'BS.Tooltip': filter,
+		'BS.Twipsy': filter
+	});
+})();
 
 // Begin: Source/Forms/OverText.js
 /*

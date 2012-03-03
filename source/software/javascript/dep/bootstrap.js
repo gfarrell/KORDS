@@ -1,6 +1,6 @@
 
-//This library: http://dev.clientcide.com/depender/build?download=true&version=MooTools+Bootstrap&require=Core%2FBrowser&require=Core%2FClass.Extras&require=Core%2FClass&require=Core%2FCore&require=Core%2FElement.Delegation&require=Core%2FElement.Dimensions&require=Core%2FElement.Event&require=Core%2FElement.Style&require=Core%2FElement&require=Core%2FFx.CSS&require=Core%2FFx.Morph&require=Core%2FFx.Transitions&require=Core%2FFx.Tween&require=Core%2FFx&require=Core%2FRequest.HTML&require=Core%2FRequest.JSON&require=Core%2FRequest&require=Core%2FSlick.Finder&require=Core%2FSlick.Parser&require=Core%2FArray&require=Core%2FEvent&require=Core%2FFunction&require=Core%2FNumber&require=Core%2FObject&require=Core%2FString&require=Core%2FCookie&require=Core%2FDOMReady&require=Core%2FJSON&require=Core%2FSwiff&require=Bootstrap%2FBehavior.BS.Alert&require=Bootstrap%2FBehavior.BS.Dropdown&require=Bootstrap%2FBehavior.BS.FormValidator&require=Bootstrap%2FBehavior.BS.Popover&require=Bootstrap%2FBehavior.BS.Popup.FormRequest&require=Bootstrap%2FBehavior.Popup&require=Bootstrap%2FBehavior.BS.Tabs&require=Bootstrap%2FBehavior.BS.Twipsy&require=Bootstrap%2FBootstrap.Dropdown&require=Bootstrap%2FBootstrap.Popover&require=Bootstrap%2FPopup&require=Bootstrap%2FBootstrap.Twipsy&require=Bootstrap%2FBootstrap&require=Bootstrap%2FCSSEvents&require=Bootstrap%2FDelegator.BS.ShowPopup&require=More-Behaviors%2FBehavior.OverText&require=More%2FDrag.Move&require=More%2FDrag&require=More%2FSlider&require=More%2FSortables&require=More%2FFx.Elements&require=More%2FFx.Move&require=More%2FFx.Reveal&require=More%2FFx.Scroll&require=More%2FFx.Slide&require=More%2FFx.SmoothScroll&require=More%2FLocale.en-GB.Date&require=More%2FMore&require=More%2FArray.Extras&require=More%2FAssets&require=More%2FColor&require=More%2FHtmlTable
-//Contents: Bootstrap:Source/UI/Bootstrap.js, Core:Source/Core/Core.js, Core:Source/Types/Array.js, Core:Source/Types/Function.js, Core:Source/Types/Number.js, Core:Source/Types/String.js, Core:Source/Browser/Browser.js, Core:Source/Types/Object.js, Core:Source/Slick/Slick.Parser.js, Core:Source/Slick/Slick.Finder.js, Core:Source/Element/Element.js, Core:Source/Types/DOMEvent.js, Core:Source/Element/Element.Event.js, Core:Source/Utilities/DOMReady.js, Bootstrap:Source/UI/CSSEvents.js, Core:Source/Class/Class.js, Core:Source/Class/Class.Extras.js, Core:Source/Element/Element.Style.js, Core:Source/Element/Element.Dimensions.js, More:Source/More/More.js, More:Source/Element/Element.Measure.js, More:Source/Element/Element.Position.js, More:Source/Utilities/Table.js, Core:Source/Utilities/JSON.js, Behavior:Source/Element.Data.js, Behavior:Source/BehaviorAPI.js, Behavior:Source/Behavior.js, Bootstrap:Source/UI/Bootstrap.Tooltip.js, Core:Source/Request/Request.js, Core:Source/Request/Request.JSON.js, Core:Source/Element/Element.Delegation.js, More:Source/Element/Element.Shortcuts.js, Bootstrap:Source/UI/Bootstrap.Dropdown.js, Bootstrap:Source/Behaviors/Behavior.BS.Dropdown.js, Behavior:Source/Event.Mock.js, Behavior:Source/Delegator.js, Bootstrap:Source/UI/Delegator.BS.ShowPopup.js, Core:Source/Fx/Fx.js, Core:Source/Fx/Fx.CSS.js, Core:Source/Fx/Fx.Morph.js, More:Source/Types/Object.Extras.js, Core:Source/Fx/Fx.Tween.js, Core:Source/Fx/Fx.Transitions.js, More:Source/Class/Class.Binds.js, More:Source/Class/Class.Occlude.js, More:Source/Utilities/IframeShim.js, More:Source/Interface/Mask.js, More:Source/Element/Elements.From.js, More:Source/Class/Events.Pseudos.js, Bootstrap:Source/UI/Bootstrap.Popup.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.js, Core:Source/Request/Request.HTML.js, More:Source/Class/Class.Refactor.js, More:Source/Interface/Spinner.js, More:Source/Types/String.QueryString.js, More:Source/Element/Element.Event.Pseudos.js, More:Source/Forms/Form.Request.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.FormRequest.js, More:Source/Fx/Fx.Elements.js, More:Source/Fx/Fx.Move.js, More:Source/Fx/Fx.Scroll.js, More:Source/Locale/Locale.js, More:Source/Locale/Locale.en-US.Date.js, More:Source/Types/Date.js, More:Source/Types/String.Extras.js, More:Source/Element/Element.Forms.js, More:Source/Locale/Locale.en-US.Form.Validator.js, More:Source/Forms/Form.Validator.js, More:Source/Forms/Form.Validator.Inline.js, More-Behaviors:Source/Forms/Behavior.FormValidator.js, Bootstrap:Source/Behaviors/Behavior.BS.FormValidator.js, More:Source/Types/Array.Extras.js, More:Source/Drag/Drag.js, Clientcide:Source/Layout/TabSwapper.js, Clientcide:Source/Behaviors/Behavior.Tabs.js, Bootstrap:Source/Behaviors/Behavior.BS.Tabs.js, More:Source/Drag/Slider.js, Bootstrap:Source/UI/Bootstrap.Popover.js, More:Source/Drag/Drag.Move.js, More:Source/Fx/Fx.SmoothScroll.js, More:Source/Fx/Fx.Reveal.js, More-Behaviors:Source/Delegators/Delegator.FxReveal.js, Bootstrap:Source/Behaviors/Behavior.BS.Alert.js, More:Source/Utilities/Color.js, Bootstrap:Source/Behaviors/Behavior.BS.Tooltip.js, More:Source/Forms/OverText.js, More-Behaviors:Source/Forms/Behavior.OverText.js, Bootstrap:Source/Behaviors/Behavior.BS.Popover.js, More:Source/Locale/Locale.en-GB.Date.js, Core:Source/Utilities/Cookie.js, More:Source/Interface/HtmlTable.js, More:Source/Utilities/Assets.js, Core:Source/Utilities/Swiff.js, More:Source/Fx/Fx.Slide.js, More:Source/Drag/Sortables.js
+//This library: http://dev.clientcide.com/depender/build?version=MooTools+Bootstrap&require=Core%2FBrowser&require=Core%2FClass.Extras&require=Core%2FClass&require=Core%2FCore&require=Core%2FElement.Delegation&require=Core%2FElement.Dimensions&require=Core%2FElement.Event&require=More%2FElement.Event.Pseudos&require=More%2FElement.Event.Pseudos.Keys&require=Core%2FElement.Style&require=Core%2FElement&require=Core%2FFx.CSS&require=Core%2FFx.Morph&require=Core%2FFx.Transitions&require=Core%2FFx.Tween&require=Core%2FFx&require=Core%2FRequest.HTML&require=Core%2FRequest.JSON&require=Core%2FRequest&require=Core%2FSlick.Finder&require=Core%2FSlick.Parser&require=Core%2FArray&require=Core%2FEvent&require=Core%2FFunction&require=Core%2FNumber&require=Core%2FObject&require=Core%2FString&require=Core%2FCookie&require=Core%2FDOMReady&require=Core%2FJSON&require=Core%2FSwiff&require=Bootstrap%2FBehavior.BS.Alert&require=Bootstrap%2FBehavior.BS.Dropdown&require=Bootstrap%2FBehavior.BS.FormValidator&require=Bootstrap%2FBehavior.BS.Popover&require=Bootstrap%2FBehavior.BS.Popup.FormRequest&require=Bootstrap%2FBehavior.Popup&require=Bootstrap%2FBehavior.BS.Tabs&require=Bootstrap%2FBehavior.BS.Twipsy&require=Bootstrap%2FBootstrap.Dropdown&require=Bootstrap%2FBootstrap.Popover&require=Bootstrap%2FPopup&require=Bootstrap%2FBootstrap.Twipsy&require=Bootstrap%2FBootstrap&require=Bootstrap%2FCSSEvents&require=Bootstrap%2FDelegator.BS.ShowPopup&require=More-Behaviors%2FBehavior.OverText&require=More%2FDrag.Move&require=More%2FDrag&require=More%2FSlider&require=More%2FSortables&require=More%2FFx.Elements&require=More%2FFx.Move&require=More%2FFx.Reveal&require=More%2FFx.Scroll&require=More%2FFx.Slide&require=More%2FFx.SmoothScroll&require=More%2FLocale.en-GB.Date&require=More%2FMore&require=More%2FArray.Extras&require=More%2FAssets&require=More%2FColor&require=More%2FHtmlTable
+//Contents: Bootstrap:Source/UI/Bootstrap.js, Core:Source/Core/Core.js, Core:Source/Types/Array.js, Core:Source/Types/Function.js, Core:Source/Types/Number.js, Core:Source/Types/String.js, Core:Source/Browser/Browser.js, Core:Source/Types/Object.js, Core:Source/Slick/Slick.Parser.js, Core:Source/Slick/Slick.Finder.js, Core:Source/Element/Element.js, Core:Source/Types/DOMEvent.js, Core:Source/Element/Element.Event.js, Core:Source/Utilities/DOMReady.js, Bootstrap:Source/UI/CSSEvents.js, Core:Source/Class/Class.js, Core:Source/Class/Class.Extras.js, Core:Source/Element/Element.Style.js, Core:Source/Element/Element.Dimensions.js, More:Source/More/More.js, More:Source/Element/Element.Measure.js, More:Source/Element/Element.Position.js, More:Source/Utilities/Table.js, Core:Source/Utilities/JSON.js, Behavior:Source/Element.Data.js, Behavior:Source/BehaviorAPI.js, Behavior:Source/Behavior.js, Bootstrap:Source/UI/Bootstrap.Tooltip.js, Core:Source/Request/Request.js, Core:Source/Request/Request.JSON.js, Core:Source/Element/Element.Delegation.js, More:Source/Element/Element.Shortcuts.js, Bootstrap:Source/UI/Bootstrap.Dropdown.js, Bootstrap:Source/Behaviors/Behavior.BS.Dropdown.js, Behavior:Source/Event.Mock.js, Behavior:Source/Delegator.js, Bootstrap:Source/UI/Delegator.BS.ShowPopup.js, Core:Source/Fx/Fx.js, Core:Source/Fx/Fx.CSS.js, Core:Source/Fx/Fx.Morph.js, More:Source/Types/Object.Extras.js, Core:Source/Fx/Fx.Tween.js, Core:Source/Fx/Fx.Transitions.js, More:Source/Class/Class.Binds.js, More:Source/Class/Class.Occlude.js, More:Source/Utilities/IframeShim.js, More:Source/Interface/Mask.js, More:Source/Element/Elements.From.js, More:Source/Class/Events.Pseudos.js, Bootstrap:Source/UI/Bootstrap.Popup.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.js, Core:Source/Request/Request.HTML.js, More:Source/Class/Class.Refactor.js, More:Source/Interface/Spinner.js, More:Source/Types/String.QueryString.js, More:Source/Element/Element.Event.Pseudos.js, More:Source/Forms/Form.Request.js, Bootstrap:Source/Behaviors/Behavior.BS.Popup.FormRequest.js, More:Source/Fx/Fx.Elements.js, More:Source/Fx/Fx.Move.js, More:Source/Fx/Fx.Scroll.js, More:Source/Locale/Locale.js, More:Source/Locale/Locale.en-US.Date.js, More:Source/Types/Date.js, More:Source/Types/String.Extras.js, More:Source/Element/Element.Forms.js, More:Source/Locale/Locale.en-US.Form.Validator.js, More:Source/Forms/Form.Validator.js, More:Source/Forms/Form.Validator.Inline.js, More-Behaviors:Source/Forms/Behavior.FormValidator.js, Bootstrap:Source/Behaviors/Behavior.BS.FormValidator.js, More:Source/Types/Array.Extras.js, More:Source/Element/Element.Event.Pseudos.Keys.js, More:Source/Drag/Drag.js, Clientcide:Source/Layout/TabSwapper.js, Clientcide:Source/Behaviors/Behavior.Tabs.js, Bootstrap:Source/Behaviors/Behavior.BS.Tabs.js, More:Source/Drag/Slider.js, Bootstrap:Source/UI/Bootstrap.Popover.js, More:Source/Drag/Drag.Move.js, More:Source/Fx/Fx.SmoothScroll.js, More:Source/Fx/Fx.Reveal.js, More-Behaviors:Source/Delegators/Delegator.FxReveal.js, Bootstrap:Source/Behaviors/Behavior.BS.Alert.js, Bootstrap:Source/Behaviors/Behavior.BS.Tooltip.js, More:Source/Forms/OverText.js, More-Behaviors:Source/Forms/Behavior.OverText.js, Bootstrap:Source/Behaviors/Behavior.BS.Popover.js, More:Source/Locale/Locale.en-GB.Date.js, Core:Source/Utilities/Cookie.js, More:Source/Interface/HtmlTable.js, More:Source/Utilities/Assets.js, Core:Source/Utilities/Swiff.js, More:Source/Fx/Fx.Slide.js, More:Source/Utilities/Color.js, More:Source/Drag/Sortables.js
 
 // Begin: Source/UI/Bootstrap.js
 /*
@@ -9455,7 +9455,7 @@ description: Methods for dealing with URI query strings.
 license: MIT-style license
 
 authors:
-  - Sebastian Markbåge
+  - Sebastian MarkbÃ¥ge
   - Aaron Newton
   - Lennart Pilon
   - Valerio Proietti
@@ -10994,47 +10994,47 @@ provides: [String.Extras]
 (function(){
 
 var special = {
-	'a': /[àáâãäåăą]/g,
-	'A': /[ÀÁÂÃÄÅĂĄ]/g,
-	'c': /[ćčç]/g,
-	'C': /[ĆČÇ]/g,
-	'd': /[ďđ]/g,
-	'D': /[ĎÐ]/g,
-	'e': /[èéêëěę]/g,
-	'E': /[ÈÉÊËĚĘ]/g,
-	'g': /[ğ]/g,
-	'G': /[Ğ]/g,
-	'i': /[ìíîï]/g,
-	'I': /[ÌÍÎÏ]/g,
-	'l': /[ĺľł]/g,
-	'L': /[ĹĽŁ]/g,
-	'n': /[ñňń]/g,
-	'N': /[ÑŇŃ]/g,
-	'o': /[òóôõöøő]/g,
-	'O': /[ÒÓÔÕÖØ]/g,
-	'r': /[řŕ]/g,
-	'R': /[ŘŔ]/g,
-	's': /[ššş]/g,
-	'S': /[ŠŞŚ]/g,
-	't': /[ťţ]/g,
-	'T': /[ŤŢ]/g,
-	'ue': /[ü]/g,
-	'UE': /[Ü]/g,
-	'u': /[ùúûůµ]/g,
-	'U': /[ÙÚÛŮ]/g,
-	'y': /[ÿý]/g,
-	'Y': /[ŸÝ]/g,
-	'z': /[žźż]/g,
-	'Z': /[ŽŹŻ]/g,
-	'th': /[þ]/g,
-	'TH': /[Þ]/g,
-	'dh': /[ð]/g,
-	'DH': /[Ð]/g,
-	'ss': /[ß]/g,
-	'oe': /[œ]/g,
-	'OE': /[Œ]/g,
-	'ae': /[æ]/g,
-	'AE': /[Æ]/g
+	'a': /[Ã Ã¡Ã¢Ã£Ã¤Ã¥ÄƒÄ…]/g,
+	'A': /[Ã€ÃÃ‚ÃƒÃ„Ã…Ä‚Ä„]/g,
+	'c': /[Ä‡ÄÃ§]/g,
+	'C': /[Ä†ÄŒÃ‡]/g,
+	'd': /[ÄÄ‘]/g,
+	'D': /[ÄŽÃ]/g,
+	'e': /[Ã¨Ã©ÃªÃ«Ä›Ä™]/g,
+	'E': /[ÃˆÃ‰ÃŠÃ‹ÄšÄ˜]/g,
+	'g': /[ÄŸ]/g,
+	'G': /[Äž]/g,
+	'i': /[Ã¬Ã­Ã®Ã¯]/g,
+	'I': /[ÃŒÃÃŽÃ]/g,
+	'l': /[ÄºÄ¾Å‚]/g,
+	'L': /[Ä¹Ä½Å]/g,
+	'n': /[Ã±ÅˆÅ„]/g,
+	'N': /[Ã‘Å‡Åƒ]/g,
+	'o': /[Ã²Ã³Ã´ÃµÃ¶Ã¸Å‘]/g,
+	'O': /[Ã’Ã“Ã”Ã•Ã–Ã˜]/g,
+	'r': /[Å™Å•]/g,
+	'R': /[Å˜Å”]/g,
+	's': /[Å¡Å¡ÅŸ]/g,
+	'S': /[Å ÅžÅš]/g,
+	't': /[Å¥Å£]/g,
+	'T': /[Å¤Å¢]/g,
+	'ue': /[Ã¼]/g,
+	'UE': /[Ãœ]/g,
+	'u': /[Ã¹ÃºÃ»Å¯Âµ]/g,
+	'U': /[Ã™ÃšÃ›Å®]/g,
+	'y': /[Ã¿Ã½]/g,
+	'Y': /[Å¸Ã]/g,
+	'z': /[Å¾ÅºÅ¼]/g,
+	'Z': /[Å½Å¹Å»]/g,
+	'th': /[Ã¾]/g,
+	'TH': /[Ãž]/g,
+	'dh': /[Ã°]/g,
+	'DH': /[Ã]/g,
+	'ss': /[ÃŸ]/g,
+	'oe': /[Å“]/g,
+	'OE': /[Å’]/g,
+	'ae': /[Ã¦]/g,
+	'AE': /[Ã†]/g
 },
 
 tidy = {
@@ -11098,7 +11098,7 @@ String.implement({
 
 	truncate: function(max, trail, atChar){
 		var string = this;
-		if (trail == null && arguments.length == 1) trail = '…';
+		if (trail == null && arguments.length == 1) trail = 'â€¦';
 		if (string.length > max){
 			string = string.substring(0, max);
 			if (atChar){
@@ -12199,7 +12199,7 @@ license: MIT-style license
 
 authors:
   - Christoph Pojer
-  - Sebastian Markbåge
+  - Sebastian MarkbÃ¥ge
 
 requires:
   - Core/Array
@@ -12263,6 +12263,90 @@ Array.implement({
 	}
 
 });
+
+})();
+
+
+// Begin: Source/Element/Element.Event.Pseudos.Keys.js
+/*
+---
+
+name: Element.Event.Pseudos.Keys
+
+description: Adds functionality fire events if certain keycombinations are pressed
+
+license: MIT-style license
+
+authors:
+  - Arian Stolwijk
+
+requires: [Element.Event.Pseudos]
+
+provides: [Element.Event.Pseudos.Keys]
+
+...
+*/
+
+(function(){
+
+var keysStoreKey = '$moo:keys-pressed',
+	keysKeyupStoreKey = '$moo:keys-keyup';
+
+
+DOMEvent.definePseudo('keys', function(split, fn, args){
+
+	var event = args[0],
+		keys = [],
+		pressed = this.retrieve(keysStoreKey, []);
+
+	keys.append(split.value.replace('++', function(){
+		keys.push('+'); // shift++ and shift+++a
+		return '';
+	}).split('+'));
+
+	pressed.include(event.key);
+
+	if (keys.every(function(key){
+		return pressed.contains(key);
+	})) fn.apply(this, args);
+
+	this.store(keysStoreKey, pressed);
+
+	if (!this.retrieve(keysKeyupStoreKey)){
+		var keyup = function(event){
+			(function(){
+				pressed = this.retrieve(keysStoreKey, []).erase(event.key);
+				this.store(keysStoreKey, pressed);
+			}).delay(0, this); // Fix for IE
+		};
+		this.store(keysKeyupStoreKey, keyup).addEvent('keyup', keyup);
+	}
+
+});
+
+DOMEvent.defineKeys({
+	'16': 'shift',
+	'17': 'control',
+	'18': 'alt',
+	'20': 'capslock',
+	'33': 'pageup',
+	'34': 'pagedown',
+	'35': 'end',
+	'36': 'home',
+	'144': 'numlock',
+	'145': 'scrolllock',
+	'186': ';',
+	'187': '=',
+	'188': ',',
+	'190': '.',
+	'191': '/',
+	'192': '`',
+	'219': '[',
+	'220': '\\',
+	'221': ']',
+	'222': "'",
+	'107': '+'
+}).defineKey(Browser.firefox ? 109 : 189, '-');
 
 })();
 
@@ -13694,171 +13778,6 @@ provides: [Behavior.BS.Alert]
 ...
 */
 
-// Begin: Source/Utilities/Color.js
-/*
----
-
-script: Color.js
-
-name: Color
-
-description: Class for creating and manipulating colors in JavaScript. Supports HSB -> RGB Conversions and vice versa.
-
-license: MIT-style license
-
-authors:
-  - Valerio Proietti
-
-requires:
-  - Core/Array
-  - Core/String
-  - Core/Number
-  - Core/Hash
-  - Core/Function
-  - MooTools.More
-
-provides: [Color]
-
-...
-*/
-
-(function(){
-
-var Color = this.Color = new Type('Color', function(color, type){
-	if (arguments.length >= 3){
-		type = 'rgb'; color = Array.slice(arguments, 0, 3);
-	} else if (typeof color == 'string'){
-		if (color.match(/rgb/)) color = color.rgbToHex().hexToRgb(true);
-		else if (color.match(/hsb/)) color = color.hsbToRgb();
-		else color = color.hexToRgb(true);
-	}
-	type = type || 'rgb';
-	switch (type){
-		case 'hsb':
-			var old = color;
-			color = color.hsbToRgb();
-			color.hsb = old;
-		break;
-		case 'hex': color = color.hexToRgb(true); break;
-	}
-	color.rgb = color.slice(0, 3);
-	color.hsb = color.hsb || color.rgbToHsb();
-	color.hex = color.rgbToHex();
-	return Object.append(color, this);
-});
-
-Color.implement({
-
-	mix: function(){
-		var colors = Array.slice(arguments);
-		var alpha = (typeOf(colors.getLast()) == 'number') ? colors.pop() : 50;
-		var rgb = this.slice();
-		colors.each(function(color){
-			color = new Color(color);
-			for (var i = 0; i < 3; i++) rgb[i] = Math.round((rgb[i] / 100 * (100 - alpha)) + (color[i] / 100 * alpha));
-		});
-		return new Color(rgb, 'rgb');
-	},
-
-	invert: function(){
-		return new Color(this.map(function(value){
-			return 255 - value;
-		}));
-	},
-
-	setHue: function(value){
-		return new Color([value, this.hsb[1], this.hsb[2]], 'hsb');
-	},
-
-	setSaturation: function(percent){
-		return new Color([this.hsb[0], percent, this.hsb[2]], 'hsb');
-	},
-
-	setBrightness: function(percent){
-		return new Color([this.hsb[0], this.hsb[1], percent], 'hsb');
-	}
-
-});
-
-this.$RGB = function(r, g, b){
-	return new Color([r, g, b], 'rgb');
-};
-
-this.$HSB = function(h, s, b){
-	return new Color([h, s, b], 'hsb');
-};
-
-this.$HEX = function(hex){
-	return new Color(hex, 'hex');
-};
-
-Array.implement({
-
-	rgbToHsb: function(){
-		var red = this[0],
-				green = this[1],
-				blue = this[2],
-				hue = 0;
-		var max = Math.max(red, green, blue),
-				min = Math.min(red, green, blue);
-		var delta = max - min;
-		var brightness = max / 255,
-				saturation = (max != 0) ? delta / max : 0;
-		if (saturation != 0){
-			var rr = (max - red) / delta;
-			var gr = (max - green) / delta;
-			var br = (max - blue) / delta;
-			if (red == max) hue = br - gr;
-			else if (green == max) hue = 2 + rr - br;
-			else hue = 4 + gr - rr;
-			hue /= 6;
-			if (hue < 0) hue++;
-		}
-		return [Math.round(hue * 360), Math.round(saturation * 100), Math.round(brightness * 100)];
-	},
-
-	hsbToRgb: function(){
-		var br = Math.round(this[2] / 100 * 255);
-		if (this[1] == 0){
-			return [br, br, br];
-		} else {
-			var hue = this[0] % 360;
-			var f = hue % 60;
-			var p = Math.round((this[2] * (100 - this[1])) / 10000 * 255);
-			var q = Math.round((this[2] * (6000 - this[1] * f)) / 600000 * 255);
-			var t = Math.round((this[2] * (6000 - this[1] * (60 - f))) / 600000 * 255);
-			switch (Math.floor(hue / 60)){
-				case 0: return [br, t, p];
-				case 1: return [q, br, p];
-				case 2: return [p, br, t];
-				case 3: return [p, q, br];
-				case 4: return [t, p, br];
-				case 5: return [br, p, q];
-			}
-		}
-		return false;
-	}
-
-});
-
-String.implement({
-
-	rgbToHsb: function(){
-		var rgb = this.match(/\d{1,3}/g);
-		return (rgb) ? rgb.rgbToHsb() : null;
-	},
-
-	hsbToRgb: function(){
-		var hsb = this.match(/\d{1,3}/g);
-		return (hsb) ? hsb.hsbToRgb() : null;
-	}
-
-});
-
-})();
-
-
-
 // Begin: Source/Behaviors/Behavior.BS.Tooltip.js
 /*
 ---
@@ -14971,6 +14890,171 @@ Element.implement({
 });
 
 
+// Begin: Source/Utilities/Color.js
+/*
+---
+
+script: Color.js
+
+name: Color
+
+description: Class for creating and manipulating colors in JavaScript. Supports HSB -> RGB Conversions and vice versa.
+
+license: MIT-style license
+
+authors:
+  - Valerio Proietti
+
+requires:
+  - Core/Array
+  - Core/String
+  - Core/Number
+  - Core/Hash
+  - Core/Function
+  - MooTools.More
+
+provides: [Color]
+
+...
+*/
+
+(function(){
+
+var Color = this.Color = new Type('Color', function(color, type){
+	if (arguments.length >= 3){
+		type = 'rgb'; color = Array.slice(arguments, 0, 3);
+	} else if (typeof color == 'string'){
+		if (color.match(/rgb/)) color = color.rgbToHex().hexToRgb(true);
+		else if (color.match(/hsb/)) color = color.hsbToRgb();
+		else color = color.hexToRgb(true);
+	}
+	type = type || 'rgb';
+	switch (type){
+		case 'hsb':
+			var old = color;
+			color = color.hsbToRgb();
+			color.hsb = old;
+		break;
+		case 'hex': color = color.hexToRgb(true); break;
+	}
+	color.rgb = color.slice(0, 3);
+	color.hsb = color.hsb || color.rgbToHsb();
+	color.hex = color.rgbToHex();
+	return Object.append(color, this);
+});
+
+Color.implement({
+
+	mix: function(){
+		var colors = Array.slice(arguments);
+		var alpha = (typeOf(colors.getLast()) == 'number') ? colors.pop() : 50;
+		var rgb = this.slice();
+		colors.each(function(color){
+			color = new Color(color);
+			for (var i = 0; i < 3; i++) rgb[i] = Math.round((rgb[i] / 100 * (100 - alpha)) + (color[i] / 100 * alpha));
+		});
+		return new Color(rgb, 'rgb');
+	},
+
+	invert: function(){
+		return new Color(this.map(function(value){
+			return 255 - value;
+		}));
+	},
+
+	setHue: function(value){
+		return new Color([value, this.hsb[1], this.hsb[2]], 'hsb');
+	},
+
+	setSaturation: function(percent){
+		return new Color([this.hsb[0], percent, this.hsb[2]], 'hsb');
+	},
+
+	setBrightness: function(percent){
+		return new Color([this.hsb[0], this.hsb[1], percent], 'hsb');
+	}
+
+});
+
+this.$RGB = function(r, g, b){
+	return new Color([r, g, b], 'rgb');
+};
+
+this.$HSB = function(h, s, b){
+	return new Color([h, s, b], 'hsb');
+};
+
+this.$HEX = function(hex){
+	return new Color(hex, 'hex');
+};
+
+Array.implement({
+
+	rgbToHsb: function(){
+		var red = this[0],
+				green = this[1],
+				blue = this[2],
+				hue = 0;
+		var max = Math.max(red, green, blue),
+				min = Math.min(red, green, blue);
+		var delta = max - min;
+		var brightness = max / 255,
+				saturation = (max != 0) ? delta / max : 0;
+		if (saturation != 0){
+			var rr = (max - red) / delta;
+			var gr = (max - green) / delta;
+			var br = (max - blue) / delta;
+			if (red == max) hue = br - gr;
+			else if (green == max) hue = 2 + rr - br;
+			else hue = 4 + gr - rr;
+			hue /= 6;
+			if (hue < 0) hue++;
+		}
+		return [Math.round(hue * 360), Math.round(saturation * 100), Math.round(brightness * 100)];
+	},
+
+	hsbToRgb: function(){
+		var br = Math.round(this[2] / 100 * 255);
+		if (this[1] == 0){
+			return [br, br, br];
+		} else {
+			var hue = this[0] % 360;
+			var f = hue % 60;
+			var p = Math.round((this[2] * (100 - this[1])) / 10000 * 255);
+			var q = Math.round((this[2] * (6000 - this[1] * f)) / 600000 * 255);
+			var t = Math.round((this[2] * (6000 - this[1] * (60 - f))) / 600000 * 255);
+			switch (Math.floor(hue / 60)){
+				case 0: return [br, t, p];
+				case 1: return [q, br, p];
+				case 2: return [p, br, t];
+				case 3: return [p, q, br];
+				case 4: return [t, p, br];
+				case 5: return [br, p, q];
+			}
+		}
+		return false;
+	}
+
+});
+
+String.implement({
+
+	rgbToHsb: function(){
+		var rgb = this.match(/\d{1,3}/g);
+		return (rgb) ? rgb.rgbToHsb() : null;
+	},
+
+	hsbToRgb: function(){
+		var hsb = this.match(/\d{1,3}/g);
+		return (hsb) ? hsb.hsbToRgb() : null;
+	}
+
+});
+
+})();
+
+
+
 // Begin: Source/Drag/Sortables.js
 /*
 ---
@@ -15205,5 +15289,3 @@ var Sortables = new Class({
 	}
 
 });
-
-

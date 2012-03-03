@@ -16,7 +16,7 @@ var RoomFilterController = new Class({
 	options: {
 		method:				'post',
 		data_url:			false,
-		room_data_url:		'/json/rooms/view/__id__',
+		room_data_url:		'/json/rooms/__id__',
 		room_url_format:	'/rooms/#/view/__id__',
 		dynamic_page:		true,
 		tenant_types:		{0: 'neither', 1: 'undergraduate', 2: 'graduate'},

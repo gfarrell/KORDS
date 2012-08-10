@@ -1,5 +1,5 @@
 <?php
-App::uses('AppController', 'Controller', 'JsonResponse', 'Json.Network');
+App::uses('AppController', 'Controller');
 
 /**
  * Rooms Controller
@@ -101,26 +101,23 @@ class RoomsController extends AppController {
 			'order'			=>	$sort,
 			'contain'		=>	array('Location', 'RentBand')
 		));
-		
-		if($this->params['json']) {
-			$this->viewClass = 'Json.Json';
-			$this->set('json', $rooms);
-			$this->render(false);
-		} else {
+
+		if(!$this->request->isAjax()) {
 			$locations = $this->Room->Location->find('list');
 			$rentBands = $this->Room->RentBand->find('list');
-			
 			$tenantTypes = $this->Room->TenantType->find('list', array('order'=>'TenantType.id'));
-			
-			$this->set(compact('rooms', 'locations', 'rentBands', 'tenantTypes'));
-			
-			$this->_title('Room Index');
-			
-			$this->set('breadcrumbs', array(
+			$breadcrumbs = array(
 				array('name'=>'KORDS', 'url'=>'/'),
 				array('name'=>'Index', 'url'=>$this->request['url'])
-			));
+			);
+
+			$this->set(compact('locations', 'rentBands', 'tenantTypes', 'breadcrumbs'));
 		}
+
+		$this->set(array(
+			'rooms'			=> $rooms,
+			'_serialize'	=> 'rooms'
+		));
 	}
 
 /**

@@ -16,12 +16,12 @@
 	<head>
 		<link rel="stylesheet" language="text/css" href="/css/bootstrap.css" />
 		<link rel="stylesheet" language="text/css" href="/css/responsive.css" />
-		<link rel="stylesheet" language="text/css" href="/css/screen.css" />
+		<link rel="stylesheet" language="text/css" href="/resources/BaseCSS" />
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic|Sansita+One' rel='stylesheet' type='text/css'>
 		
-		<script language="javascript" type="text/javascript" src="/js/dep.js"></script>
-		<script language="javascript" type="text/javascript" src="/js/uikit.js"></script>
-		<script language="javascript" type="text/javascript" src="/js/core.js"></script>		
+		<script language="javascript" type="text/javascript" src="/resources/Dependencies"></script>
+		<script language="javascript" type="text/javascript" src="/resources/UIKit"></script>
+		<script language="javascript" type="text/javascript" src="/resources/KordsJS"></script>		
 		<title><?= $title_for_layout; ?></title>
 	</head>
 	<body>

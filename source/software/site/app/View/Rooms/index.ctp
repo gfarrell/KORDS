@@ -101,7 +101,7 @@
 			$('FilterIndexForm'),
 			$('Primary'),
 			{
-				data_url:			'/json/rooms/',
+				data_url:			'/rooms/index.json',
 				room_url_format:	'/rooms/view/__id__',
 				tenant_types:		<?= json_encode(array_merge(array(0=>'all'), $tenantTypes)); ?>
 			}

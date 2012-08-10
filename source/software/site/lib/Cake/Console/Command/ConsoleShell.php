@@ -1,27 +1,25 @@
 <?php
 /**
- * CakePHP Console Shell
- *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @since         CakePHP(tm) v 1.2.0.5012
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
+App::uses('AppShell', 'Console/Command');
 
 /**
  * Provides a very basic 'interactive' console for CakePHP apps.
  *
  * @package       Cake.Console.Command
  */
-class ConsoleShell extends Shell {
+class ConsoleShell extends AppShell {
 
 /**
  * Available binding types
@@ -45,11 +43,11 @@ class ConsoleShell extends Shell {
 	public $models = array();
 
 /**
- * Override initialize of the Shell
+ * Override startup of the Shell
  *
  * @return void
  */
-	public function initialize() {
+	public function startup() {
 		App::uses('Dispatcher', 'Routing');
 		$this->Dispatcher = new Dispatcher();
 		$this->models = App::objects('Model');
@@ -86,7 +84,7 @@ class ConsoleShell extends Shell {
 		$out .= "\n";
 		$out .= 'To dynamically set associations, you can do the following:';
 		$out .= "\tModelA bind <association> ModelB";
-		$out .= "where the supported assocations are hasOne, hasMany, belongsTo, hasAndBelongsToMany";
+		$out .= "where the supported associations are hasOne, hasMany, belongsTo, hasAndBelongsToMany";
 		$out .= "\n";
 		$out .= 'To dynamically remove associations, you can do the following:';
 		$out .= "\t ModelA unbind <association> ModelB";
@@ -115,7 +113,7 @@ class ConsoleShell extends Shell {
 		$out .= "\n";
 		$out .= "will return something like the following:";
 		$out .= "\n";
-		$out .= "\tarray (";
+		$out .= "\tarray(";
 		$out .= "\t  [...]";
 		$out .= "\t  'controller' => 'posts',";
 		$out .= "\t  'action' => 'view',";
@@ -302,7 +300,7 @@ class ConsoleShell extends Shell {
 				break;
 				case (preg_match("/^routes\s+show/i", $command, $tmp) == true):
 					$router = Router::getInstance();
-					$this->out(implode("\n", Set::extract($router->routes, '{n}.0')));
+					$this->out(implode("\n", Hash::extract($router->routes, '{n}.0')));
 				break;
 				case (preg_match("/^route\s+(\(.*\))$/i", $command, $tmp) == true):
 					if ($url = eval('return array' . $tmp[1] . ';')) {
@@ -341,7 +339,7 @@ class ConsoleShell extends Shell {
 		Router::reload();
 		extract(Router::getNamedExpressions());
 
-		if (!@include(APP . 'Config' . DS . 'routes.php')) {
+		if (!@include APP . 'Config' . DS . 'routes.php') {
 			return false;
 		}
 		CakePlugin::routes();
@@ -357,4 +355,5 @@ class ConsoleShell extends Shell {
 		}
 		return true;
 	}
+
 }

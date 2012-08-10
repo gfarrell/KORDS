@@ -1,7 +1,4 @@
 <?php
-
-PHP_CodeCoverage_Filter::getInstance()->addFileToBlacklist(__FILE__, 'DEFAULT');
-
 /**
  * This class helps in testing the life-cycle of fixtures inside a CakeTestCase
  *
@@ -55,6 +52,7 @@ class FixturizedTestCase extends CakeTestCase {
  * test that a fixtures are unoaded even if the test throws exceptions
  *
  * @return void
+ * @throws Exception
  */
 	public function testThrowException() {
 		throw new Exception();

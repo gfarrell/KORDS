@@ -14,7 +14,7 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
-	var $components = array('Session', 'Security');
+	var $components = array('Session', 'Security', 'RequestHandler');
 	var $helpers = array('Session', 'Html', 'Form');
 	var $uses = array('User');
 	var $acl = array('add','edit','delete');

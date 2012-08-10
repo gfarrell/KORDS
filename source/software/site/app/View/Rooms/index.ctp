@@ -5,13 +5,13 @@
 		<div id="RoomsFilter">
 			<?php
 				/**
-					Room Filter Form
-					-> Ensuite: #/yes/no
-					-> Piano: #/yes/no
-					-> Smoking: #/yes/no
-					-> Location: #/[locations/]
-					-> Rent Band: #/[rent bands/]
-				*/	
+				 *	Room Filter Form
+				 *	-> Ensuite: #/yes/no
+				 *	-> Piano: #/yes/no
+				 *	-> Smoking: #/yes/no
+				 *	-> Location: #/[locations/]
+				 *	-> Rent Band: #/[rent bands/]
+				 */	
 				echo $this->Form->create('Filter', array(
 					'inputDefaults'	=>	array(
 						'empty'			=>	'All',

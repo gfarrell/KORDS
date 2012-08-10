@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<packages>
+    <package name="MyPackage" lang="js" path="/app/webroot/js/mypackage" forcecompression="true">
+        <import>
+            <file>OtherPackage:speciallib</file>
+            <package>CoolLibrary</package>
+        </import>
+        <files>
+            <file name="myscript">
+                <requires>OtherPackage:otherscript</requires>
+            </file>
+            <file name="no_requirements" />
+        </files>
+    </package>
+    
+
+    <!-- ======================= -->
+    <!-- ! Javascript Packages   -->
+    <!-- ======================= -->
+    
+    <!-- ! Dependencies -->
+    <package name="Dependencies" lang="js" path="../javascript/dep">
+        <files>
+            <file>bootstrap</file>
+            <file>jstorage</file>
+            <file>raphael</file>
+            <file>onhashchange</file>
+            <file>milkbox</file>
+        </files>
+    </package>
+    
+    <!-- ! UIKit (Gideon's infant library) -->
+    <package name="UIKit" lang="js" path="../javascript/uikit">
+        <files>
+            <file>UI</file>
+            <file>UIActivityIndicator</file>
+        </files>
+    </package>
+    
+    <!-- ! BaseJS -->
+    <package name="KordsJS" lang="js" path="../javascript/core">
+        <files>
+            <file>RoomFilterController</file>
+            <file>SelectNavigation</file>
+            <file>Thumbs</file>
+            <file>DeleteModal</file>
+            <file>RoomNavigator</file>
+        </files>
+    </package>
+
+    <!-- ================ -->
+    <!-- ! CSS Packages   -->
+    <!-- ================ -->
+
+    <!-- ! Core -->
+    <package name="BaseCSS" lang="css" path="../../design/css/screen">
+        <files>
+            <!-- Auxiliary Files -->
+            <file>typography</file>
+            <file>lists</file>
+            <file>forms</file>
+            
+            <!-- Base CSS Rules -->
+            <file>base</file>
+            
+            <!-- Page Specifics -->
+            <file>homepage</file>
+            <file>rooms</file>
+
+            <!-- Components -->
+            <file>milkbox</file>
+        </files>
+    </package>
+</packages>

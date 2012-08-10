@@ -63,4 +63,7 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
-CakePlugin::load('Json');
+CakePlugin::load(array(
+    'Json',
+    'ResourcesController' => array('routes'=>true)
+));

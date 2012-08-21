@@ -53,20 +53,27 @@
 	);
 	
 /**
- * JSON Routing (/json/controller/action/params)
+ * API Routing using extensions
  */
- 	Router::connect('/json/:controller',
- 		array('json'=>true, 'action'=>'index')	
+ 	Router::connect('/:ext/:controller',
+ 		array('json'=>true, 'action'=>'index'),
+ 		array('ext'=>'(json|xml)')
  	);
-	Router::connect('/json/:controller/:id',
+	Router::connect('/:ext/:controller/:id',
 		array('json'=>true, 'action'=>'view'),
-		array('id'=>'(\d+)')
+		array('id'=>'(\d+)', 'ext'=>'(json|xml)')
 	);
-	Router::connect('/json/:controller/:action',
-		array('json'=>true)
+	Router::connect('/:ext/:controller/:id/:action',
+		array('json'=>true, 'action'=>'view'),
+		array('id'=>'(\d+)', 'ext'=>'(json|xml)')
 	);
-	Router::connect('/json/:controller/:action/*',
-		array('json'=>true)
+	Router::connect('/:ext/:controller/:action',
+		array('json'=>true),
+		array('ext'=>'(json|xml)')
+	);
+	Router::connect('/:ext/:controller/:action/*',
+		array('json'=>true),
+		array('ext'=>'(json|xml)')
 	);
 
 /**

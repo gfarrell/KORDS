@@ -63,7 +63,7 @@
  * Check to see if we're in production of dev
  */
 
-	define('PRODUCTION', (strpos($_SERVER['HTTP_HOST'], '.dev') != -1));
+	define('PRODUCTION', (strpos($_SERVER['HTTP_HOST'], '.dev') == -1));
 
 /**
  * Editing below this line should NOT be necessary.

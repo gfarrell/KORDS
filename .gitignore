@@ -1,6 +1,6 @@
 *.bak
 *.cache
 tmp
-*.css
-source/software/site/app/webroot/js/*.js
-source/software/site/app/webroot/img/rooms/*.jpg
+
+webroot/js/app.js
+webroot/css/styles.css

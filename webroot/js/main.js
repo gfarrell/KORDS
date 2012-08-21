@@ -25,7 +25,8 @@
 require.config({
     baseUrl: '/js',
     paths: {
-        'backbone':   'Lib/backbone',
+        'Backbone':   'Lib/Backbone',
+        'backbone':   'Lib/Backbone/backbone',
         'underscore': 'Lib/underscore',
         'jquery':     'Lib/jQuery/jquery-1.8.0',
         'bootstrap':  'Lib/Bootstrap',

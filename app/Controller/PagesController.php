@@ -70,6 +70,16 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
+
+		if(method_exists($this, $page)) {
+			$this->$page();
+		}
+
 		$this->render(implode('/', $path));
+	}
+
+	public function home() {
+		$this->loadModel('TenantType');
+		$this->set('tenant_types', $this->TenantType->find('all', array('order'=>'id')));	
 	}
 }

@@ -23,7 +23,7 @@
 
 // Basic configuration
 require.config({
-    baseUrl: 'js',
+    baseUrl: '/js',
     paths: {
         'backbone':   'Lib/backbone',
         'underscore': 'Lib/underscore',

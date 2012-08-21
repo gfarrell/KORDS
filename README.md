@@ -27,10 +27,13 @@ GNU General Public License for more details.
 ### Libraries used in KORDS:
 
 * [CakePHP](http://cakephp.org)
-* [Twitter Bootstrap CSS](http://twitter.github.com/bootstrap/)
-* [Mootools Bootstrap](http://anutron.github.com/mootools-bootstrap/)
 * [Mootools](http://mootools.net/)
-* [Raphaël.js](http://raphaeljs.com)
+* [jQuery](http://jquery.com)
+* [Backbone](http://backbonejs.org)
+* [Underscore](http://underscorejs.org)
+* [Require.js](http://requirejs.org)
+* [Respond.js](https://github.com/scottjehl/Respond)
+* [Bootstrap](http://twitter.github.com/bootstrap)
 * [LESS Css](http://lesscss.org/)
 
 ---

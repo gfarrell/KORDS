@@ -60,6 +60,12 @@
 	define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'lib');
 
 /**
+ * Check to see if we're in production of dev
+ */
+
+	define('PRODUCTION', (strpos($_SERVER['HTTP_HOST'], '.dev') != -1));
+
+/**
  * Editing below this line should NOT be necessary.
  * Change at your own risk.
  *

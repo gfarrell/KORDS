@@ -30,6 +30,9 @@
 		<!-- Styles -->
 		<link rel="stylesheet" language="text/css" href="/css/styles.css" />
 
+		<!-- The only script we run at the start is respond.js -->
+		<script src="/js/Lib/respond.js"></script>
+
 		<!-- Load fonts -->
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic|Sansita+One' rel='stylesheet' type='text/css'>			
 
@@ -45,7 +48,7 @@
 				chromium.org/developers/how-tos/chrome-frame-getting-started -->
 		<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 		<div><?php echo $this->Session->flash('flash', array('element'=>'info_message')); ?></div>
-		<div><?php $this->fetch('content'); ?></div>
+		<div><?php echo $this->fetch('content'); ?></div>
 		
 		<!-- Load application scripts -->
 		<?php if(PRODUCTION) { // Loaded at the bottom for page performance

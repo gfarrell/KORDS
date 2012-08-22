@@ -82,4 +82,8 @@ class PagesController extends AppController {
 		$this->loadModel('TenantType');
 		$this->set('tenant_types', $this->TenantType->find('all', array('order'=>'id')));	
 	}
+
+	public function admin() {
+		
+	}
 }

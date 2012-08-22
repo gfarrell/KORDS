@@ -49,12 +49,5 @@
 		<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 		<div><?php echo $this->Session->flash('flash', array('element'=>'info_message')); ?></div>
 		<div><?php echo $this->fetch('content'); ?></div>
-		
-		<!-- Load application scripts -->
-		<?php if(PRODUCTION) { // Loaded at the bottom for page performance
-			echo '<script id="AppMainJs" src="js/app.js"></script>';
-		} else {
-			echo '<script id="AppMainJs" data-main="/js/main" src="/js/Lib/Require/require.js"></script>';
-		} ?>
 	</body>
 </html>

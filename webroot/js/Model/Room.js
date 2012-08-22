@@ -22,16 +22,6 @@ define(
                     relatedModel:       'Location',
                     key:                'Location'
                 },
-                {// Room belongsTo TenantType
-                    type:               Backbone.HasOne,
-                    relatedModel:       'TenantType',
-                    key:                'TenantType'
-                },
-                {// Room belongsTo RentBand
-                    type:               Backbone.HasOne,
-                    relatedModel:       'RentBand',
-                    key:                'RentBand'
-                },
 
                 // HasMany / HasAndBelongsToMany
                 // -----------------------------

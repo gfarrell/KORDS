@@ -38,6 +38,11 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**
+ * 	Connect admin to pages/admin
+ */
+	Router::connect('/admin/*', array('controller'=>'pages', 'action'=>'admin'));
+
+/**
  * Normal controller/id routing
 */
 	Router::connect('/:controller/:id',

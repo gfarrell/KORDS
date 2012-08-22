@@ -41,7 +41,7 @@ define(
 
             validate:       {},
 
-            initialize:     {}
+            initialize:     function() {}
             
         });
     }    

@@ -41,8 +41,13 @@ define(
 
             validate:       {},
 
-            initialize:     function() {}
-            
+            initialize:     function() {},
+
+            parse: function(response) {
+                return response.Room;
+            }
         });
+
+        return Room;
     }    
 );

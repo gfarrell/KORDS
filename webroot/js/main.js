@@ -36,3 +36,15 @@ require.config({
 });
 
 // Initialise application
+require(
+    ['underscore', 'backbone', 'Router/Router'],
+    function(_, Backbone, Router) {
+        // Create events delegator
+        var NC  = _.extend({}, Backbone.Events),
+            App = new Router({__nc: NC});
+
+        Backbone.history.start({
+            pushState: false // We want hash based URLs
+        });
+    }
+);

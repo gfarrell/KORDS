@@ -10,10 +10,49 @@
 define(
     ['Backbone/relational'],
     function(Backbone) {
-        var Room = Backbone.Model.extend({
-            defaults: {},
-            initialize: {},
-            validate: {}
+        var Room = Backbone.RelationalModel.extend({
+            url:            '/json/rooms/',    // API URL for rooms
+
+            defaults:       {},
+            relations:      [
+                // BelongsTo
+                // ---------
+                {// Room belongsTo Location
+                    type:               Backbone.HasOne,
+                    relatedModel:       'Location',
+                    key:                'Location'
+                },
+                {// Room belongsTo TenantType
+                    type:               Backbone.HasOne,
+                    relatedModel:       'TenantType',
+                    key:                'TenantType'
+                },
+                {// Room belongsTo RentBand
+                    type:               Backbone.HasOne,
+                    relatedModel:       'RentBand',
+                    key:                'RentBand'
+                },
+
+                // HasMany / HasAndBelongsToMany
+                // -----------------------------
+                {// Room hasMany Comment
+                    type:               Backbone.HasMany,
+                    relatedModel:       'Comment',
+                    key:                'Comment',
+                    collectionType:     'CommentsCollection'
+                },
+                {// Room hasAndBelongsToMany RoomImage
+                    type:               Backbone.HasMany,
+                    relatedModel:       'RoomImage',
+                    key:                'RoomImages',
+                    collectionType:     'CommentsCollection'
+                }
+            ],
+
+            validate:       {},
+
+            initialize:     {}
+            
         });
     }    
 );

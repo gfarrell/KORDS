@@ -30,6 +30,7 @@ define(
             initialize: function(name, attributes) {
                 this.setOptions(attributes);
                 this.name = name;
+                this._elements = {};
             },
 
             start: function() {

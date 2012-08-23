@@ -1,33 +1,27 @@
-<div>
-    <%= 
-        Form.start();
-    %>
+<%= Form.start() %>
 
-    <fieldset>
-        <legend>Filter Rooms</legend>
-        <%= Form.select('short_contract', {
-            'empty':       'All',
-            'class':       'filter',
-            'options':     {
-                'Either': false,
-                'Short Only': true
-            }
-        }); %>
-        <%= Form.select('ensuite'); %>
-        <%= Form.select('set'); %>
-        <%= Form.select('double'); %>
-        <%= Form.select('piano'); %>
-        <%= Form.select('smoking'); %>
-        <%= Form.select('location', {
-            'options': locations
-        }); %>
-        <%= Form.select('rent_band', {
-            'options': rent_bands
-        }); %>
-        <%= Form.select('available'); %>
-    </fieldset>
+<fieldset>
+    <legend>Filter Rooms</legend>
+    <%= Form.select('short_contract', {
+        'empty':       'All',
+        'class':       'filter',
+        'options':     {
+            false:  'Either',
+            true:   'Short Only'
+        }
+    }) %>
+    <%= Form.select('ensuite') %>
+    <%= Form.select('set') %>
+    <%= Form.select('double') %>
+    <%= Form.select('piano') %>
+    <%= Form.select('smoking') %>
+    <%= Form.select('location', {
+        'options': locations
+    }) %>
+    <%= Form.select('rent_band', {
+        'options': rent_bands
+    }) %>
+    <%= Form.select('available') %>
+</fieldset>
 
-    <%=
-        Form.end(false);
-    %>
-</div>
+<%= Form.end(false) %>

@@ -8,7 +8,7 @@
  */
 
 define(
-    ['Mootools/Core', 'backbone', 'View/Rooms/Index'],
+    ['Mootools/core', 'backbone', 'View/Rooms/Index'],
     function(_Mootools, Backbone, RoomsIndexView) {
         var AppView = Backbone.View.extend({
             initialize: function(opts) {

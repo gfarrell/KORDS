@@ -26,19 +26,20 @@ require.config({
     baseUrl: '/js',
     paths: {
         'Backbone':   'Lib/Backbone',
+        'Mootools':   'Lib/Mootools',
+
         'backbone':   'Lib/Backbone/backbone',
         'underscore': 'Lib/underscore',
         'jquery':     'Lib/jQuery/jquery-1.8.0',
         'bootstrap':  'Lib/Bootstrap',
-        'mootools':   'Lib/Mootools',
         'text':       'Lib/Require/text'
     }
 });
 
 // Initialise application
 require(
-    ['underscore', 'backbone', 'Router/Router'],
-    function(_, Backbone, Router) {
+    ['Mootools/core', 'underscore', 'backbone', 'Router/Router'],
+    function(_Mootools, _, Backbone, Router) {
         // Create events delegator
         var NC  = _.extend({}, Backbone.Events),
             App = new Router({__nc: NC});

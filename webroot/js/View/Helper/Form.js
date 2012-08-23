@@ -114,26 +114,23 @@ define(
                             empty.inject(element);
                         }
 
+                        // Arrays and Objects have different iterators
+                        // But both will use the same format of {value: name} (or [name, name, name])
+                        // So we can have the same iterative function, different iterators
+                        var optionFunction = function(text, data) {
+                            var opt = new Element('option', {
+                                value: data,
+                                html: text,
+                                selected: (options.selected == data)
+                            });
+
+                            opt.inject(element);
+                        };
+                        
                         if(typeOf(options.options) == 'array') {
-                           options.options.each(function(text, data) {
-                                var opt = new Element('option', {
-                                    value: data,
-                                    html: text,
-                                    selected: (options.selected == data)
-                                });
-
-                                opt.inject(element);
-                            });
+                           options.options.each(optionFunction);
                         } else if(typeOf(options.options) == 'object') {
-                            Object.each(options.options, function(data, text) {
-                                var opt = new Element('option', {
-                                    value: data,
-                                    html: text,
-                                    selected: (options.selected == data)
-                                });
-
-                                opt.inject(element);
-                            });
+                            Object.each(options.options, optionFunction);
                         }
                         
                         break;

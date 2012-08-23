@@ -38,11 +38,10 @@ require.config({
 
 // Initialise application
 require(
-    ['Mootools/core', 'underscore', 'backbone', 'Router/Router'],
-    function(_Mootools, _, Backbone, Router) {
-        // Create events delegator
-        var NC  = _.extend({}, Backbone.Events),
-            App = new Router({__nc: NC});
+    ['Mootools/core', 'underscore', 'backbone', 'Kords', 'Router/Router', 'app_bootstrap'],
+    function(_Mootools, _, Backbone, Kords, Router, app_bootstrap) {
+        Kords.bootstrap = app_bootstrap;
+        Kords.Router = new Router(Kords);
 
         Backbone.history.start({
             pushState: false // We want hash based URLs

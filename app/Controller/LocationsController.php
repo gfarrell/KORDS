@@ -15,7 +15,10 @@ class LocationsController extends AppController {
  */
 	public function index() {
 		$this->Location->recursive = 0;
-		$this->set('locations', $this->paginate());
+		$locations = $this->paginate();
+		$_serialize = 'locations';
+
+		$this->set(compact('locations', '_serialize'));
 	}
 
 /**

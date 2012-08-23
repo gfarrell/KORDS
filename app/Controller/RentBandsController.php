@@ -15,7 +15,10 @@ class RentBandsController extends AppController {
  */
 	public function index() {
 		$this->RentBand->recursive = 0;
-		$this->set('rentBands', $this->paginate());
+		$this->set(array(
+			'rent_bands'	=> $this->paginate(),
+			'_serialize'	=> 'rent_bands'
+		));
 	}
 
 /**

@@ -79,8 +79,15 @@ class PagesController extends AppController {
 	}
 
 	public function home() {
+		$this->loadModel('Location');
+		$this->loadModel('RentBand');
 		$this->loadModel('TenantType');
-		$this->set('tenant_types', $this->TenantType->find('all', array('order'=>'id')));	
+
+		$this->set(array(
+			'locations'		=>	json_encode($this->Location->find('all')),
+			'rent_bands'	=>	json_encode($this->RentBand->find('all')),
+			'tenant_types'	=>	json_encode($this->TenantType->find('all'))
+		));
 	}
 
 	public function admin() {

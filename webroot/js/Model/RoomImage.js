@@ -8,9 +8,9 @@
  */
 
 define(
-    ['Backbone/relational'],
-    function(Backbone) {
-        var RoomImage = Backbone.RelationalModel.extend({
+    ['Backbone/relational', 'Model/AppModel'],
+    function(Backbone, AppModel) {
+        var RoomImage = AppModel.extend({
             url: '/json/room_images'
         });
 

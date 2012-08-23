@@ -8,10 +8,11 @@
  */
 
 define(
-    ['Backbone/relational'],
-    function(Backbone) {
-        var RentBand = Backbone.RelationalModel.extend({
-            url: '/json/rent_bands'
+    ['Backbone/relational', 'Model/AppModel'],
+    function(Backbone, AppModel) {
+        var RentBand = AppModel.extend({
+            url: '/json/rent_bands',
+            displayAttribute: 'long_cost'
         });
 
         return RentBand;

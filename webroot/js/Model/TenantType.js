@@ -8,9 +8,9 @@
  */
 
 define(
-    ['Backbone/relational'],
-    function(Backbone) {
-        var TenantType = Backbone.RelationalModel.extend({
+    ['Backbone/relational', 'Model/AppModel'],
+    function(Backbone, AppModel) {
+        var TenantType = AppModel.extend({
             url: '/json/tenant_types'
         });
 

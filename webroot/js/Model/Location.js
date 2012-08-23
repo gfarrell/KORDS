@@ -8,9 +8,9 @@
  */
 
 define(
-    ['Backbone/relational'],
-    function(Backbone) {
-        var Location = Backbone.RelationalModel.extend({
+    ['Backbone/relational', 'Model/AppModel'],
+    function(Backbone, AppModel) {
+        var Location = AppModel.extend({
             url: '/json/locations'
         });
 

@@ -8,10 +8,11 @@
  */
 
 define(
-    ['Backbone/relational', 'Model/Location', 'Model/RentBand', 'Model/TenantType', 'Model/Comment', 'Model/RoomImage'],
-    function(Backbone, Location, RentBand, TenantType, Comment, RoomImage) {
-        var Room = Backbone.RelationalModel.extend({
-            url:            '/json/rooms/',    // API URL for rooms
+    ['Backbone/relational', 'Model/AppModel', 'Model/Location', 'Model/RentBand', 'Model/TenantType', 'Model/Comment', 'Model/RoomImage'],
+    function(Backbone, AppModel, Location, RentBand, TenantType, Comment, RoomImage) {
+        var Room = AppModel.extend({
+            url:              '/json/rooms/',    // API URL for rooms
+            displayAttribute: 'number',
 
             defaults:       {},
             relations:      [

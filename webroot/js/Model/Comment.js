@@ -8,9 +8,9 @@
  */
 
 define(
-    ['Backbone/relational'],
-    function(Backbone) {
-        var Comment = Backbone.RelationalModel.extend({
+    ['Backbone/relational', 'Model/AppModel'],
+    function(Backbone, AppModel) {
+        var Comment = AppModel.extend({
             url: '/json/comments'
         });
 

@@ -8,8 +8,8 @@
  */
 
 define(
-    ['Mootools/core', 'jquery', 'underscore', 'backbone', 'text!Template/Rooms/Filter.html', 'View/Helper/Form', 'Collection/Locations', 'Collection/RentBands'],
-    function(_Mootools, $, _, Backbone, filter_html, FormHelper, LocationsCollection, RentBandsCollection) {
+    ['Kords', 'jquery', 'text!Template/Rooms/Filter.html', 'View/Helper/Form', 'Collection/Locations', 'Collection/RentBands'],
+    function(Kords, $, filter_html, FormHelper, LocationsCollection, RentBandsCollection) {
         var RoomsIndexView = Backbone.View.extend({
             tagName: 'div',
 
@@ -18,10 +18,9 @@ define(
                 // We need to template the html (filter_html) and pass in the helper
                 // Along with some data that we're going to get now...
                 this.Locations = new LocationsCollection();
+                    this.Locations.reset(Kords.bootstrap.Locations);
                 this.RentBands = new RentBandsCollection();
-
-                this.Locations.fetch();
-                this.RentBands.fetch();
+                    this.RentBands.reset(Kords.bootstrap.RentBands);
 
                 var filter_temp = _.template(filter_html),
                     filter_form = new FormHelper('Filter', {
@@ -38,8 +37,8 @@ define(
                     'class':    'sidebar left',
                     'html':     filter_temp({
                                     'Form':         filter_form,
-                                    'locations':    this.Locations.list(),
-                                    'rent_bands':   this.RentBands.list()
+                                    'locations':    {},
+                                    'rent_bands':   {}
                                 })
                 });
 

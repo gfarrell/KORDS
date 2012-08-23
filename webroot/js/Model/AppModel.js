@@ -8,12 +8,12 @@
  */
 
 define(
-    ['underscore', 'Backbone/relational'],
-    function(_, Backbone) {
-        var AppModel = Backbone.RelationalModel.extend({
+    ['Kords', 'Backbone/relational'],
+    function(Kords) {
+        Kords.AppModel = Backbone.RelationalModel.extend({
             displayAttribute: 'name'
         });
 
-        return AppModel;
+        return Kords.AppModel;
     }
 );

@@ -8,8 +8,8 @@
  */
 
 define(
-    ['backbone', 'Collection/Rooms', 'Collection/Locations'],
-    function(Backbone, RoomCollection, LocationCollection) {
+    ['Mootools/core', 'backbone', 'Collection/Rooms', 'Collection/Locations', 'View/App'],
+    function(_Mootools, Backbone, RoomsCollection, LocationsCollection, AppView) {
         var Router = Backbone.Router.extend({
             routes: {
                 '':                     'landing',
@@ -31,13 +31,20 @@ define(
             initialize: function(opts) {
                 // Set up the aggregator
                 this.__nc = opts.__nc;
+
+                // Set up the AppView
+                this.AppView = new AppView({
+                    __nc: opts.__nc,
+                    el: '#KordsApp'
+                });
             },
 
             // Room Actions
             // ------------
 
             room_index: function(filter) {
-
+                var room_list = new RoomsCollection();
+                this.AppView.loadView('Rooms/Index');
             },
             room_view: function(id) {},
             room_add: function() {},

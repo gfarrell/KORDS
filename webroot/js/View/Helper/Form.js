@@ -92,7 +92,7 @@ define(
                     pretty      = names.join('_').camelise().capitalize(),
                     pretty_full = this.name.capitalize() + pretty,
                     data_name   = 'data['+this.name.capitalize()+']['+names.join('][')+']',
-                    attributes  = Object.filter(options, function(val, key) { return this.options.inputDefaults[key] === undefined; }, this),
+                    attributes  = Object.filter(options, function(val, key) { return !this.specialAttributes.contains(key); }, this),
                     parent, enclosure, element, label;
 
                 // Create the element itself

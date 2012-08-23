@@ -142,20 +142,28 @@ define(
                 }
 
                 // Now check (if there is a model set) what the value is for this field and set it on the element
-                if(instanceOf(this.options.model, Backbone.RelationalModel)) {
-                    var value  = null,
-                        _names = names.clone(),
-                        _tmp   = this.options.model;
+                // BUT only do this if the value hasn't been explicitly set
+                if(attributes.value === undefined) {
+                    if(instanceOf(this.options.model, Backbone.RelationalModel)) {
+                        var value  = null,
+                            _names = names.clone(),
+                            _tmp   = this.options.model;
 
-                    while(_names.length > 1) {
-                        // For relational models we have to cycle through the layers
-                        _tmp = _tmp.get(_names.shift());
+                        while(_names.length > 1) {
+                            // For relational models we have to cycle through the layers
+                            _tmp = _tmp.get(_names.shift());
+                        }
+
+                        value = _tmp.get(_names.shift());
+                    } else if(instanceOf(this.options.model, Backbone.Model)) {
+                        // For normal models it's a bit easier, we just get the attribute
+                        element.set('value', this.options.model.get(name));
                     }
-
-                    value = _tmp.get(_names.shift());
-                } else if(instanceOf(this.options.model, Backbone.Model)) {
-                    // For normal models it's a bit easier, we just get the attribute
-                    element.set('value', this.options.model.get(name));
+                } else {
+                    // For some unknown reason, element.set(value, ....) does not explicitly set the value in HTML terms.
+                    // Therefore when we get the outerHTML, the value property isn't present.
+                    // To get around this we use the native setAttribute method, which seems to do it properly.
+                    element.setAttribute('value', attributes.value);
                 }
 
                 // Create the enclosure which is just the raw html

@@ -13,6 +13,8 @@ define(
         var FormHelper = new Class({
             Implements: [Options],
 
+            specialAttributes: ['div', 'before', 'after', 'label', 'empty'],
+
             options: {
                 model: null,
                 inputDefaults: {

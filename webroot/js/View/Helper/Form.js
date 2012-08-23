@@ -81,7 +81,7 @@ define(
 
             __makeFormElement: function(tag, name, options) {
                 // Merge the inputDefaults with the passed options
-                options = Object.merge(this.options.inputDefaults, options);
+                options = Object.merge(Object.clone(this.options.inputDefaults), options);
 
                 // Split the names by full stops, this denotes separate fields
                 // Create a prettified name for the field id

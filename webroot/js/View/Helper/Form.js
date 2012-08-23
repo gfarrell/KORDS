@@ -99,9 +99,13 @@ define(
                 element = new Element(tag, attributes);
                 element.set('id', pretty_full);
 
+                // Register the element in the form store
+                this.__register(pretty_full, element);
+
                 // If the tag is select, checkbox, radio deal with options
                 switch(tag) {
                     case 'select':
+                        // Create the empty option if required
                         if(options.empty !== false) {
                             var empty = new Element('option', {
                                 value: '',

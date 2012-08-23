@@ -30,7 +30,7 @@ define(
                 this.name = name;
             },
 
-            create: function() {
+            start: function() {
                 return '<form id="{name}Form">'.substitute({name: this.name});
             },
             end: function(buttons) {

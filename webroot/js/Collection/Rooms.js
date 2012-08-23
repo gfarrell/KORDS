@@ -8,9 +8,9 @@
  */
 
 define(
-    ['backbone', 'Model/Room'],
-    function(Backbone, Room) {
-        var RoomsCollection = Backbone.Collection.extend({
+    ['backbone', 'Collection/AppCollection', 'Model/Room'],
+    function(Backbone, AppCollection, Room) {
+        var RoomsCollection = AppCollection.extend({
             model: Room,
             url: '/json/rooms',
 

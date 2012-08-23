@@ -65,6 +65,10 @@ define(
 
             // Utility Functions
             // -----------------
+            
+            __register: function(name, element) {
+                this._elements[name] = element;
+            },
 
             __makeTag: function(tag, attributes) {
                 if(typeOf(attributes) != 'object') attributes = {};

@@ -14,8 +14,6 @@ define(
             tagName: 'div',
 
             initialize: function(opts) {
-                this.__nc = opts.__nc;
-                
                 // Set up a side filter
                 // We need to template the html (filter_html) and pass in the helper
                 // Along with some data that we're going to get now...

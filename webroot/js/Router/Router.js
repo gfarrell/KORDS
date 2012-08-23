@@ -29,12 +29,8 @@ define(
             },
 
             initialize: function(opts) {
-                // Set up the aggregator
-                this.__nc = opts.__nc;
-
                 // Set up the AppView
                 this.AppView = new AppView({
-                    __nc: opts.__nc,
                     el: '#KordsApp'
                 });
             },

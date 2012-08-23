@@ -8,8 +8,8 @@
  */
 
 define(
-    ['Mootools/core', 'Core/String.extend', 'jquery', 'Backbone/relational'],
-    function(_mootools, _string, $, Backbone) {
+    ['Mootools/core', 'Core/String.extend', 'Backbone/relational'],
+    function(_mootools, _string, Backbone) {
         var FormHelper = new Class({
             Implements: [Options],
 

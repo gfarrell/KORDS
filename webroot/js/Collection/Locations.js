@@ -12,7 +12,7 @@ define(
     function(AppCollection, Location) {
         var LocationsCollection = AppCollection.extend({
             model: Location,
-            url: '/json/locations'
+            url:   '/json/locations'
         });
 
         return LocationsCollection;

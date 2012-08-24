@@ -11,6 +11,7 @@ define(
     ['Backbone/relational', 'Model/AppModel'],
     function(Backbone, AppModel) {
         var RentBand = AppModel.extend({
+            name: 'RentBand',
             url: '/json/rent_bands',
             displayAttribute: 'long_cost'
         });

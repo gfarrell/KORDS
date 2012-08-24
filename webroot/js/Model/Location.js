@@ -11,7 +11,8 @@ define(
     ['Backbone/relational', 'Model/AppModel'],
     function(Backbone, AppModel) {
         var Location = AppModel.extend({
-            url: '/json/locations'
+            name: 'Location',
+            url:  '/json/locations'
         });
 
         return Location;

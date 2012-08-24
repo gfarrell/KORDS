@@ -11,6 +11,7 @@ define(
     ['Backbone/relational', 'Model/AppModel'],
     function(Backbone, AppModel) {
         var RoomImage = AppModel.extend({
+            name: 'RoomImage',
             url: '/json/room_images'
         });
 

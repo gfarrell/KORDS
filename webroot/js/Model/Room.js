@@ -11,6 +11,7 @@ define(
     ['Backbone/relational', 'Model/AppModel', 'Model/Location', 'Model/RentBand', 'Model/TenantType', 'Model/Comment', 'Model/RoomImage'],
     function(Backbone, AppModel, Location, RentBand, TenantType, Comment, RoomImage) {
         var Room = AppModel.extend({
+            name:             'Room',
             url:              '/json/rooms/',    // API URL for rooms
             displayAttribute: 'number',
 
@@ -55,34 +56,7 @@ define(
                 }
             ],
 
-            validate:       {},
-
-            initialize:     function() {},
-
-            parse: function(response) {
-                /* Response structure from Cake:
-                        {
-                            Room: { ... room attributes ... },
-                            Location: { ... location attributes ... },
-                            RentBand: { ... rent band attributes ... },
-
-                            --- NOT IN INDEX ---
-                            Comment: [ ... array of comments ... ], 
-                            RoomImage: [ ... array of roomimages ... ],
-                            TenantType: { ... tenant type attributes ... }
-                        }
-                 */
-                
-                var room = response.Room;
-
-                delete response.Room;
-
-                Object.each(response, function(item, key) {
-                    room[key] = item;
-                });
-
-                return room;
-            }
+            validate:       {}
         });
 
         return Room;

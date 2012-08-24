@@ -11,6 +11,7 @@ define(
     ['Backbone/relational', 'Model/AppModel'],
     function(Backbone, AppModel) {
         var TenantType = AppModel.extend({
+            name: 'TenantType',
             url: '/json/tenant_types'
         });
 

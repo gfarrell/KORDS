@@ -83,6 +83,10 @@ class PagesController extends AppController {
 		$this->loadModel('RentBand');
 		$this->loadModel('TenantType');
 
+		$this->Location->contain();
+		$this->RentBand->contain();
+		$this->TenantType->contain();
+
 		$this->set(array(
 			'locations'		=>	json_encode($this->Location->find('all')),
 			'rent_bands'	=>	json_encode($this->RentBand->find('all')),

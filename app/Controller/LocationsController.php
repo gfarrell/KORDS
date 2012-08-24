@@ -14,7 +14,7 @@ class LocationsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Location->recursive = 0;
+		$this->Location->contain();
 		$locations = $this->paginate();
 		$_serialize = 'locations';
 

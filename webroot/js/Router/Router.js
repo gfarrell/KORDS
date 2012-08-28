@@ -14,9 +14,9 @@ define(
             routes: {
                 '':                    'landing',
                 'rooms':               'room_index',
-                'rooms/*filter':       'room_index',
-                'rooms/(\w+\d+)':      'room_view',
-                'rooms/(\w+\d+)/edit': 'room_edit',
+                'rooms/for\::type':    'room_index',
+                'rooms/:id':           'room_view',
+                'rooms/:id/edit':      'room_edit',
                 'rooms/add':           'room_add',
 
                 'locations':           'location_index',

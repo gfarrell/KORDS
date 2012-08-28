@@ -46,11 +46,15 @@ define(
                 // and add in the rest as relational
                 
                 var data = response[this.name];
-                delete response[this.name];
+                if(data !== undefined) {
+                    delete response[this.name];
 
-                Object.each(response, function(obj, key) {
-                    data[key] = obj;
-                });
+                    Object.each(response, function(obj, key) {
+                        data[key] = obj;
+                    });
+                } else {
+                    data = response;
+                }
 
                 return data;
             }

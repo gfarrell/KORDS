@@ -1,0 +1,32 @@
+<div id="LandingWelcome" class="centre">
+    <h1>KORDS 4<br/><small>what are you looking for?</small></h1>
+
+    <%= Form.start('RoomSelection', {
+        inputDefaults: {
+            before: '',
+            after: ''
+        }
+    }) %>
+    <%= Form.select('TenantTypes', {
+        'empty':          'All Rooms',
+        'options':        tenant_types,
+        'label':          false
+    }) %>
+    <%= Form.end(false) %>
+</div>
+
+<div class="alert alert-warning centre">
+    KORDS is still very much in its beta stages, please be aware of this and visit <%= Html.link('http://github.com/gfarrell/KORDS') %> to report any issues.
+</div>
+
+<!--
+<footer>
+    <a href="http://www.w3.org/html/logo/">
+        <img
+            src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics-storage.png"
+            width="197" height="64"
+            alt="HTML5 Powered with CSS3 / Styling, Semantics, and Offline &amp; Storage"
+            title="HTML5 Powered with CSS3 / Styling, Semantics, and Offline &amp; Storage" />
+    </a>
+</footer>
+-->

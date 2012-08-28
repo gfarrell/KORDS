@@ -30,10 +30,9 @@ define(
 
                 this.$filter = new Element('div', {
                     'class':    'sidebar left',
-                    'html':     filter_temp({
-                                    'Form':         filter_form,
-                                    'locations':    {},
-                                    'rent_bands':   {}
+                    'html':     this.template(this.templates.filter, {
+                                    'locations':    this.Locations.list(),
+                                    'rent_bands':   this.RentBands.list()
                                 })
                 });
 

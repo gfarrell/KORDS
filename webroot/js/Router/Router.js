@@ -12,11 +12,11 @@ define(
     function(_Mootools, Backbone, RoomsCollection, LocationsCollection, AppView) {
         var Router = Backbone.Router.extend({
             routes: {
-                '':                     'landing',
+                '':                    'landing',
                 'rooms':               'room_index',
                 'rooms/*filter':       'room_index',
-                'rooms/:id':           'room_view',
-                'rooms/:id/edit':      'room_edit',
+                'rooms/(\w+\d+)':      'room_view',
+                'rooms/(\w+\d+)/edit': 'room_edit',
                 'rooms/add':           'room_add',
 
                 'locations':           'location_index',

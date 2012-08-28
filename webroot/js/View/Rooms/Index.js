@@ -41,6 +41,8 @@ define(
                 this.Rooms = new RoomsCollection();
             },
 
+            setFilter: function(filter, state) {
+                this.Rooms.fetch();
             },
 
             render: function() {

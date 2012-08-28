@@ -8,8 +8,8 @@
  */
 
 define(
-    ['View/Kords', 'text!Template/Rooms/Filter.html', 'Collection/Locations', 'Collection/RentBands'],
-    function(KordsView, filter_html, LocationsCollection, RentBandsCollection) {
+    ['View/Kords', 'text!Template/Rooms/Filter.html', 'Collection/Rooms', 'Collection/Locations', 'Collection/RentBands'],
+    function(KordsView, filter_html, RoomsCollection, LocationsCollection, RentBandsCollection) {
         var RoomsIndexView = KordsView.extend({
             tagName: 'div',
 
@@ -37,6 +37,10 @@ define(
                 });
 
                 $(this.$filter).appendTo(this.$el);
+
+                this.Rooms = new RoomsCollection();
+            },
+
             },
 
             render: function() {

@@ -27,19 +27,24 @@ define(
                 }
             },
 
-            initialize: function(name, attributes) {
+            start: function(name, attributes) {
+                this._previous_options = this.options;
+
                 this.setOptions(attributes);
                 this.name = name;
                 this._elements = {};
-            },
 
-            start: function() {
                 return '<form id="{name}Form">'.substitute({name: this.name});
             },
             end: function(buttons) {
                 if(buttons !== false) {
                     // TODO: implement buttons for submit/cancel etc.
                 }
+
+                this.options = this._previous_options;
+                this.name = null;
+                this._elements = {};
+
                 return '</form>';
             },
 
@@ -195,6 +200,6 @@ define(
             }
         });
 
-        return FormHelper;
+        return new FormHelper();
     }
 );

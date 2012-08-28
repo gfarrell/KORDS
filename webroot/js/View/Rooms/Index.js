@@ -8,12 +8,18 @@
  */
 
 define(
-    ['Kords', 'jquery', 'text!Template/Rooms/Filter.html', 'View/Helper/Form', 'Collection/Locations', 'Collection/RentBands'],
-    function(Kords, $, filter_html, FormHelper, LocationsCollection, RentBandsCollection) {
-        var RoomsIndexView = Backbone.View.extend({
+    ['View/Kords', 'text!Template/Rooms/Filter.html', 'Collection/Locations', 'Collection/RentBands'],
+    function(KordsView, filter_html, LocationsCollection, RentBandsCollection) {
+        var RoomsIndexView = KordsView.extend({
             tagName: 'div',
 
+            templates: {
+                filter: filter_html
+            },
+
             initialize: function(opts) {
+                this.processTemplates();
+
                 // Set up a side filter
                 // We need to template the html (filter_html) and pass in the helper
                 // Along with some data that we're going to get now...

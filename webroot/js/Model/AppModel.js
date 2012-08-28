@@ -15,6 +15,10 @@ define(
             url:              '/json/models',
             displayAttribute: 'name',
 
+            getDisplay: function() {
+                return this.get(this.displayAttribute);
+            },
+
             parse: function(response) {
                 // The way CakePHP gives us models is:
                 // [

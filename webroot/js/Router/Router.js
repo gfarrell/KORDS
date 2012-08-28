@@ -43,9 +43,11 @@ define(
             // Room Actions
             // ------------
 
-            room_index: function(filter) {
+            room_index: function(for_who) {
                 var room_list = new RoomsCollection();
-                this.AppView.loadView('Rooms/Index');
+                this.AppView.loadView('Rooms/Index', function(index_view) {
+                    index_view.setFilter('for', for_who);
+                });
             },
             room_view: function(id) {},
             room_add: function() {},

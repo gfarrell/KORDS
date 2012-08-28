@@ -1,4 +1,13 @@
-<%= Form.start() %>
+<%= Form.start('Filter', 
+                {
+                    'inputDefaults': {
+                        'options': {
+                            1: 'Yes',
+                            0: 'No'
+                        },
+                        'class': 'filter'
+                }
+}) %>
 
 <fieldset>
     <legend>Filter Rooms</legend>

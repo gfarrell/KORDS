@@ -24,20 +24,9 @@ define(
                 // We need to template the html (filter_html) and pass in the helper
                 // Along with some data that we're going to get now...
                 this.Locations = new LocationsCollection();
-                    this.Locations.reset(Kords.bootstrap.Locations);
+                    this.Locations.reset(this.bootstrap().Locations, {parse: true});
                 this.RentBands = new RentBandsCollection();
-                    this.RentBands.reset(Kords.bootstrap.RentBands);
-
-                var filter_temp = _.template(filter_html),
-                    filter_form = new FormHelper('Filter', {
-                            'inputDefaults': {
-                                'options': {
-                                    1: 'Yes',
-                                    0: 'No'
-                                },
-                                'class': 'filter'
-                            }
-                        });
+                    this.RentBands.reset(this.bootstrap().RentBands, {parse: true});
 
                 this.$filter = new Element('div', {
                     'class':    'sidebar left',

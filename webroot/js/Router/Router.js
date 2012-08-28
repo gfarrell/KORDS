@@ -33,6 +33,11 @@ define(
                 this.AppView = new AppView({
                     el: '#KordsApp'
                 });
+
+            },
+
+            landing: function() {
+                this.AppView.loadView('Pages/Landing');
             },
 
             // Room Actions

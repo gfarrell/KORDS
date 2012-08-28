@@ -8,8 +8,10 @@
  */
 
 define(
-    ['Mootools/core', 'backbone', 'View/Rooms/Index'],
-    function(_Mootools, Backbone, RoomsIndexView) {
+    ['Mootools/core', 'backbone',
+        'View/Pages/Landing', 'View/Rooms/Index'
+    ],
+    function() {
         var AppView = Backbone.View.extend({
             initialize: function(opts) {
                 this.__nc = opts.__nc;

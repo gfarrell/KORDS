@@ -1,4 +1,4 @@
-<div id="LandingWelcome" class="centre">
+<div id="LandingWelcome" class="span8 offset2 centre">
     <h1>KORDS 4<br/><small>what are you looking for?</small></h1>
 
     <%= Form.start('RoomSelection', {
@@ -8,15 +8,10 @@
         }
     }) %>
     <%= Form.select('TenantTypes', {
-        'empty':          'All Rooms',
         'options':        tenant_types,
         'label':          false
     }) %>
     <%= Form.end(false) %>
-</div>
-
-<div class="alert alert-warning centre">
-    KORDS is still very much in its beta stages, please be aware of this and visit <%= Html.link('http://github.com/gfarrell/KORDS') %> to report any issues.
 </div>
 
 <!--

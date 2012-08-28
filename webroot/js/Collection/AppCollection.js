@@ -14,11 +14,10 @@ define(
             list: function() {
                 // Iterate over the models, return a hash of key/value pairings
                 // Where the key is the ID, the value is the model's display attribute
-                var list                = {},
-                    display_attribute   = this.model.displayAttribute !== undefined ? this.model.displayAttribute : 'name';
+                var list                = {};
                 
                 this.each(function(model) {
-                    list[model.id] = model.get(display_attribute);
+                    list[model.id] = model.getDisplay();
                 });
 
                 return list;

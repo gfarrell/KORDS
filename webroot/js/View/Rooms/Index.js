@@ -64,7 +64,61 @@ define(
             },
 
             setFilter: function(filter, state) {
-                this.Rooms.fetch();
+                
+            },
+            setFilterWithControl: function(event) {
+                var control = $(event.target),
+                    type    = event.target.nodeName.toLowerCase(),
+                    value, filter;
+
+                if(type == 'button') {
+                    // buttons are in groups, and thus we need to find out some info
+                    var parent = control.parent();
+                    value      = control.data('value');
+                    filter     = parent.attr('id').replace('Filter', '').underscore();
+                } else if(type == 'select') {
+                    // selects are more straightforward
+                    value  = control.val();
+                    filter = control.attr('id').replace('Filter', '').underscore();
+                }
+
+                // set the filter value
+                this._filters[filter] = value;
+
+                // update the filter in localStorage
+                $.jStorage.set('Kords.Index.Filter.'+filter, value);
+            },
+
+            searchFilterWithControl: function(event) {
+
+            },
+
+            synchroniseFilters: function() {
+                Object.each(this._filters, function(value, filter) {
+                    var el    = this.$filter.find('#Filter'+filter.camelise().capitalize()),
+                        type  = el[0].nodeName.toLowerCase(),
+                        stord = $.jStorage.get('Kords.Index.Filter.'+filter);
+
+                    if(stord === null) {
+                        $.jStorage.set('Kords.Index.Filter.'+filter, value);
+                    } else if (value != stord) {
+                        this._filters[filter] = stord;
+                        value = stord;
+                    }
+
+                    if(type == 'div') {
+                        // a div means it is a button group
+                        // thus let's find the appropriate button!
+                        var buttons = el.find('button');
+                        buttons.removeClass('active');
+                        el.find('button[data-value='+value+']').addClass('active');
+                    } else if(type == 'select') {
+                        // this is easier, set the value directly
+                        el.val(value);
+                    }
+                }, this);
+            },
+
             getFilterState: function(filter) {
                 var state;
 

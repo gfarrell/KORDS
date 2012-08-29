@@ -2,6 +2,14 @@
 <%  default_attribs = {'class':'filter', 'selected':'all'} %>
 
 <%= Html.Bootstrap.radioButtons(
+        default_buttons,
+        Object.merge(Object.clone(default_attribs), {
+            id:       'FilterAvailable',
+            label:    'Available',
+            selected: 'yes'
+        })
+) %>
+<%= Html.Bootstrap.radioButtons(
         ['short','any','long'],
         Object.append(Object.clone(default_attribs), {
             id:       'FilterContract',
@@ -66,12 +74,20 @@
     'options': rent_bands
 }) %>
 <%= Form.end(false) %>
-
-<%= Html.Bootstrap.radioButtons(
-        default_buttons,
-        Object.merge(Object.clone(default_attribs), {
-            id:       'FilterAvailable',
-            label:    'Available',
-            selected: 'yes'
-        })
-) %>
+<!--
+<%= Form.start('Search', {
+    'form': {
+        'class': 'form-search'
+    }
+}) %>
+<%= Form.input('query', {
+    'class': 'search-query',
+    'placeholder': 'search...',
+    'before': '',
+    'after': '',
+    'label': false,
+    'div': false,
+    'type': 'text'
+}) %>
+<%= Form.end(false) %>
+-->

@@ -1,3 +1,50 @@
+<%  default_buttons = ['yes', 'all', 'no'] %>
+<%  default_attribs = {'class':'filter', 'selected':'all'} %>
+
+<%= Html.Bootstrap.radioButtons(
+        ['short','any','long'],
+        Object.append(Object.clone(default_attribs), {
+            id:       'FilterContract',
+            selected: 'any',
+            label:    'Contract'
+        })
+) %>
+<%= Html.Bootstrap.radioButtons(
+        default_buttons,
+        Object.merge(Object.clone(default_attribs), {
+            id:       'FilterEnsuite',
+            label:    'Ensuite'
+        })
+) %>
+<%= Html.Bootstrap.radioButtons(
+        default_buttons,
+        Object.merge(Object.clone(default_attribs), {
+            id:       'FilterSet',
+            label:    'Set'
+        })
+) %>
+<%= Html.Bootstrap.radioButtons(
+        default_buttons,
+        Object.merge(Object.clone(default_attribs), {
+            id:       'FilterDouble',
+            label:    'Double'
+        })
+) %>
+<%= Html.Bootstrap.radioButtons(
+        default_buttons,
+        Object.merge(Object.clone(default_attribs), {
+            id:       'FilterPiano',
+            label:    'Piano'
+        })
+) %>
+<%= Html.Bootstrap.radioButtons(
+        default_buttons,
+        Object.merge(Object.clone(default_attribs), {
+            id:       'FilterSmoking',
+            label:    'Smoking'
+        })
+) %>
+
 <%= Form.start('Filter', 
                 {
                     'inputDefaults': {
@@ -5,32 +52,26 @@
                             1: 'Yes',
                             0: 'No'
                         },
-                        'class': 'filter'
+                        'div':     'filter-group input-prepend',
+                        'before':  '',
+                        'after':   '',
+                        'class':   'filter'
+                    }
                 }
+) %>
+<%= Form.select('location', {
+    'options': locations
 }) %>
-
-<fieldset>
-    <legend>Filter Rooms</legend>
-    <%= Form.select('short_contract', {
-        'empty':       'All',
-        'class':       'filter',
-        'options':     {
-            false:  'Long Contract',
-            true:   'Short Only'
-        }
-    }) %>
-    <%= Form.select('ensuite') %>
-    <%= Form.select('set') %>
-    <%= Form.select('double') %>
-    <%= Form.select('piano') %>
-    <%= Form.select('smoking') %>
-    <%= Form.select('location', {
-        'options': locations
-    }) %>
-    <%= Form.select('rent_band', {
-        'options': rent_bands
-    }) %>
-    <%= Form.select('available') %>
-</fieldset>
-
+<%= Form.select('rent_band', {
+    'options': rent_bands
+}) %>
 <%= Form.end(false) %>
+
+<%= Html.Bootstrap.radioButtons(
+        default_buttons,
+        Object.merge(Object.clone(default_attribs), {
+            id:       'FilterAvailable',
+            label:    'Available',
+            selected: 'yes'
+        })
+) %>

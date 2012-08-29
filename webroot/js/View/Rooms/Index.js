@@ -8,21 +8,29 @@
  */
 
 define(
-    ['Lib/jstorage', 'View/Kords', 'text!Template/Rooms/Filter.html', 'Collection/Rooms', 'Collection/Locations', 'Collection/RentBands'],
-    function(jStorage, KordsView, filter_html, RoomsCollection, LocationsCollection, RentBandsCollection) {
+    [
+        'Lib/jstorage', 'View/Kords',
+        'text!Template/Rooms/Filter.html', 'View/Rooms/RoomsListItem',
+        'Collection/Rooms', 'Collection/Locations', 'Collection/RentBands'
+    ],
+    function(jStorage, KordsView, filter_html, RoomsListItemView, RoomsCollection, LocationsCollection, RentBandsCollection) {
         var RoomsIndexView = KordsView.extend({
             tagName: 'div',
-            className: 'row',
+            className: 'row-fluid',
+
+            url: '/json/rooms/index',
 
             templates: {
                 filter: filter_html
             },
 
             events: {
-                'change input.filter.search-query':  'searchFilterWithControl',
-                'change select.filter':              'setFilterWithControl',
-                'click  .filter>button':             'setFilterWithControl'
+                'change input.filter.search-query':  '__searchFilterWithControl',
+                'change select.filter':              '__setFilterWithControl',
+                'click  .filter>button':             '__setFilterWithControl'
             },
+
+            split_sort: ['Location.name', 'RoomStatus.name', 'Room.rent_band_id'],
 
             _filters: {
                 'available': 'yes',
@@ -33,11 +41,15 @@ define(
                 'piano':     'all',
                 'smoking':   'all',
                 'location':  '',
-                'rent_band': ''
+                'rent_band': '',
+                'for':       'all'
             },
 
             initialize: function(opts) {
                 this.processTemplates();
+
+                // An array of all the RoomsListItemViews
+                this._rooms = [];
 
                 // Set up a side filter
                 // We need to template the html (filter_html) and pass in the helper
@@ -47,26 +59,67 @@ define(
                 this.RentBands = new RentBandsCollection();
                     this.RentBands.reset(this.bootstrap().RentBands, {parse: true});
 
-                this.$filter = $(this.make('div', {'class':'sidebar left span4'}));
+                this.$filter = $(this.make('div', {'class':'span5 sidebar left'}));
 
                 this.$filter.html(this.template(this.templates.filter, {
                                     'locations':    this.Locations.list(),
                                     'rent_bands':   this.RentBands.list()
                                 }));
 
+                this.$filter.prepend($(this.make('h1', {}, 'KORDS')));
+
                 this.$filter.appendTo(this.$el);
 
+                this.$list = $(this.make('ul', {'class':'offset5 span7 horizontal unstyled item_list'}));
+                    this.$list.appendTo(this.$el);
+
                 this.Rooms = new RoomsCollection();
+                    this.Rooms.on('all', this.render, this);
 
                 this.synchroniseFilters();
 
                 this.delegateEvents();
             },
 
-            setFilter: function(filter, state) {
-                
+            fetch: function() {
+                this.showLoading();
+                $.get(this.__buildUrl(), this.__parse.bind(this));
             },
-            setFilterWithControl: function(event) {
+
+            __buildUrl: function() {
+                var filter_value_map = {
+                        'any': null,
+                        'all': null,
+                        'yes': true,
+                        'no':  false
+                    },
+                    data             = '/';
+
+                Object.each(this._filters, function(value, filter) {
+                    // If the value needs translation for the server, translate it
+                    if(filter_value_map[value] !== undefined) value = filter_value_map[value];
+
+                    // if the value is null, ignore the filter
+                    if(value === null) return;
+
+                    // add the value to the query string
+                    data += 'filter_'+filter+':'+value + '/';
+                });
+
+                return this.url+encodeURI(data);
+            },
+
+            __parse: function(response) {
+                this.Rooms.reset(response, {parse:true});
+                this.hideLoading();
+            },
+
+            setFilter: function(filter, state) {
+                this._filters[filter] = state;
+                this.synchroniseFilters();
+                this.fetch();
+            },
+            __setFilterWithControl: function(event) {
                 var control = $(event.target),
                     type    = event.target.nodeName.toLowerCase(),
                     value, filter;
@@ -87,17 +140,25 @@ define(
 
                 // update the filter in localStorage
                 $.jStorage.set('Kords.Index.Filter.'+filter, value);
+
+                // Fetch
+                this.fetch();
             },
 
-            searchFilterWithControl: function(event) {
+            __searchFilterWithControl: function(event) {
 
             },
 
             synchroniseFilters: function() {
                 Object.each(this._filters, function(value, filter) {
                     var el    = this.$filter.find('#Filter'+filter.camelise().capitalize()),
-                        type  = el[0].nodeName.toLowerCase(),
                         stord = $.jStorage.get('Kords.Index.Filter.'+filter);
+
+                    if(el.length === 0) {
+                        return;
+                    }
+
+                    var type  = el[0].nodeName.toLowerCase();
 
                     if(stord === null) {
                         $.jStorage.set('Kords.Index.Filter.'+filter, value);
@@ -139,8 +200,29 @@ define(
                 return state;
             },
 
-            render: function() {
+            showLoading: function() {},
+            hideLoading: function() {},
 
+            render: function() {
+                this.clear();
+                var list = this.$list;
+
+                this.Rooms.each(function(room_model) {
+                    var room = new RoomsListItemView({
+                        model: room_model
+                    });
+
+                    room.$el.appendTo(list);
+                });
+            },
+
+            clear: function() {
+                this._rooms.each(function(room) {
+                    room.remove();
+                    room.unbind();
+                });
+                this._rooms = [];
+                this.$list.empty();
             }
         });
 

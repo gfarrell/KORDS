@@ -17,6 +17,11 @@ define(
                 filter: filter_html
             },
 
+            events: {
+                'change input.filter.search-query':  'searchFilterWithControl',
+                'change select.filter':              'setFilterWithControl',
+                'click  .filter>button':             'setFilterWithControl'
+            },
             initialize: function(opts) {
                 this.processTemplates();
 

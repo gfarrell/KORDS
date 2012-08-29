@@ -46,15 +46,14 @@ define(
                 this.RentBands = new RentBandsCollection();
                     this.RentBands.reset(this.bootstrap().RentBands, {parse: true});
 
-                this.$filter = new Element('div', {
-                    'class':    'sidebar left span4',
-                    'html':     this.template(this.templates.filter, {
+                this.$filter = $(this.make('div', {'class':'sidebar left span4'}));
+
+                this.$filter.html(this.template(this.templates.filter, {
                                     'locations':    this.Locations.list(),
                                     'rent_bands':   this.RentBands.list()
-                                })
-                });
+                                }));
 
-                $(this.$filter).appendTo(this.$el);
+                this.$filter.appendTo(this.$el);
 
                 this.Rooms = new RoomsCollection();
             },

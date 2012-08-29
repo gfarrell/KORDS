@@ -21,18 +21,29 @@ body {
 	color: @tx_light;
 }
 
-#Sidebar {
-	margin-top:1.5em;
-	height:100%;
-	
-	form {
-		margin:0;
-		padding:0;
-	}
-}
+@media(min-width: 767px) {
+	.sidebar {
+		position: fixed;
+		top:0;
+		left:0;
+		height:100%;
+		
+		padding: 25px 10px;
 
-#Primary {
-	
+		border-right: @grayLight thin solid;
+
+		background: darken(@bg_main, 5%);
+
+		.box-shadow(inset -5px -5px 10px rgba(0,0,0,0.25));
+		.transition(all 0.25s ease-in-out);
+
+		&.left {
+			left:0
+		}
+		&.right {
+			right:0px;
+		}
+	}
 }
 
 /** Fix for bootstrap buttons vertical alignment **/

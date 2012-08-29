@@ -22,6 +22,19 @@ define(
                 'change select.filter':              'setFilterWithControl',
                 'click  .filter>button':             'setFilterWithControl'
             },
+
+            _filters: {
+                'available': 'yes',
+                'contract':  'any',
+                'ensuite':   'all',
+                'set':       'all',
+                'double':    'all',
+                'piano':     'all',
+                'smoking':   'all',
+                'location':  '',
+                'rent_band': ''
+            },
+
             initialize: function(opts) {
                 this.processTemplates();
 

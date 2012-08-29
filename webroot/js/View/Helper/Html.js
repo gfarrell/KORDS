@@ -36,6 +36,59 @@ define(
             }
         };
 
-        return new HtmlHelper();
+        HtmlHelper.Bootstrap = {
+            radioButtons: function(buttons, group_attributes) {
+                /*
+                    Structure of Bootstrap's radio buttons:
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button type="button" class="btn">Text</button>
+                        ...
+                    </div>
+
+                    We're also going to add data-value to make it more like a form control
+                 */
+                
+                group_attributes = group_attributes || {};
+                
+                var attrs  = {'class':'btn-group input-prepend', 'data-toggle':'buttons-radio'},
+                    group  = HtmlHelper.element('div', '', group_attributes),
+                    $group = $(group);
+
+                $group.addClass(attrs['class']);
+                $group.attr('data-toggle', attrs['data-toggle']);
+
+                if(group_attributes.label !== undefined) {
+                    $(HtmlHelper.element('span', group_attributes.label, {'class':'add-on'})).prependTo($group);
+                }
+
+                if(typeOf(buttons) == 'array') {
+                    var btn_tmp = buttons;
+                    buttons = {};
+
+                    btn_tmp.each(function(button) { buttons[button] = button; });
+                }
+
+                Object.each(buttons, function(title, value) {
+                    var props = {'class':'btn', 'data-value':value};
+
+                    if(group_attributes.selected !== undefined){
+                        if(group_attributes.selected == value) {
+                            props['class'] += ' active';
+                        }
+                    }
+
+                    if(!instanceOf(title, String)) {
+                        props = Object.merge(props, title);
+                        title = props.title || value;
+                    }
+                    var button = HtmlHelper.element('button', title, props);
+                    $(button).appendTo($group);
+                });
+
+                return HtmlHelper.tagFromElement(group);
+            }
+        };
+
+        return HtmlHelper;
     }
 );

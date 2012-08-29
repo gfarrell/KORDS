@@ -80,6 +80,10 @@
 		array('json'=>true),
 		array('ext'=>'(json|xml)')
 	);
+	Router::connect('/:ext/:controller/*',
+		array('json'=>true, 'action'=>'index'),
+		array('ext'=>'(json|xml)')
+	);
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

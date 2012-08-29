@@ -29,7 +29,7 @@ define(
                     this.RentBands.reset(this.bootstrap().RentBands, {parse: true});
 
                 this.$filter = new Element('div', {
-                    'class':    'sidebar left',
+                    'class':    'sidebar left span4',
                     'html':     this.template(this.templates.filter, {
                                     'locations':    this.Locations.list(),
                                     'rent_bands':   this.RentBands.list()

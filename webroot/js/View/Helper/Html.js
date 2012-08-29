@@ -10,21 +10,31 @@
  */
 
 define(
-    ['Mootools/core'],
+    ['bootstrap/button'],
     function() {
-        var HtmlHelper = new Class({
+        var HtmlHelper = {
             tag: function(tagName, content, attributes) {
-                var el = document.createElement(tagName);
+                return this.tagFromElement(this.element(tagName, content, attributes));
+            },
+
+            element: function(tagName, content, attributes) {
+                var el  = document.createElement(tagName),
+                    $el = $(el);
 
                 el.innerHTML = content;
-                $(el).attr(attributes || {});
+                $el.attr(attributes || {});
 
-                return el.outerHTML;
+                return el;
             },
+
+            tagFromElement: function(element) {
+                return element.outerHTML;
+            },
+
             link: function(url, title, attributes) {
                 return this.tag('a', title || url, Object.merge(attributes || {}, {href: url}));
             }
-        });
+        };
 
         return new HtmlHelper();
     }

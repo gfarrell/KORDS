@@ -17,7 +17,7 @@ define(
                 this._loaded = null;
 
                 // Create a structure
-                this.$container = $(this.make('div', {'class':'container'}));
+                this.$container = $(this.make('div', {'class':'container-fluid'}));
                 this.$container.appendTo(this.$el);
             },
 

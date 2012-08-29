@@ -8,8 +8,8 @@
  */
 
 define(
-    ['Mootools/core', 'Core/String.extend', 'Backbone/relational'],
-    function(_mootools, _string, Backbone) {
+    ['Mootools/core', 'Core/String.extend', 'Backbone/relational', 'View/Helper/Html'],
+    function(_mootools, _string, Backbone, HtmlHelper) {
         var FormHelper = new Class({
             Implements: [Options],
 
@@ -34,7 +34,10 @@ define(
                 this.name = name;
                 this._elements = {};
 
-                return '<form id="{name}Form">'.substitute({name: this.name});
+                var el = HtmlHelper.element('form', '', this.options.form || {});
+                    el.setAttribute('id', this.name+'Form');
+
+                return HtmlHelper.tagFromElement(el).replace('</form>', '');
             },
             end: function(buttons) {
                 if(buttons !== false) {

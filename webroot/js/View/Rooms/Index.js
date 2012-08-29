@@ -43,6 +43,24 @@ define(
 
             setFilter: function(filter, state) {
                 this.Rooms.fetch();
+            getFilterState: function(filter) {
+                var state;
+
+                if(filter == 'all') {
+                    state = {};
+                    this._filters.each(function(value, name) {
+                        state[name] = value;
+                    });
+                } else {
+                    if(arguments.length > 1) {
+                        state = {};
+                        arguments.each(function(arg) {
+                            ret[arg] = this.getFilterState(arg);
+                        });
+                    }
+                }
+
+                return state;
             },
 
             render: function() {

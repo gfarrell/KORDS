@@ -34,7 +34,7 @@ define(
             },
 
             bootstrap: function() {
-                return Kords.bootstrap;
+                return Object.clone(Kords.bootstrap);
             }
         });
 

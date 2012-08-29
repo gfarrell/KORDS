@@ -99,7 +99,8 @@ class RoomsController extends AppController {
 		$rooms = $this->Room->find('all', array(
 			'conditions'	=>	$filter_conds,
 			'order'			=>	$sort,
-			'contain'		=>	array('Location', 'RentBand')
+			'contain'		=>	array('Location', 'RentBand'),
+			'limit'			=>  50
 		));
 
 		if(!$this->request->isAjax()) {

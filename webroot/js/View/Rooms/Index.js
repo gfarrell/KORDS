@@ -8,8 +8,8 @@
  */
 
 define(
-    ['View/Kords', 'text!Template/Rooms/Filter.html', 'Collection/Rooms', 'Collection/Locations', 'Collection/RentBands'],
-    function(KordsView, filter_html, RoomsCollection, LocationsCollection, RentBandsCollection) {
+    ['Lib/jstorage', 'View/Kords', 'text!Template/Rooms/Filter.html', 'Collection/Rooms', 'Collection/Locations', 'Collection/RentBands'],
+    function(jStorage, KordsView, filter_html, RoomsCollection, LocationsCollection, RentBandsCollection) {
         var RoomsIndexView = KordsView.extend({
             tagName: 'div',
 

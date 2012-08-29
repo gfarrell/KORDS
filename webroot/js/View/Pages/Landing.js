@@ -14,7 +14,6 @@ define(
     function(Backbone, KordsView, landing_html, TenantTypesCollection) {
         var LandingView = KordsView.extend({
             tagName: 'div',
-            className: 'hero-unit',
 
             templates: {
                 'main': landing_html
@@ -35,7 +34,6 @@ define(
                     types_list[name] = name.humanise();
                 });
 
-                console.log(this.bootstrap().TenantTypes);
                 $(this.template(this.templates.main, {
                     tenant_types: types_list
                 })).appendTo(this.$el);

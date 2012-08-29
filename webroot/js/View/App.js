@@ -13,9 +13,8 @@ define(
     ],
     function() {
         var AppView = Backbone.View.extend({
-            initialize: function(opts) {
-                this.__nc = opts.__nc;
-                this._views = {};
+            initialize: function() {
+                this._loaded = null;
 
                 // Create a structure
                 this.$container = $(this.make('div', {'class':'container'}));
@@ -23,32 +22,34 @@ define(
             },
 
             loadView: function(name, bootstrap_function) {
-                var _class  = require('View/'+name),                    // Let's load the view file
-                    pretty  = name.replace('/', ''),                    // Prettify the name by removing slashes (should end up with some camelcased niceness)
-                    bs_name = '__bootstrap'+pretty,                     // Generate the name of the bootstrap function
-                    view;
+                this.unloadView();
 
-                if(!instanceOf(this._views[pretty], _class)) {          // If the class has never been loaded, instantiate it &c..
-                    view = new _class({__nc: this.__nc});               // Pass the event aggregator in
+                var _class  = require('View/'+name),                // Let's load the view file
+                    pretty  = name.replace('/', ''),                // Prettify the name by removing slashes (should end up with some camelcased niceness)
+                    bs_name = '__bootstrap'+pretty,                 // Generate the name of the bootstrap function
+                    view    = new _class();                         // Pass the event aggregator in
 
-                    // If there is a bootstrap function, bootstrap
-                    if(typeOf(bootstrap_function) == 'function') {      // Check if one has been passed in, if so, this overrides
-                        bootstrap_function.call(this, view);            // Bootstrap: function(AppView, LoadedView)
-                    } else if(typeOf(this[bs_name]) == 'function') {    // Otherwise check if one is defined in AppView
-                        this[bs_name].call(this, view);                 // Same signature as above
-                    }
-
-                    this._views[pretty] = view;                         // Store the view in _views
-                } else {
-                    view = this._views[pretty];                         // Otherwise just pull in the previously loaded one
+                // If there is a bootstrap function, bootstrap
+                if(typeOf(bootstrap_function) == 'function') {      // Check if one has been passed in
+                    bootstrap_function.call(this, view);            // Bootstrap: function(AppView, LoadedView)
                 }
 
-                // Now that we definitely have a view to play with
+                this._loaded = view;                                // Store the view in _loaded
+
+                // Now that we have a view to play with
                 // we should insert it into our container object (that sounds dirty)
                 view.$el.appendTo(this.$container);
 
                 // And render!
                 view.render();
+            },
+
+            unloadView: function() {
+                if(this._loaded !== null) {
+                    this._loaded.remove();
+                    this._loaded.unbind();
+                    this._loaded = null;
+                }
             }
         });
 

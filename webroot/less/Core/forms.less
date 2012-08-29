@@ -23,3 +23,39 @@ form label {
 	padding: 1em 1em 2em;
 	margin:1em 0;
 }
+
+.filter.btn-group {
+    margin-left:0;
+
+    & > span {
+        width: 100px;
+        text-align: left;
+    }
+
+    & > .btn {
+        min-width:60px;
+    }
+}
+
+.filter-group {
+    & > label {
+        width: 100px;
+        text-align: left;
+        margin:0;
+        display: inline-block;
+        height: @baseLineHeight;
+        min-width: 16px;
+        padding: 4px 5px;
+        font-size: @baseFontSize;
+        font-weight: normal;
+        line-height: @baseLineHeight;
+        text-shadow: 0 1px 0 @white;
+        background-color: @grayLighter;
+        border: 1px solid #ccc;
+        .border-radius(@inputBorderRadius 0 0 @inputBorderRadius);
+    }
+
+    & > select {
+        width: 180px;
+    }
+}

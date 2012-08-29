@@ -57,6 +57,10 @@ define(
                 this.$filter.appendTo(this.$el);
 
                 this.Rooms = new RoomsCollection();
+
+                this.synchroniseFilters();
+
+                this.delegateEvents();
             },
 
             setFilter: function(filter, state) {

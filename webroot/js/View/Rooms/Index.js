@@ -12,6 +12,7 @@ define(
     function(jStorage, KordsView, filter_html, RoomsCollection, LocationsCollection, RentBandsCollection) {
         var RoomsIndexView = KordsView.extend({
             tagName: 'div',
+            className: 'row',
 
             templates: {
                 filter: filter_html

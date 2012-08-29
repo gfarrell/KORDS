@@ -38,8 +38,8 @@ require.config({
 
 // Initialise application
 require(
-    ['Mootools/core', 'underscore', 'backbone', 'Kords', 'Router/Router', 'app_bootstrap'],
-    function(_Mootools, _, Backbone, Kords, Router, app_bootstrap) {
+    ['Mootools/core', 'jquery', 'underscore', 'backbone', 'Kords', 'Router/Router', 'app_bootstrap'],
+    function(_Mootools, _jQuery, _, Backbone, Kords, Router, app_bootstrap) {
         Kords.bootstrap = app_bootstrap;
         Kords.Router = new Router(Kords);
 

@@ -34,7 +34,7 @@ define(
                     types_list[name] = name.humanise();
                 });
 
-                $(this.template(this.templates.main, {
+                $(this.template('main', {
                     tenant_types: types_list
                 })).appendTo(this.$el);
             },

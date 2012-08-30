@@ -44,7 +44,6 @@ define(
             // ------------
 
             room_index: function(for_who) {
-                var room_list = new RoomsCollection();
                 this.AppView.loadView('Rooms/Index', function(index_view) {
                     index_view.setFilter('for', for_who);
                 });

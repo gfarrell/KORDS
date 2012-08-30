@@ -47,48 +47,86 @@ define(
             },
 
             initialize: function(opts) {
+                // We must process the templates first
                 this.processTemplates();
 
                 // An array of all the RoomsListItemViews
                 this._rooms = [];
 
-                // Set up a side filter
-                // We need to template the html (filter_html) and pass in the helper
-                // Along with some data that we're going to get now...
+                // Set up all the collections we need
+                this.Rooms = new RoomsCollection();                             // RoomsCollection will store our main data
+                this.Rooms.on('add',   this.collectionHasAdded, this);          // We have to treat add and reset slightly differently
+                this.Rooms.on('reset', this.collectionHasReset, this);          // Reset will clear the view before rendering
+
+                // Locations and RentBands contain bootstrap data which will be used in the filter
                 this.Locations = new LocationsCollection();
-                    this.Locations.reset(this.bootstrap().Locations, {parse: true});
+                this.Locations.reset(this.bootstrap().Locations, {parse: true});// We have to call parse:true to make sure the data is parsed
                 this.RentBands = new RentBandsCollection();
-                    this.RentBands.reset(this.bootstrap().RentBands, {parse: true});
+                this.RentBands.reset(this.bootstrap().RentBands, {parse: true});// As above
 
+                // Let's move on to making all the elements we need
+                // First stop is the filter element, which will use the filter template
                 this.$filter = $(this.make('div', {'class':'span5 sidebar left'}));
-
-                this.$filter.html(this.template(this.templates.filter, {
-                                    'locations':    this.Locations.list(),
+                this.$filter.html(this.template('filter', {
+                                    'locations':    this.Locations.list(),      // list() method on collections gives a list suitable for <select> options
                                     'rent_bands':   this.RentBands.list()
                                 }));
+                this.$filter.prepend($(this.make('h1', {}, 'KORDS')));          // add a little heading at the top of the element
+                this.$filter.appendTo(this.$el);                                // add the filter in
 
-                this.$filter.prepend($(this.make('h1', {}, 'KORDS')));
+                // the $main element will hold the list and preloader
+                // ... and whatever else goes in the RHS of the page
+                this.$main = $(this.make('div', {
+                    'class': 'offset5 span7'
+                })).appendTo(this.$el);
 
-                this.$filter.appendTo(this.$el);
+                // Now we create the list that will hold all the rooms
+                this.$list = $(this.make('ul', {
+                    'class':'horizontal unstyled item_list'                     // quite a complex class definition
+                }));
+                this.$list.appendTo(this.$main);                                // add the list into the $main el
 
-                this.$list = $(this.make('ul', {'class':'offset5 span7 horizontal unstyled item_list'}));
-                    this.$list.appendTo(this.$el);
+                // Last but not least, the preload display element
+                this.$preloader = $(this.make('div', {
+                    'class': 'span3 offset5'
+                }, this.template('preloader', {})));
 
-                this.Rooms = new RoomsCollection();
-                    this.Rooms.on('all', this.render, this);
+                // Let's quickly process the animation durations on the preloader elements
+                // They all need to be random with random durations to achieve the cool effect
+                this.$preloader.find('.block').each(function(index, block) { // non-standard jquery .each syntax
+                    var prefixes = ['-webkit-', '-moz-', '-ms-', '-o-'],
+                        duration = Math.random()+1,
+                        delay    = Math.random(),
+                        $block   = $(block);
 
+                    prefixes.each(function(pref) {
+                        $block.css(pref+'animation-duration', duration+'s');
+                        $block.css(pref+'animation-delay', delay+'s');
+                    });
+                });
+
+                // We have to synchronise the filter controls with the values we have stored in localStorage
+                // (and those that are set anyway)
                 this.synchroniseFilters();
 
+                // Finally delegate events, so that the filter etc. will work properly
                 this.delegateEvents();
             },
 
-            fetch: function() {
+            fetch: function(append) {
                 this.showLoading();
-                $.get(this.__buildUrl(), this.__parse.bind(this));
+                
+                this.Rooms.fetch({
+                    url: this.__buildUrl(),
+                    add: !!append
+                });
             },
 
             __buildUrl: function() {
-                var filter_value_map = {
+                var filter_key_map   = {
+                        'for': 'tenant_type'
+                    },
+                    filter_value_map = {
                         'any': null,
                         'all': null,
                         'yes': true,
@@ -100,6 +138,9 @@ define(
                     // If the value needs translation for the server, translate it
                     if(filter_value_map[value] !== undefined) value = filter_value_map[value];
 
+                    // If the key needs translation for the server, translate it
+                    if(filter_key_map[filter] !== undefined) filter = filter_key_map[filter];
+
                     // if the value is null, ignore the filter
                     if(value === null) return;
 
@@ -108,11 +149,6 @@ define(
                 });
 
                 return this.url+encodeURI(data);
-            },
-
-            __parse: function(response) {
-                this.Rooms.reset(response, {parse:true});
-                this.hideLoading();
             },
 
             setFilter: function(filter, state) {
@@ -201,20 +237,48 @@ define(
                 return state;
             },
 
-            showLoading: function() {},
-            hideLoading: function() {},
+            showLoading: function() {
+                this.$preloader.appendTo(this.$main);
+            },
+            hideLoading: function() {
+                this.$preloader.remove();
+            },
 
-            render: function() {
+            collectionHasAdded: function(collection, response) {
+                // Extract from the collection only the models which are listed in the reponse
+                // We do this by ID
+                var models = [];
+
+                _.each(response, function(item) {
+                    models.push(collection.get(item.Room.id));
+                });
+
+                this.render(models);
+                this.hideLoading();
+            },
+            collectionHasReset: function(collection, response) {
+                // If it is a reset we just need to clear the page and add all the models in the collection
                 this.clear();
+                this.render(collection.models);
+                this.hideLoading();
+            },
+
+            render: function(models) {
+                if(models === undefined) return this;
+
                 var list = this.$list;
 
-                this.Rooms.each(function(room_model) {
+                models.each(function(room_model) {
                     var room = new RoomsListItemView({
                         model: room_model
                     });
 
                     room.$el.appendTo(list);
                 });
+
+
+
+                return this;
             },
 
             clear: function() {

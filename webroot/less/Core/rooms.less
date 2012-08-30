@@ -6,9 +6,27 @@
  * @author	Gideon Farrell <me@gideonfarrell.co.uk>
 */
 
+.room-labels {
+	& > span {
+		margin-right: 5px;
 
-#MainImage {
+		&:last-child {
+			margin-right:0;
+		}
+	}
+}
+
+li.room {
+	width:50px;
+	text-align:center;
+	padding:0.5em;
+	.border-radius(5px);
+
+	background: fade(@grayLight, 40%);
 	
+	&.taken {
+		background: fade(@red, 40%);
+	}
 }
 
 #InfoTable {

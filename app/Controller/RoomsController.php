@@ -9,9 +9,14 @@ App::uses('AppController', 'Controller');
 class RoomsController extends AppController {
 	var $paginate = array(
 		'Room'	=>	array(
-			'contain'	=>	array('Location', 'RentBand')
+			'contain'	=>	array('Location', 'RentBand'),
+			'limit'		=>	50,
+			'order'		=>	array(
+				'Room.location_id' => 'ASC'
+			)
 		)
 	);
+
 	var $filters = array(
 			'short_contract'=>	array(
 				'type'		=>	'boolean'
@@ -39,7 +44,7 @@ class RoomsController extends AppController {
 			),
 			'tenant_type'	=>	array(
 				'type'		=>	'id',
-				'ignore'	=>	'0'
+				'ignore'	=>	null
 			),
 			'location'	=>	array(
 				'type'		=>	'id'	
@@ -60,60 +65,89 @@ class RoomsController extends AppController {
  * @return void
  */
 	public function index() {
-		// Let's check for any filters
-		$filter_conds = array();
+		$filter_conds = array();	// Contains the find conditions
+		$filters      = array();	// Will contain the filters specified in the request
+		
+		// The filters can either be in named parameters filter_* or in POST data data[Filter][*]
+		// Let's deal with POST data first
 		if(isset($this->data['Filter']) && is_array($this->data['Filter'])) {	
 			foreach($this->data['Filter'] as $f => $c) {
 				if(array_key_exists($f, $this->filters)) {
-					$filter = $this->filters[$f];
-					if(array_key_exists('ignore', $filter) && $filter['ignore'] == $c) continue;
-					switch($filter['type']) {
-						case 'id':
-							$model = Inflector::camelize($f);
-							$key = $f.'_id';
-							$this->loadModel($model);
-							$this->$model->id = (int)$c;
-							if($this->$model->exists()) {
-								$filter_conds[$key] = $c;
-							}
-							break;
-						default:
-							settype($c, $filter['type']);
-							if(isset($filter['allowed'])) {
-								$allow = (is_array($filter['allowed'])) ? $filter['allowed'] : array($filter['allowed']);
-								if(in_array($c, $filter['allowed'])) {
-									$filter_conds[$f] = $c;
-								}
-							} else {
-								$filter_conds[$f] = $c;
-							}
-							break;
+					$filters[$f] = $this->filters[$f];
+					$filters[$f]['value'] = $c;
+				}
+			}
+		} else { // Now let's see what we find in the named parameters		
+			$named = $this->request->named;
+			foreach($named as $parameter=>$value) {
+				if(strpos($parameter, 'filter_') == 0) {		// if it starts with filter_
+					$f = str_replace('filter_', '', $parameter);
+					if(array_key_exists($f, $this->filters)) {	// if we have defined this filter
+						$filters[$f] = $this->filters[$f];
+						$filters[$f]['value'] = $value;
 					}
-				}				
+				}
 			}
 		}
-		
+
+		// Now that we have extracted the filters from the request, let's go through them
+		foreach($filters as $f=>$filter) {
+			$c = $filter['value'] or null;					// convenience variable
+			
+			if(array_key_exists('ignore', $filter)			// if we are supposed to ignore this value
+				&& $filter['ignore'] == $c) continue;		// then continue
+			
+			switch($filter['type']) {
+				case 'id':
+					$model = Inflector::camelize($f);			// type 'id' requires another model, so get the name of it
+					$key = $f.'_id';							// the key is model_id (non-camelised)
+					$this->loadModel($model);					// Load the relevant model
+					$this->$model->id = (int)$c;				// and get its ID from the request value
+					if($this->$model->exists()) {				// if the record exists
+						$filter_conds[$key] = $c;				// then set it as a condition
+					}
+					break;
+				case 'boolean':									// Booleans require special parsing
+					$filter_conds[$f] = filter_var($c, FILTER_VALIDATE_BOOLEAN);
+					break;
+				case 'int':										// For ints we use intval, more reliable than settype
+					$c = intval($c);
+				default:
+					if(isset($filter['allowed'])) {				// check if there are a set of allowed values
+						$allow = (								// Basic safety check on the var type
+							is_array($filter['allowed'])
+							? $filter['allowed']
+							: array($filter['allowed'])
+						);
+						if(in_array($c, $filter['allowed'])) {	// if the value is allowed, use it
+							$filter_conds[$f] = $c;			
+						}
+					} else {
+						$filter_conds[$f] = $c;					// otherwise just set the filter condition as the value from the request
+					}
+			}
+
+		}
+
 		// Let's deal with sorting
-		$sort = (isset($this->data['Sort'])) ? $this->data['Sort'] : array('Room.location_id'=>'ASC');
+		// This can also be contained in either post data or named parameters
+		if(isset($this->data['Sort'])) {
+			$sort = $this->data['Sort'];
+		} else if(array_key_exists('sort', $this->request->named)) {
+			$sort = $this->request->named['sort'];
+		} else {
+			$sort = array('Room.location_id'=>'ASC');
+		}
 		
-		$rooms = $this->Room->find('all', array(
+		// Now perform the find
+		// We're going to do this via pagination...
+		$this->paginate['Room'] = array(
 			'conditions'	=>	$filter_conds,
 			'order'			=>	$sort,
-			'contain'		=>	array('Location', 'RentBand'),
-			'limit'			=>  50
-		));
-
-		if(!$this->request->isAjax()) {
-			$locations = $this->Room->Location->find('list');
-			$rentBands = $this->Room->RentBand->find('list');
-			$tenantTypes = $this->Room->TenantType->find('list', array('order'=>'TenantType.id'));
-			$breadcrumbs = array(
-				array('name'=>'KORDS', 'url'=>'/'),
-				array('name'=>'Index', 'url'=>$this->request['url'])
-			);
-
-			$this->set(compact('locations', 'rentBands', 'tenantTypes', 'breadcrumbs'));
-		}
+			'limit'			=>	50,
+			'contain'		=> 	array('Location', 'RentBand')
+		);
+		$rooms = $this->paginate('Room');
 
 		$this->set(array(
 			'rooms'			=> $rooms,

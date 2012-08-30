@@ -1,10 +1,11 @@
-/**
+/*
  * KORDS 4 | Base LESS
  *
  * @file	base.less
  * @pkg		css/screen
  * @author	Gideon Farrell <me@gideonfarrell.co.uk>
 */
+
 
 body {
 	color: @tx;
@@ -20,6 +21,7 @@ body {
 	background-image: url(/img/linen_dark.png);
 	color: @tx_light;
 }
+
 
 @media(min-width: 767px) {
 	.sidebar {
@@ -38,7 +40,7 @@ body {
 		.transition(all 0.25s ease-in-out);
 
 		&.left {
-			left:0
+			left:0px;
 		}
 		&.right {
 			right:0px;
@@ -46,7 +48,43 @@ body {
 	}
 }
 
-/** Fix for bootstrap buttons vertical alignment **/
+// Preloader
+
+.preloader {
+	.clearfix();
+	
+	.anim {
+	    margin:0;
+	    float:left;
+
+		.row {
+		    clear:left;
+
+		    .block {
+			    float: left;
+			    background: white;
+			    width: 10px;
+			    height: 10px;
+			    margin-right:0;
+
+			    .animation-name(preloadanim);
+			    .animation-duration(2s);
+			    .animation-iteration-count(infinite);
+			    .animation-direction(alternate);
+			}
+		}
+	}
+
+	.text {
+	    float: left;
+	    margin-left: 10px;
+	    line-height: 30px;
+	    color: @anim-preloadanim-col;
+	    font-weight: bold;
+	}
+}
+
+// Fix for bootstrap buttons vertical alignment
 input.btn,
 input.btn-primary,
 input.btn-success,
@@ -58,7 +96,7 @@ input.btn-small {
 	margin-bottom:2px;
 }
 
-/** Fix for .thumbnails' weird alignment **/
+// Fix for .thumbnails' weird alignment
 .thumbnails {
 	margin-left:0;
 }

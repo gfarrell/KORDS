@@ -10,10 +10,10 @@
 define(
     [
         'Lib/jstorage', 'View/Kords',
-        'text!Template/Rooms/Filter.html', 'View/Rooms/RoomsListItem',
+        'text!Template/Rooms/Filter.html', 'text!Template/Preloader.html', 'View/Rooms/RoomsListItem',
         'Collection/Rooms', 'Collection/Locations', 'Collection/RentBands'
     ],
-    function(jStorage, KordsView, filter_html, RoomsListItemView, RoomsCollection, LocationsCollection, RentBandsCollection) {
+    function(jStorage, KordsView, filter_html, preloader_html, RoomsListItemView, RoomsCollection, LocationsCollection, RentBandsCollection) {
         var RoomsIndexView = KordsView.extend({
             tagName: 'div',
             className: 'row-fluid',
@@ -21,7 +21,8 @@ define(
             url: '/json/rooms/index',
 
             templates: {
-                filter: filter_html
+                filter:    filter_html,
+                preloader: preloader_html
             },
 
             events: {

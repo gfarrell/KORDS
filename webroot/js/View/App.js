@@ -39,9 +39,6 @@ define(
                 // Now that we have a view to play with
                 // we should insert it into our container object (that sounds dirty)
                 view.$el.appendTo(this.$container);
-
-                // And render!
-                view.render();
             },
 
             unloadView: function() {

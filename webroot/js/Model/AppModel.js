@@ -19,6 +19,8 @@ define(
                 return this.get(this.displayAttribute);
             },
 
+            validate: function() { return; },
+
             parse: function(response) {
                 // The way CakePHP gives us models is:
                 // [

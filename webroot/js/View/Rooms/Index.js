@@ -93,23 +93,31 @@ define(
                 this.$list.appendTo(this.$main);                                // add the list into the $main el
 
                 // Last but not least, the preload display element
-                this.$preloader = $(this.make('div', {
-                    'class': 'span3 offset5'
-                }, this.template('preloader', {})));
+                // this.$preloader = $(this.make('div', {
+                //     'class': 'span3 offset5'
+                // }, this.template('preloader', {})));
 
                 // Let's quickly process the animation durations on the preloader elements
                 // They all need to be random with random durations to achieve the cool effect
-                this.$preloader.find('.block').each(function(index, block) { // non-standard jquery .each syntax
-                    var prefixes = ['-webkit-', '-moz-', '-ms-', '-o-'],
-                        duration = Math.random()+1,
-                        delay    = Math.random(),
-                        $block   = $(block);
+                // this.$preloader.find('.block').each(function(index, block) { // non-standard jquery .each syntax
+                //     var prefixes = ['-webkit-', '-moz-', '-ms-', '-o-'],
+                //         duration = Math.random()+1,
+                //         delay    = Math.random(),
+                //         $block   = $(block);
 
-                    prefixes.each(function(pref) {
-                        $block.css(pref+'animation-duration', duration+'s');
-                        $block.css(pref+'animation-delay', delay+'s');
-                    });
-                });
+                //     prefixes.each(function(pref) {
+                //         $block.css(pref+'animation-duration', duration+'s');
+                //         $block.css(pref+'animation-delay', delay+'s');
+                //     });
+                // });
+
+                // Instead of a preloader here we're going to have a load more button
+                this.$loadMoreButton = $(this.make('button', {'type':'button', 'class':'btn', 'data-loading-text':'loading...', 'autocomplete':'off'}, 'Load more'));
+                this.$loadMoreButton.append(' <i class="icon-refresh"></i>');
+                // We have to explicitly set events here because it's not currently in the DOM
+                this.$loadMoreButton.on('click', this.loadMoreButtonPressed.bind(this));
+
+                this.$loadMoreButton.appendTo(this.$main);
 
                 // We have to synchronise the filter controls with the values we have stored in localStorage
                 // (and those that are set anyway)
@@ -126,6 +134,13 @@ define(
                     url: this.__buildUrl(),
                     add: !!append
                 });
+            },
+
+            loadMoreButtonPressed: function(e) {
+                e.preventDefault();
+
+                this.fetch_options.page++;
+                this.fetch(true);
             },
 
             __buildUrl: function() {
@@ -249,10 +264,10 @@ define(
             },
 
             showLoading: function() {
-                this.$preloader.appendTo(this.$main);
+                this.$loadMoreButton.button('loading');
             },
             hideLoading: function() {
-                this.$preloader.remove();
+                this.$loadMoreButton.button('reset');
             },
 
             collectionHasAdded: function(collection, response) {
@@ -275,7 +290,15 @@ define(
             },
 
             render: function(models) {
-                if(models === undefined) return this;
+                if(models === undefined) {
+                    return this;
+                }
+
+                if(models.length < this.fetch_options.limit) {
+                    this.$loadMoreButton.remove(); // there is no more to load
+                } else {
+                    this.$loadMoreButton.appendTo(this.$main);
+                }
 
                 var list = this.$list;
 
@@ -286,8 +309,6 @@ define(
 
                     room.$el.appendTo(list);
                 });
-
-
 
                 return this;
             },

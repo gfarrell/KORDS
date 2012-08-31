@@ -10,13 +10,13 @@ class RoomsController extends AppController {
 	var $paginate = array(
 		'Room'	=>	array(
 			'contain'	=>	array('Location', 'RentBand'),
-			'limit'		=>	50,
+			'maxLimit'	=>	50,
 			'order'		=>	array(
 				'Room.location_id' => 'ASC'
 			)
 		)
 	);
-
+	
 	var $filters = array(
 			'short_contract'=>	array(
 				'type'		=>	'boolean'
@@ -144,7 +144,7 @@ class RoomsController extends AppController {
 		$this->paginate['Room'] = array(
 			'conditions'	=>	$filter_conds,
 			'order'			=>	$sort,
-			'limit'			=>	50,
+			'maxLimit'		=>	50,
 			'contain'		=> 	array('Location', 'RentBand')
 		);
 		$rooms = $this->paginate('Room');

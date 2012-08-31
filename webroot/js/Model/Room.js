@@ -56,7 +56,7 @@ define(
                 }
             ],
 
-            validate:       {}
+            validate:       function() {}
         });
 
         return Room;

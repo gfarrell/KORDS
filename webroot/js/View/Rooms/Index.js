@@ -61,7 +61,7 @@ define(
 
                 // Set up all the collections we need
                 this.Rooms = new RoomsCollection();                             // RoomsCollection will store our main data
-                this.Rooms.on('add',   this.collectionHasAdded, this);          // We have to treat add and reset slightly differently
+                this.Rooms.on('add',   this.add, this);                         // We have to treat add and reset slightly differently
                 this.Rooms.on('reset', this.collectionHasReset, this);          // Reset will clear the view before rendering
 
                 // Locations and RentBands contain bootstrap data which will be used in the filter
@@ -129,10 +129,13 @@ define(
 
             fetch: function(append) {
                 this.showLoading();
+
+                append = !!append;          // explicit boolean cast
                 
                 this.Rooms.fetch({
-                    url: this.__buildUrl(),
-                    add: !!append
+                    url:     this.__buildUrl(),
+                    add:     append,
+                    success: append ? this.collectionHasAdded.bind(this) : null
                 });
             },
 
@@ -266,38 +269,33 @@ define(
             showLoading: function() {
                 this.$loadMoreButton.button('loading');
             },
-            hideLoading: function() {
+            hideLoading: function(remove) {
                 this.$loadMoreButton.button('reset');
+
+                if(remove === true) {
+                    this.$loadMoreButton.remove();
+                } else {
+                    this.$loadMoreButton.appendTo(this.$main);
+                }
             },
 
+            add: function(model, collection, options) {
+                this.render([model]);
+            },
             collectionHasAdded: function(collection, response) {
-                // Extract from the collection only the models which are listed in the reponse
-                // We do this by ID
-                var models = [];
-
-                _.each(response, function(item) {
-                    models.push(collection.get(item.Room.id));
-                });
-
-                this.render(models);
-                this.hideLoading();
+                this.hideLoading(response.length < this.fetch_options.limit);
             },
             collectionHasReset: function(collection, response) {
                 // If it is a reset we just need to clear the page and add all the models in the collection
                 this.clear();
                 this.render(collection.models);
-                this.hideLoading();
+
+                this.hideLoading(collection.models.length < this.fetch_options.limit);
             },
 
             render: function(models) {
                 if(models === undefined) {
                     return this;
-                }
-
-                if(models.length < this.fetch_options.limit) {
-                    this.$loadMoreButton.remove(); // there is no more to load
-                } else {
-                    this.$loadMoreButton.appendTo(this.$main);
                 }
 
                 var list = this.$list;

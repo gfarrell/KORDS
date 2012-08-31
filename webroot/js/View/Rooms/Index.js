@@ -53,10 +53,16 @@ define(
                             'yes': true,
                             'no':  false
                         },
-                        tenant_type: {}
+                        tenant_type: {},
+                        short_contract: {
+                            'short': true,
+                            'long':  false,
+                            'any':   null
+                        }
                 },
                 key_map: {
-                    'for': 'tenant_type'
+                    'for':      'tenant_type',
+                    'contract': 'short_contract'
                 }
             },
 

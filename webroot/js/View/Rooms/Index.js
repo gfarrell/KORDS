@@ -207,8 +207,9 @@ define(
                     var map = (filter_value_map[filter] === undefined) ? filter_value_map.all : filter_value_map[filter];
                     if(map[value] !== undefined) value = map[value];                    
 
-                    // if the value is null, ignore the filter
-                    if(value === null) return;
+                    // if the value is null/undefined, ignore the filter
+                    // it's tempting to use !value but that would rule out false values which we'd like to keep
+                    if(value === null || value === undefined || value === '') return;
 
                     // add the value to the query string
                     data += 'filter_'+filter+':'+value + '/';

@@ -43,8 +43,13 @@ define(
 
             unloadView: function() {
                 if(this._loaded !== null) {
-                    this._loaded.remove();
-                    this._loaded.unbind();
+                    if(typeOf(this._loaded.destroy) == 'function') {
+                        this._loaded.destroy();
+                    } else {
+                        this._loaded.remove();
+                        this._loaded.unbind();
+                    }
+                    
                     this._loaded = null;
                 }
             }

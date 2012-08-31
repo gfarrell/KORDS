@@ -46,6 +46,12 @@ define(
                 'for':       'all'
             },
 
+            fetch_options: {
+                limit: 50,
+                page: 1
+                //order: 'Room.location_id ASC'
+            },
+
             initialize: function(opts) {
                 // We must process the templates first
                 this.processTemplates();
@@ -146,6 +152,11 @@ define(
 
                     // add the value to the query string
                     data += 'filter_'+filter+':'+value + '/';
+                });
+
+                // Now deal with pagination options
+                Object.each(this.fetch_options, function(val, opt) {
+                    data += opt+':'+val + '/';
                 });
 
                 return this.url+encodeURI(data);

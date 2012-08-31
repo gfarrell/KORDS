@@ -11,9 +11,9 @@ define(
     [
         'Lib/jstorage', 'View/Kords',
         'text!Template/Rooms/Filter.html', 'text!Template/Preloader.html', 'View/Rooms/RoomsListItem',
-        'Collection/Rooms', 'Collection/Locations', 'Collection/RentBands'
+        'Collection/Rooms', 'Collection/TenantTypes', 'Collection/Locations', 'Collection/RentBands'
     ],
-    function(jStorage, KordsView, filter_html, preloader_html, RoomsListItemView, RoomsCollection, LocationsCollection, RentBandsCollection) {
+    function(jStorage, KordsView, filter_html, preloader_html, RoomsListItemView, RoomsCollection, TenantTypesCollection, LocationsCollection, RentBandsCollection) {
         var RoomsIndexView = KordsView.extend({
             tagName: 'div',
             className: 'row-fluid',
@@ -45,6 +45,20 @@ define(
                 'rent_band': '',
                 'for':       'all'
             },
+            _filter_maps: {
+                value_map: {
+                        all: {
+                            'any': null,
+                            'all': null,
+                            'yes': true,
+                            'no':  false
+                        },
+                        tenant_type: {}
+                },
+                key_map: {
+                    'for': 'tenant_type'
+                }
+            },
 
             fetch_options: {
                 limit: 50,
@@ -53,6 +67,10 @@ define(
             },
 
             initialize: function(opts) {
+                // Variable declarations
+                var bootstrap     = this.bootstrap(),
+                    tenant_types  = null;
+
                 // We must process the templates first
                 this.processTemplates();
 
@@ -64,11 +82,23 @@ define(
                 this.Rooms.on('add',   this.add, this);                         // We have to treat add and reset slightly differently
                 this.Rooms.on('reset', this.collectionHasReset, this);          // Reset will clear the view before rendering
 
-                // Locations and RentBands contain bootstrap data which will be used in the filter
+                // TenantTypes, Locations and RentBands contain bootstrap data which will be used in the filter
+                this.TenantTypes = new TenantTypesCollection();
                 this.Locations = new LocationsCollection();
-                this.Locations.reset(this.bootstrap().Locations, {parse: true});// We have to call parse:true to make sure the data is parsed
                 this.RentBands = new RentBandsCollection();
-                this.RentBands.reset(this.bootstrap().RentBands, {parse: true});// As above
+
+                // Reset the collections with the bootstrap data
+                // Must be called with parse:true to ensure that it is parsed
+                this.TenantTypes.reset(bootstrap.TenantTypes, {parse: true});
+                this.Locations.reset(bootstrap.Locations, {parse: true});
+                this.RentBands.reset(bootstrap.RentBands, {parse: true});
+
+                // We need to process the filter translation maps
+                // Tenant Types need to map to the correct id
+                tenant_types = this.TenantTypes.list();
+                Object.each(tenant_types, function(name, id) {
+                    this._filter_maps.value_map.tenant_type[name] = id;
+                }, this);
 
                 // Let's move on to making all the elements we need
                 // First stop is the filter element, which will use the filter template
@@ -116,7 +146,6 @@ define(
                 this.$loadMoreButton.append(' <i class="icon-refresh"></i>');
                 // We have to explicitly set events here because it's not currently in the DOM
                 this.$loadMoreButton.on('click', this.loadMoreButtonPressed.bind(this));
-
                 this.$loadMoreButton.appendTo(this.$main);
 
                 // We have to synchronise the filter controls with the values we have stored in localStorage
@@ -127,6 +156,11 @@ define(
                 this.delegateEvents();
             },
 
+            /**
+             * Fetches data from the server
+             * @param  {boolean} append set to true to add the data onto the current set, false to reset the data set
+             * @return {this}
+             */
             fetch: function(append) {
                 this.showLoading();
 
@@ -137,8 +171,16 @@ define(
                     add:     append,
                     success: append ? this.collectionHasAdded.bind(this) : null
                 });
+
+                return this;
             },
 
+            /**
+             * A callback for the 'loadMore' button.
+             * Fetches another page of data and loads it into the view.
+             * @param  {event} e the click event on the button
+             * @return {void}
+             */
             loadMoreButtonPressed: function(e) {
                 e.preventDefault();
 
@@ -146,24 +188,24 @@ define(
                 this.fetch(true);
             },
 
+            /**
+             * Builds the URL from which data is to be fetched.
+             * @return {string} URL
+             */
             __buildUrl: function() {
-                var filter_key_map   = {
-                        'for': 'tenant_type'
-                    },
-                    filter_value_map = {
-                        'any': null,
-                        'all': null,
-                        'yes': true,
-                        'no':  false
-                    },
+                var filter_value_map = this._filter_maps.value_map,
+                    filter_key_map   = this._filter_maps.key_map,
                     data             = '/';
 
                 Object.each(this._filters, function(value, filter) {
-                    // If the value needs translation for the server, translate it
-                    if(filter_value_map[value] !== undefined) value = filter_value_map[value];
-
                     // If the key needs translation for the server, translate it
                     if(filter_key_map[filter] !== undefined) filter = filter_key_map[filter];
+
+                    // If the value needs translation for the server, translate it
+                    // First we have to check if there are specific rules for this filter
+                    // Otherwise we just use the 'all' map which is the default list
+                    var map = (filter_value_map[filter] === undefined) ? filter_value_map.all : filter_value_map[filter];
+                    if(map[value] !== undefined) value = map[value];                    
 
                     // if the value is null, ignore the filter
                     if(value === null) return;

@@ -10,7 +10,7 @@
 define(
     ['Kords', 'Backbone/relational'],
     function(Kords) {
-        Kords.AppModel = Backbone.RelationalModel.extend({
+        Kords.AppModel = Backbone.Model.extend({
             name:             'AppModel',
             url:              '/json/models',
             displayAttribute: 'name',

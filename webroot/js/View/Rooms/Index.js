@@ -320,6 +320,14 @@ define(
                 });
                 this._rooms = [];
                 this.$list.empty();
+            },
+
+            destroy: function() {
+                this.clear();
+                this.unbind();
+                this.remove();
+
+                return this;
             }
         });
 

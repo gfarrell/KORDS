@@ -10,7 +10,7 @@
  */
 
 define(
-    ['bootstrap/button'],
+    ['bootstrap/button', 'bootstrap/alert'],
     function() {
         var HtmlHelper = {
             tag: function(tagName, content, attributes) {
@@ -86,6 +86,15 @@ define(
                 });
 
                 return HtmlHelper.tagFromElement(group);
+            },
+
+            alert: function(content, _class, no_close) {
+                _class = 'alert ' + (_class||'');
+
+                var close_button  = no_close === true ? '' : HtmlHelper.tag('a', '&times;', {'href':'#', 'data-dismiss':'alert', 'class':'close'}),
+                    alert_element = HtmlHelper.tag('div', close_button+' '+content, {'class':_class});
+
+                return alert_element;
             }
         };
 

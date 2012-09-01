@@ -71,9 +71,26 @@
 <%= Form.select('location', {
     'options': locations
 }) %>
-<%= Form.select('rent_band', {
-    'options': rent_bands
-}) %>
+<div class="filter-group between-selects input-prepend input-append">
+    <label class="control-label">Rent Band</label>
+    <%= Form.select('rent_band_lower', {
+        'label': false,
+        'options': rent_bands,
+        'after': '<span class="add-on"><i class="icon-arrow-right"></i></span>',
+        'div': false,
+        'class': 'filter input-small',
+        'data-ltoe': '#FilterRentBandUpper',
+        'empty': false,
+    }) %><%= Form.select('rent_band_upper', {
+        'options': rent_bands,
+        'label': false,
+        'div': false,
+        'class': 'filter input-small',
+        'data-gtoe': '#FilterRentBandLower',
+        'empty': false,
+        'selected': Object.keys(rent_bands).getLast()
+    }) %>
+</div>
 <%= Form.end(false) %>
 <!--
 <%= Form.start('Search', {

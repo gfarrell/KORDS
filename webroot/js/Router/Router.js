@@ -8,8 +8,13 @@
  */
 
 define(
-    ['Mootools/core', 'backbone', 'Collection/Rooms', 'Collection/Locations', 'View/App'],
-    function(_Mootools, Backbone, RoomsCollection, LocationsCollection, AppView) {
+    [
+        'Mootools/core', 'backbone',
+        'Model/Room',
+        'Collection/Rooms', 'Collection/Locations',
+        'View/App'
+    ],
+    function(_Mootools, Backbone, Room, RoomsCollection, LocationsCollection, AppView) {
         var Router = Backbone.Router.extend({
             routes: {
                 '':                    'landing',
@@ -48,7 +53,16 @@ define(
                     index_view.setFilter('for', for_who);
                 });
             },
-            room_view: function(id) {},
+            room_view: function(id) {
+                var _room = new Room();
+                _room.id  = id;
+                _room.fetch();
+
+                this.AppView.loadView('Rooms/Display', function(view) {
+                    view.model = _room;
+                    view.getData();
+                });
+            },
             room_add: function() {},
             room_edit: function(id) {},
 

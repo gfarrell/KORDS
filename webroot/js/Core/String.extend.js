@@ -10,6 +10,50 @@ define(
             },
             underscore: function() {
                 return this.hyphenate().replace(/^\-/, '').replace('-', '_');
+            },
+            asType: function(type) {
+                var cast_var = this,
+                    mtch;
+
+                switch (type) {
+                    case 'boolean':
+                        if(this === '' || this == '0' || this == 'false') {
+                            cast_var = false;
+                        } else {
+                            cast_var = true;
+                        }
+                        break;
+                    case 'number':
+                    case 'integer':
+                        mtch = this.match(/^([+\-]?)(\d+)/);
+                        if (!mtch) {
+                            cast_var = 0;
+                        } else {
+                            cast_var = parseInt(this, 10);
+                        }
+                        break;
+                    case 'float':
+                        mtch = this.match(/^([+\-]?)(\d+(\.\d+)?|\.\d+)([eE][+\-]?\d+)?/);
+                        if (!mtch) {
+                            cast_var = 0;
+                        } else {
+                            cast_var = parseFloat(this, 10);
+                        }
+                        break;
+                    case 'array':
+                        cast_var = this.split();
+                        break;
+                    case 'json':
+                        cast_var = JSON.decode(this);
+                        break;
+                    case 'null':
+                        cast_var = null;
+                        break;
+                    default:
+                        return this;
+                }
+
+                return cast_var;
             }
         });
     }

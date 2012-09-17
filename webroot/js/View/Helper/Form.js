@@ -189,7 +189,8 @@ define(
 
                 // Create a label if required
                 if(options.label !== false) {
-                    label = new Element('label', {'for': pretty_full, 'html': pretty.humanise(), 'class':'control-label'});
+                    var label_content = typeOf(options.label) == 'string' && options.label.length > 0 ? options.label : pretty.humanise();
+                    label = new Element('label', {'for': pretty_full, 'html': label_content, 'class':'control-label'});
                     enclosure = label.outerHTML + enclosure;
                 }
 

@@ -9,7 +9,7 @@
 
 define(
     ['Mootools/core', 'backbone',
-        'View/Pages/Landing', 'View/Rooms/Index'
+        'View/Pages/Landing', 'View/Rooms/Index', 'View/Rooms/Display'
     ],
     function() {
         var AppView = Backbone.View.extend({
@@ -49,7 +49,7 @@ define(
                         this._loaded.remove();
                         this._loaded.unbind();
                     }
-                    
+
                     this._loaded = null;
                 }
             }

@@ -24,5 +24,7 @@ define(
                 
             }
         });
+
+        return RoomDisplayView;
     }
 );

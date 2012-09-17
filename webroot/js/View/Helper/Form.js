@@ -13,7 +13,7 @@ define(
         var FormHelper = new Class({
             Implements: [Options],
 
-            specialAttributes: ['div', 'before', 'after', 'label', 'empty', 'options'],
+            specialAttributes: ['div', 'before', 'after', 'label', 'empty', 'options', 'selected'],
 
             options: {
                 model: null,
@@ -130,7 +130,7 @@ define(
                             var opt = new Element('option', {
                                 value: data,
                                 html: text,
-                                selected: (options.selected == data)
+                                selected: (options.selected == data.asType(typeOf(options.selected)))
                             });
 
                             opt.inject(element);

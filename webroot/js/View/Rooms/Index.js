@@ -362,9 +362,8 @@ define(
 
             clear: function() {
                 this._rooms.each(function(room) {
-                    room.remove();
                     room.unbind();
-                });
+                }, this);
                 this._rooms = [];
                 this.$list.empty();
             },

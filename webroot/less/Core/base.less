@@ -29,6 +29,8 @@ body {
 		top:0;
 		left:0;
 		height:100%;
+
+		max-width: 360px;
 		
 		padding: 25px 10px;
 
@@ -45,6 +47,14 @@ body {
 		&.right {
 			right:0px;
 		}
+	}
+}
+@media(min-width: 960px) {
+	.sidebar+div {
+		margin-left: 420px !important;
+		// this is declared !important because no other avenue
+		// seems to work, even with a specific sidebar_companion
+		// class, we still get offset* and span* taking over
 	}
 }
 

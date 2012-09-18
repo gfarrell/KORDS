@@ -2,7 +2,7 @@
     <h1><%= location.name + ' - ' + room.number %></h1>
 
     <!-- Hint about arrow keys -->
-    <% if($.jStorage.read('User.hasSeenRoomNavNotice') !== true) { %>
+    <% if(Storage.get('User.hasSeenRoomNavNotice') !== true) { %>
     <div id="arrow_hint" class="alert alert-info fade in">
         <a class="close" >&times;</a>
         You can use the left and right arrows to scroll between rooms. Try it!

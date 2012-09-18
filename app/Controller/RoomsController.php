@@ -163,7 +163,13 @@ class RoomsController extends AppController {
  */
 	public function view($id = null) {
 		if($id === null) $id = $this->params['id'];
+
+		if(preg_match('/^\d+$/', ''.$id) === 0) {
+			$id = $this->Room->field('id', array('Room.number'=>$id));
+		}
+
 		$this->Room->id = $id;
+
 		if (!$this->Room->exists()) {
 			throw new NotFoundException(__('Invalid room'));
 		}
@@ -180,12 +186,10 @@ class RoomsController extends AppController {
 			'Comment'	=>	$comment_conditions
 		));
 		$room = $this->Room->findById($id);
+
+		$this->set(array('room'=>$room, '_serialize'=>'room'));
 		
-		if($this->params['json']) {
-			$this->viewClass = 'Json.Json';
-			$this->set('json', $room);
-			$this->render(false);
-		} else {
+		if(!$this->params['json']) {
 			$this->_title('Room '.$room['Room']['number']);
 			$this->set('room', $room);
 			$this->set('breadcrumbs', array(

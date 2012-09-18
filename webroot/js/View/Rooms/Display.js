@@ -10,7 +10,11 @@
  */
 
 define(
-    ['View/Kords', 'Model/Room', 'text!Template/Rooms/Display.html', 'text!Template/Comments/Row.html'],
+    [
+        'View/Kords', 'Model/Room',
+        'text!Template/Rooms/Display.html', 'text!Template/Comments/Row.html',
+        'Mootools/more'
+    ],
     function(KordsView, Room, display_html, comment_html) {
         var RoomDisplayView = KordsView.extend({
             tagName: 'div',

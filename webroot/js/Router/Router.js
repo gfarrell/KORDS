@@ -60,7 +60,7 @@ define(
 
                 this.AppView.loadView('Rooms/Display', function(view) {
                     view.model = _room;
-                    view.getData();
+                    view.loadData();
                 });
             },
             room_add: function() {},

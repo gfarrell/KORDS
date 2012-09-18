@@ -55,13 +55,13 @@ define(
             },
             room_view: function(id) {
                 var _room = new Room();
-                _room.id  = id;
-                _room.fetch();
-
+                
                 this.AppView.loadView('Rooms/Display', function(view) {
                     view.model = _room;
-                    view.loadData();
+                    _room.on('change', view.loadData, view);
                 });
+
+                _room.fetch({url:'/json/rooms/view/'+id});
             },
             room_add: function() {},
             room_edit: function(id) {},

@@ -1,10 +1,10 @@
 <div id="Room" class="span12">
-    <h1><%= room.get('Location').get('name') + ' - ' + room.number %></h1>
+    <h1><%= location.name + ' - ' + room.number %></h1>
 
     <!-- Hint about arrow keys -->
-    <% if(Cookie.read('hasSeenRoomNavNotice') !== true) { %>
+    <% if($.jStorage.read('User.hasSeenRoomNavNotice') !== true) { %>
     <div id="arrow_hint" class="alert alert-info fade in">
-        <a class="close" data-trigger="nix" data-nix-options="'target': '!div.alert'">&times;</a>
+        <a class="close" >&times;</a>
         You can use the left and right arrows to scroll between rooms. Try it!
     </div>
     <% } %>
@@ -13,83 +13,75 @@
         <table id="InfoTable" class="table-striped table-condensed span6">
             <tr>
                 <td>Location</td>
-                <td><%= $room['Location']['name']; %></td>
+                <td><%= location.name %></td>
             </tr>
             <tr>
                 <td>Contract</td>
-                <td><%= ($room['Room']['short_contract'] ? 'short only' : 'long or short'); %></td>
+                <td><%= (room.short_contract ? 'short only' : 'long or short') %></td>
             </tr>
             <tr>
                 <td>Rent</td>
-                <td><%= $room['RentBand']['humanised']; %></td>
+                <td><%= rent_band.getDisplay() %></td>
             </tr>
             <tr>
                 <td>Ensuite</td>
-                <td class="<%= ($room['Room']['ensuite'] ? 'green' : 'red'); ?>"><?= ($room['Room']['ensuite']) ? 'yes' : 'no'; %></td>
+                <%= Html.tag('td',
+                    (room.ensuite ? 'yes' : 'no'),
+                    {
+                        'class': (room.ensuite ? 'green' : 'red')
+                    }
+                ) %>
             </tr>
             <tr>
                 <td>Set</td>
-                <td class="<%= ($room['Room']['set'] ? 'green' : 'red'); ?>"><?= ($room['Room']['set']) ? 'yes' : 'no'; %></td>
+                <%= Html.tag('td',
+                    (room.set ? 'yes' : 'no'),
+                    {
+                        'class': (room.set ? 'green' : 'red')
+                    }
+                ) %>
             </tr>
             <tr>
                 <td>Double</td>
-                <td class="<%= ($room['Room']['double'] ? 'green' : 'red'); ?>"><?= ($room['Room']['double']) ? 'yes' : 'no'; %></td>
+                <%= Html.tag('td',
+                    (room.double ? 'yes' : 'no'),
+                    {
+                        'class': (room.double ? 'green' : 'red')
+                    }
+                ) %>
             </tr>
             <tr>
                 <td>Piano</td>
-                <td class="<%= ($room['Room']['piano'] ? 'green' : 'red'); ?>"><?= ($room['Room']['piano']) ? 'yes' : 'no'; %></td>
+                <%= Html.tag('td',
+                    (room.piano ? 'yes' : 'no'),
+                    {
+                        'class': (room.piano ? 'green' : 'red')
+                    }
+                ) %>
             </tr>
             <tr>
                 <td>Smoking</td>
-                <td class="<%= ($room['Room']['smoking'] ? 'green' : 'red'); ?>"><?= ($room['Room']['smoking']) ? 'yes' : 'no'; %></td>
+                <%= Html.tag('td',
+                    (room.smoking ? 'yes' : 'no'),
+                    {
+                        'class': (room.smoking ? 'green' : 'red')
+                    }
+                ) %>
             </tr>
             <tr>
                 <td>Floor</td>
-                <td><%= $room['Room']['floor']; %></td>
-            </tr>
-            <tr>
-                <td>Available to</td>
-                <td><%= Inflector::humanize($room['TenantType']['name']); %></td>
+                <td><%= room.floor %></td>
             </tr>
             <tr>
                 <td>Ballot Status</td>
-                <td class="<%= ($room['Room']['available'] ? 'green' : 'red'); ?>"><?= ($room['Room']['available']) ? 'available' : 'taken'; %></td>
+                <%= Html.tag('td', 
+                    (room.available ? 'available' : 'taken'),
+                    {
+                        'class': (room.available ? 'green' : 'red')
+                    }
+                ) %>
             </tr>
         </table>
-
-        <div class="centre thumbnails">
-            <?php if(count($room['RoomImage']) > 0): ?>
-            <ul class="thumbnails">
-                <li class="span6">
-                    <div class="thumbnail">
-                        <%= $this->Html->image('rooms/'.$room['RoomImage'][0]['image'], array('id'=>'MainImage')); %>
-                    </div>
-                </li>
-            </ul>
-            <?php else: ?>
-            <span class="label label-warning">No Images</span>
-            <?php endif; ?>
-        </div>
-
-        <?php if(count($room['RoomImage']) > 1): ?>
-        <div class="centre well">
-            <ul class="thumbnails" data-behavior="Thumbs" data-thumbs-options="'display':'MainImage'">
-                <?php
-                    foreach(room.RoomImage as $photo) {
-                        echo '<li class="span2">';
-                        echo $this->Html->link(
-                                $this->Html->image('rooms/'.$photo['image']),
-                                '/img/rooms/'.$photo['image'],
-                                array(
-                                    'escape'                =>  false,
-                                    'class'                 =>  'thumbnail'
-                                ));
-                        echo '</li>';
-                    }
-                ?>
-            </ul>
-        </div>
-        <?php endif; ?>
     </section>
 
     <section id="Comments" class="row hrule">
@@ -97,7 +89,7 @@
             <?php foreach(room.Comment as $comment): ?>
                 <div class="comment row">
                     <div class="span8 offset1 comment body">
-                        <%= Markdown($comment['body']); %>
+                        <%= /*Markdown(*/$comment['body']/*)*/ %>
                         <?php
                             if(
                                 $comment['author'] == $this->Session->read('Raven.user')
@@ -129,14 +121,14 @@
                     </div>
                     <div class="span2 comment info">
                         <div class="author">
-                            <%= $comment['author']; %>
+                            <%= $comment['author'] %>
                         </div>
                         <div class="date">
-                            <%= date('jS M Y', strtotime($comment['date'])); %>
+                            <%= date('jS M Y', strtotime($comment['date'])) %>
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach %>
         </div>
         <div id="AddComment" class="centre">
             <?php
@@ -182,11 +174,11 @@
             ));
         ?>
     </section>
-    <?php endif; ?>
+    <?php endif %>
 </div>
 
 <script language="javascript" type="text/javascript" defer="defer">
-    var Navigator = new RoomNavigator(<%= $room['Room']['id']; %>);
+    var Navigator = new RoomNavigator(<%= $room['Room']['id'] %>);
 
     $('arrow_hint').getElement('a').addEvent('click', function() {
         Cookie.write('seen_arrow_hint', 1);

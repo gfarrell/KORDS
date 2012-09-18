@@ -15,7 +15,8 @@ define(
         var KordsView = Backbone.View.extend({
             helpers:   {
                 Html:     HtmlHelper,
-                Form:     FormHelper
+                Form:     FormHelper,
+                Storage:  $.jStorage
             },
 
             processTemplates: function() {

@@ -10,14 +10,15 @@
  */
 
 define(
-    ['View/Kords', 'Model/Room', 'text!Template/Rooms/Display.html'],
-    function(KordsView, Room, display_html) {
+    ['View/Kords', 'Model/Room', 'text!Template/Rooms/Display.html', 'text!Template/Comments/Row.html'],
+    function(KordsView, Room, display_html, comment_html) {
         var RoomDisplayView = KordsView.extend({
             tagName: 'div',
             className: 'room-display',
             
             templates: {
-                'main': display_html
+                'main':         display_html,
+                'comment_body': comment_html
             },
 
             initialize: function(opts) {
@@ -28,9 +29,11 @@ define(
                 this.$el.empty();
                 if(this.model) {
                     this.$el.append(this.template('main', {
-                        room:     this.model.attributes,
-                        location: this.model.get('Location'),
-                        comments: this.model.get('Comment')
+                        room:      this.model.attributes,
+                        location:  this.model.get('Location').attributes,
+                        comments:  this.model.get('Comment'),
+                        rent_band: this.model.get('RentBand'),
+                        commenter: function(data) { return this.template('comment_body', data); }.bind(this)
                     }));
                 }
             }

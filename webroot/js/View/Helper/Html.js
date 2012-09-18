@@ -10,8 +10,8 @@
  */
 
 define(
-    ['bootstrap/button', 'bootstrap/alert'],
-    function() {
+    ['bootstrap/button', 'bootstrap/alert', 'Lib/bootbox'],
+    function(btn, alt, bootbox) {
         var HtmlHelper = {
             tag: function(tagName, content, attributes) {
                 return this.tagFromElement(this.element(tagName, content, attributes));
@@ -97,6 +97,8 @@ define(
                 return alert_element;
             }
         };
+
+        HtmlHelper.Bootstrap.Bootbox = bootbox;
 
         return HtmlHelper;
     }

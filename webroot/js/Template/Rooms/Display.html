@@ -88,50 +88,10 @@
     </section>
 
     <section id="Comments" class="row hrule">
-        <div class="rows">
-            <?php foreach(room.Comment as $comment): ?>
-                <div class="comment row">
-                    <div class="span8 offset1 comment body">
-                        <%= /*Markdown(*/$comment['body']/*)*/ %>
-                        <?php
-                            if(
-                                $comment['author'] == $this->Session->read('Raven.user')
-                                || $this->Session->read('Kords.user_authorised')
-                            ) {
-                                echo '<div>';
-                                echo $this->Form->create('Delete', array(
-                                    'url'       =>  array(
-                                        'controller'    =>  'comments',
-                                        'id'            =>  $comment['id'],
-                                        'action'        =>  'delete'
-                                    ),
-                                    'method'    =>  'post',
-                                    'class'     =>  'form-discrete'
-                                ));
-                                echo $this->Form->hidden('Comment.id', array(
-                                    'value'=>$comment['id']
-                                ));
-                                echo $this->Form->end(array(
-                                    'label'     =>  'delete',
-                                    'value'     =>  'delete',
-                                    'class'     =>  'btn btn-small btn-danger',
-                                    'div'       =>  false,
-                                    'escape'    =>  false
-                                ));
-                                echo '</div>';
-                            }
-                        ?>
-                    </div>
-                    <div class="span2 comment info">
-                        <div class="author">
-                            <%= $comment['author'] %>
-                        </div>
-                        <div class="date">
-                            <%= date('jS M Y', strtotime($comment['date'])) %>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach %>
+        <div class="rows">≈
+            <% comments.each(function(c) {
+                print(commenter({'comment': c}))
+            }) %>
         </div>
         <div id="AddComment" class="centre">
             <?php

@@ -2,12 +2,15 @@
     <h1><%= location.name + ' - ' + room.number %></h1>
 
     <!-- Hint about arrow keys -->
-    <% if(Storage.get('User.hasSeenRoomNavNotice') !== true) { %>
-    <div id="arrow_hint" class="alert alert-info fade in">
-        <a class="close" >&times;</a>
-        You can use the left and right arrows to scroll between rooms. Try it!
-    </div>
-    <% } %>
+    <% if(Storage.get('User.hasSeenRoomNavNotice') !== true) {
+        print(
+            Html.Bootstrap.alert(
+                'You can use the left and right arrows to scroll between rooms. Try it!',
+                'alert-info'
+            )
+        )
+        Storage.set('User.hasSeenRoomNavNotice', true);
+    } %>
 
     <section id="RoomInfo" class="row">
         <table id="InfoTable" class="table-striped table-condensed span6">

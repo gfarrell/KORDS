@@ -49,6 +49,8 @@ class AppController extends Controller {
 	
 	function beforeFilter() {
 		parent::beforeFilter();
+
+		$this->Security->csrfCheck = false;
 		
 		if(!$this->isAuthorised()) {
 			throw new ForbiddenException('Sorry, you are not authorised to access this');

@@ -12,7 +12,7 @@ define(
     function(Backbone, AppModel, Location, RentBand, TenantType, Comment, RoomImage) {
         var Room = AppModel.extend({
             name:             'Room',
-            url:              '/json/rooms/',    // API URL for rooms
+            url:              '/json/rooms',    // API URL for rooms
             displayAttribute: 'number',
 
             defaults:       {},

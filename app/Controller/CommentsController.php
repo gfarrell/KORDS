@@ -54,6 +54,20 @@ class CommentsController extends AppController {
 	}
 
 /**
+ * add method
+ * 
+ * @return void
+ */
+	public function add() {
+		if(!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		} else {
+			$this->request->data['Comment']['id'] = null;
+			$this->edit();
+		}
+	}
+
+/**
  * edit method
  *
  * @param string $id

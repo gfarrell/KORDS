@@ -16,6 +16,32 @@ class CommentsController extends AppController {
 		$this->Security->csrfCheck = false;
 	}
 
+	public function index() {
+		$comment_conditions = $this->Session->read('Kords.user_authorised') ? array() : array('conditions'=>array('Comment.public'=>true));
+
+		$comments = array();
+		$paginate = true;
+
+		if(isset($this->request->named['room_id'])) {
+			$comment_conditions['conditions']['Comment.room_id'] = $this->request->named['room_id'];
+
+			$paginate = false;
+		}
+		if(isset($this->request->named['author'])) {
+			$comment_conditions['conditions']['Comment.author'] = $this->request->named['author'];
+
+			$paginate = false;
+		}
+
+		if($paginate) {
+			$comments = $this->paginate('Comment', $comment_conditions);
+		} else {
+			$comments = $this->Comment->find('all', $comment_conditions);
+		}
+
+		$this->set(array('comments'=>$comments, '_serialize'=>'comments'));
+	}
+
 	public function pending() {
 		$comments = $this->Comment->find('all', array(
 			'conditions'	=>	array(

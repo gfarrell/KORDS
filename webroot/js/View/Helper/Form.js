@@ -104,6 +104,8 @@ define(
                     attributes  = Object.filter(options, function(val, key) { return !this.specialAttributes.contains(key); }, this),
                     parent, enclosure, element, label;
 
+                attributes = _.extend({name: data_name}, attributes);
+
                 // Create the element itself
                 element = new Element(tag, attributes);
                 element.set('id', pretty_full);

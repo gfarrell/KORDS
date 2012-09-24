@@ -58,6 +58,10 @@ define(
                 return this.__makeFormElement('input', name, attributes);
             },
 
+            hidden: function(name, attributes) {
+                return this.input(name, _.extend(attributes, {type: 'hidden'}));
+            },
+
             select: function(name, attributes) {
                 return this.__makeFormElement('select', name, attributes);
             },

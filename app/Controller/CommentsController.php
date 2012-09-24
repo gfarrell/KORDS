@@ -109,19 +109,10 @@ class CommentsController extends AppController {
 				'action'		=> 'view'
 			);
 
-			if($this->params['json']) {
-				$this->viewClass = 'Json.Json';
-				$this->set('json', array('message'=>__($message)));
-				$this->render(false);
-			} else {
-				$this->Session->setFlash(__($message));
-				$this->redirect($redirect);
-			}
+			$this->set(array('message'=>$message, '_serialize'=>'message'));
 		} else {
-			if($edit) $this->request->data = $this->Comment->read(null, $id);
+			throw new MethodNotAllowedException();
 		}
-
-		// This controller is not designed to have any non-json rooms. I want everything to be just submitted to it.
 	}
 
 /**
@@ -156,13 +147,6 @@ class CommentsController extends AppController {
 			'action'		=> 'view'
 		);
 
-		if($this->params['json']) {
-			$this->viewClass = 'Json.Json';
-			$this->set('json', array('message'=>__($message)));
-			$this->render(false);
-		} else {
-			$this->Session->setFlash(__($message));
-			$this->redirect($redirect);
-		}
+		$this->set(array('message'=>$message, '_serialize'=>'message'));
 	}
 }

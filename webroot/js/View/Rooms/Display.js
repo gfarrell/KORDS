@@ -12,17 +12,17 @@
 define(
     [
         'View/Kords', 'Model/Room',
-        'text!Template/Rooms/Display.html', 'text!Template/Comments/Row.html',
+        'text!Template/Rooms/Display.html',
+        'View/Comments/Comments',
         'Mootools/more'
     ],
-    function(KordsView, Room, display_html, comment_html) {
+    function(KordsView, Room, display_html, CommentsView) {
         var RoomDisplayView = KordsView.extend({
             tagName: 'div',
             className: 'room-display',
             
             templates: {
-                'main':         display_html,
-                'comment_body': comment_html
+                'main':         display_html
             },
 
             initialize: function(opts) {
@@ -31,16 +31,23 @@ define(
 
             render: function() {
                 this.$el.empty();
+                this.undelegateEvents();
+
                 if(this.model) {
                     this.$el.append(this.template('main', {
                         room:      this.model.attributes,
                         location:  this.model.get('Location').attributes,
-                        comments:  this.model.get('Comment'),
-                        rent_band: this.model.get('RentBand'),
-                        commenter: function(data) { return this.template('comment_body', data); }.bind(this)
+                        rent_band: this.model.get('RentBand')
                     }));
+                    this.Comments = new CommentsView({
+                                        el:         this.$el.find('#Comments'),
+                                        collection: this.model.get('Comment'),
+                                        room_id:    this.model.get('id')
+                                    });
                 }
-            }
+
+                this.delegateEvents();
+            }            
         });
 
         return RoomDisplayView;

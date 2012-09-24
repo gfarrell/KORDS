@@ -59,6 +59,35 @@ define(
                 }
 
                 return data;
+            },
+
+            toJSON: function() {
+                // CakePHP expects models as above in parse()
+                // Backbone doesn't do things that way...
+                // We have to fix it
+
+                var data      = {},
+                    related   = [],
+                    model_key = this.name;
+
+                data[model_key] = {};
+                
+                // Related models have keys in this.relations, so we can find out what they are first
+                if(this.relations) {
+                    related = _.pluck(this.relations, 'key');
+                }
+
+                related.each(function(n) {
+                    if(this.get(n)) data[n] = this.get(n).toJSON();
+                });
+
+                _.each(this.attributes, function(attr, name) {
+                    if(related.indexOf(name) == -1) {
+                        data[model_key][name] = attr;
+                    }
+                });
+
+                return data;
             }
         });
 

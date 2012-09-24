@@ -14,7 +14,7 @@ define(
         'View/Kords', 'Model/Room',
         'text!Template/Rooms/Display.html',
         'View/Comments/Comments',
-        'Mootools/more'
+        'Mootools/more', 'bootstrap/carousel'
     ],
     function(KordsView, Room, display_html, CommentsView) {
         var RoomDisplayView = KordsView.extend({
@@ -37,8 +37,10 @@ define(
                     this.$el.append(this.template('main', {
                         room:      this.model.attributes,
                         location:  this.model.get('Location').attributes,
-                        rent_band: this.model.get('RentBand')
+                        rent_band: this.model.get('RentBand'),
+                        images:    this.model.get('RoomImage')
                     }));
+                    this.$el.find('#RoomImages').carousel().carousel('next');
                     this.Comments = new CommentsView({
                                         el:         this.$el.find('#Comments'),
                                         collection: this.model.get('Comment'),

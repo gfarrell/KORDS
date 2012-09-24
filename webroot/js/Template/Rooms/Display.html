@@ -85,6 +85,24 @@
                 ) %>
             </tr>
         </table>
+        <div id="RoomImages" class="span6 carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <% images.each(function(img) {
+                print(
+                    Html.tag('div', 
+                        Html.image('/img/rooms/'+img.get('image'), img.get('img')), {'class': 'item'})
+                )
+            }) %>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#RoomImages" data-slide="prev">
+            <i class="icon-chevron-left"></i>
+        </a>
+        <a class="carousel-control right" href="#RoomImages" data-slide="next">
+            <i class="icon-chevron-right"></i>
+        </a>
+    </div>
     </section>
 
     <section id="Comments" class="row hrule">

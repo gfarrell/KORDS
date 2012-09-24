@@ -40,8 +40,12 @@ require.config({
 require(
     ['Mootools/core', 'jquery', 'underscore', 'backbone', 'Kords', 'Router/Router', 'app_bootstrap'],
     function(_Mootools, _jQuery, _, Backbone, Kords, Router, app_bootstrap) {
+        Backbone.emulateHTTP = true;
+
         Kords.bootstrap = app_bootstrap;
         Kords.Router = new Router(Kords);
+
+
 
         Backbone.history.start({
             pushState: false // We want hash based URLs

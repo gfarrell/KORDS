@@ -67,7 +67,7 @@ define(
             },
 
             button: function(name, attributes) {
-                return this.__makeTag('button', attributes);
+                return HtmlHelper.tag('button', name, _.extend(attributes, {'id':this.name.capitalize() + name.camelise().capitalize()}));
             },
 
 

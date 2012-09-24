@@ -38,38 +38,62 @@ li.room {
 	margin-top: 1em;
 }
 
-.comment.row {
-	margin:1em 0;
-	position: relative;
+.rows.comments {
+	li {
+		list-style-type: none;
+		
+		margin:1em 0;
 
-	.comment.body {
-		text-align: justify;
-		padding:1em;
+		.clearfix();
 
-		&:hover {
-			background-color: #f5f5f5;
+		.body {
+			text-align: justify;
+			padding:1em;
+
+			&:hover {
+				background-color: #f5f5f5;
+			}
+		}
+
+		.info {
+			font-family:'Sansita One', Helvetica;
+
+			position:relative;
+			top:25%;
+
+			.author {
+				color: @mmdrk_grey;
+				padding-left:1em;
+			}
+			.date {
+				color: @light_grey;
+				padding-left:1em;
+			}
+		}
+
+		.delete {
+			width:20px;
+			height:20px;
+			text-align: center;
+			display: block;
+			background: darken(@bodyBackground, 25%);
+			color: darken(@bodyBackground, 75%);
+
+			position: absolute;
+			top: 0;
+			right: -20px;
+
+			&:hover {
+				background: mix(@red, @bodyBackground, 50%);
+				color: @black;
+				text-decoration: none;
+			}
+		}
+
+		&:nth-child(odd) .body {
+			background-color: @tableBackgroundAccent;
 		}
 	}
-
-	.comment.info {
-		font-family:'Sansita One', Helvetica;
-
-		position:relative;
-		top:25%;
-
-		.author {
-			color: @mmdrk_grey;
-			padding-left:1em;
-		}
-		.date {
-			color: @light_grey;
-			padding-left:1em;
-		}
-	}
-}
-
-.comment.row:nth-child(odd) .comment.body {
-	background-color: #f9f9f9;
 }
 
 #AddComment {

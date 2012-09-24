@@ -1,28 +1,26 @@
-<div class="comment row">
-    <div class="span8 offset1 comment body">
-        <%= comment.get('body') %>
-        <%
-            if(
-                comment.get('author') == Storage.get('User.crsid')
-                || Storage.get('User.isAdmin')
-            ) {
-                print(Html.link(
-                        '/json/comments/'+comment.get('id')+'/delete',
-                        'Delete',
-                        {
-                            'class':  'btn btn-small btn-danger  delete',
-                            'data-id': comment.id
-                        }
-                ));
-            }
-        %>
+<div class="span8 offset1 comment body">
+    <%= comment.get('body') %>
+</div>
+<div class="span2 comment info">
+    <%
+        // Controls
+        if(
+            comment.get('author') == Storage.get('User.crsid')
+            || Storage.get('User.isAdmin')
+        ) {
+            print(Html.link(
+                    '/json/comments/'+comment.get('id')+'/delete',
+                    Html.tag('i', '', {'class': 'icon-remove'}),
+                    {
+                        'class':      'delete'
+                    }
+            ));
+        }
+    %>
+    <div class="author">
+        <%= comment.get('author') %>
     </div>
-    <div class="span2 comment info">
-        <div class="author">
-            <%= comment.get('author') %>
-        </div>
-        <div class="date">
-            <%= (new Date(comment.get('date'))).format('%e%o %b %Y') %>
-        </div>
+    <div class="date">
+        <%= (new Date(comment.get('date'))).format('%e%o %b %Y') %>
     </div>
 </div>

@@ -8,8 +8,8 @@
  */
 
 define(
-    ['View/Kords', 'Model/Comment', 'text!Template/Comments/Add.html'],
-    function(KordsView, Comment, template_html) {
+    ['View/Kords', 'text!Template/Comments/Add.html'],
+    function(KordsView, template_html) {
         var AddCommentView = KordsView.extend({
             tagName: 'div',
             id: 'AddComment',
@@ -33,13 +33,12 @@ define(
             post: function(e) {
                 e.preventDefault();
 
-                var value = this.$el.find('textarea').val(),
-                    model = new Comment({
-                        body:    value,
-                        room_id: this.room_id
-                    });
+                var value = this.$el.find('textarea').val();
 
-                model.save();
+                this.collection.create({
+                    body:    value,
+                    room_id: this.room_id
+                });
             },
             reset: function(e) {
                 if(e) e.preventDefault();

@@ -20,11 +20,7 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
-/**
- * Let's parse extensions nicely
- */
-	Router::parseExtensions();
+	
 	
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
@@ -43,35 +39,8 @@
 	Router::connect('/admin/*', array('controller'=>'pages', 'action'=>'admin'));
 
 /**
- * Normal controller/id routing
-*/
-	Router::connect('/:controller/:id',
-		array('action'=>'view'),
-		array('id'=>'(\d+)')
-	);
-	Router::connect('/:controller/:id/:action',
-		array(),
-		array('id'=>'(\d+)')
-	);
-	Router::connect('/:controller/add',
-		array('action'=>'edit')		
-	);
-	
-/**
  * API Routing using extensions
  */
- 	Router::connect('/:ext/:controller',
- 		array('json'=>true, 'action'=>'index'),
- 		array('ext'=>'(json|xml)')
- 	);
-	Router::connect('/:ext/:controller/:id',
-		array('json'=>true, 'action'=>'view'),
-		array('id'=>'(\d+)', 'ext'=>'(json|xml)')
-	);
-	Router::connect('/:ext/:controller/:id/:action',
-		array('json'=>true, 'action'=>'view'),
-		array('id'=>'(\d+)', 'ext'=>'(json|xml)')
-	);
 	Router::connect('/:ext/:controller/:action',
 		array('json'=>true),
 		array('ext'=>'(json|xml)')
@@ -80,16 +49,19 @@
 		array('json'=>true),
 		array('ext'=>'(json|xml)')
 	);
-	Router::connect('/:ext/:controller/*',
-		array('json'=>true, 'action'=>'index'),
-		array('ext'=>'(json|xml)')
-	);
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
+
+/**
+ * Let's parse extensions nicely and have REST
+ */
+	Router::mapResources('rooms');
+	Router::mapResources('comments');
+	Router::parseExtensions();
 
 /**
  * Load the CakePHP default routes. Remove this if you do not want to use

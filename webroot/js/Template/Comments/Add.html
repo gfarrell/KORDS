@@ -1,0 +1,19 @@
+<%= Form.start('Comment', {
+    'action':        '/json/comments/add',
+    'inputDefaults': {
+        'div':    false,
+        'label':  false,
+        'before': false,
+        'after':  false
+    }
+}) %>
+<%= Form.textarea('body', {
+    'class':       'span8',
+    'placeholder': 'Add a comment'
+}) %>
+<%= Form.hidden('room_id', {'class': 'span8', 'value': room_id}) %>
+<div>
+    <%= Form.button('Post', {'class':'btn btn-primary'}) %>
+    <%= Form.button('Clear', {'class':'btn btn-danger'}) %>
+</div>
+<%= Form.end() %>

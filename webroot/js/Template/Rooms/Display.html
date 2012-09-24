@@ -88,59 +88,16 @@
     </section>
 
     <section id="Comments" class="row hrule">
-        <div class="rows">≈
-            <% comments.each(function(c) {
-                print(commenter({'comment': c}))
-            }) %>
-        </div>
-        <div id="AddComment" class="centre">
-            <?php
-                echo $this->Form->create('Comment', array(
-                    'url'   =>  array('controller'=>'comments', 'action'=>'add')
-                ));
-
-                echo $this->Form->input('Comment.body', array(
-                    'div'   =>  'clearfix',
-                    'type'  =>  'textarea',
-                    'class' =>  'span8',
-                    'label' =>  false
-                ));
-
-                echo $this->Form->hidden('Comment.room_id', array('value'=>$room['Room']['id']));
-
-                echo $this->Form->end(array(
-                    'label' =>  'Add Comment',
-                    'value' =>  'Add Comment',
-                    'class' =>  'btn btn-primary',
-                    'div'   =>  false
-                ));
-            ?>
-
-        </div>
     </section>
     
-    <?php if($this->Session->check('Kords.user_authorised')): ?>
+    <% if(Cookie.read('User.isAuthorised') === true) { %>
     <section class="controls centre">
-        <?php 
-            echo $this->Html->link('Edit', array('id'=>$room['Room']['id'], 'action'=>'edit'), array('class'=>'btn'));
-            
-            echo '&nbsp;';
-            
-            echo $this->element('delete_button', array(
-                'url'   =>  array(
-                    'controller'    =>  'rooms',
-                    'id'            =>  $room['Room']['id'],
-                    'action'        =>  'delete'
-                ),
-                'model' =>  'Room',
-                'id'    =>  $room['Room']['id']
-            ));
-        ?>
+        <%= Html.link('Edit', '/#/admin/rooms/'+room.id+'/edit', {'class': 'btn'}) %>
     </section>
-    <?php endif %>
+    <% } %>
 </div>
 
-<script language="javascript" type="text/javascript" defer="defer">
+<% /*
     var Navigator = new RoomNavigator(<%= $room['Room']['id'] %>);
 
     $('arrow_hint').getElement('a').addEvent('click', function() {
@@ -150,4 +107,4 @@
     if(Cookie.read('seen_arrow_hint')) {
         $('arrow_hint').hide();
     }
-</script>
+*/ %>

@@ -33,6 +33,10 @@ define(
 
             link: function(url, title, attributes) {
                 return this.tag('a', title || url, Object.merge(attributes || {}, {href: url}));
+            },
+
+            image: function(src, alt, attributes) {
+                return this.tag('img', '', Object.merge(attributes || {}, {src: src, alt: alt}));
             }
         };
 

@@ -29,7 +29,7 @@ define(
                 this.processTemplates();
             },
 
-            loadData: function() {
+            render: function() {
                 this.$el.empty();
                 if(this.model) {
                     this.$el.append(this.template('main', {

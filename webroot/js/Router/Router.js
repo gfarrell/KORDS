@@ -58,7 +58,7 @@ define(
                 
                 this.AppView.loadView('Rooms/Display', function(view) {
                     view.model = _room;
-                    _room.on('change', view.loadData, view);
+                    _room.on('change', view.render, view);
                 });
 
                 _room.fetch({url:'/json/rooms/view/'+id});

@@ -253,7 +253,7 @@ class RoomsController extends AppController {
  */
 	public function delete($id = null) {
 		if($id === null) $id = $this->params['id'];
-		if (!$this->request->is('post')) {
+		if (!$this->request->is('delete')) {
 			throw new MethodNotAllowedException();
 		}
 		$this->Room->id = $id;

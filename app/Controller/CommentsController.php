@@ -17,21 +17,14 @@ class CommentsController extends AppController {
 	}
 
 	public function pending() {
-		$this->_title('Comment Pending Approval');
-
-		$this->set('comments', $this->Comment->find('all', array(
+		$comments = $this->Comment->find('all', array(
 			'conditions'	=>	array(
 				'Comment.public'	=>	false
 			),
 			'order'			=>	array('Comment.date ASC')
-		)));
-
-		$this->set('breadcrumbs', array(
-			array('name'=>'KORDS','url'=>'/'),
-			array('name'=>'Moderation', 'url'=>$this->request['url'])
 		));
 
-		App::import('Vendor', 'Markdown/markdown');
+		$this->set(array('comments'=>$comments, '_serialize'=>'comments'));
 	}
 
 	public function approve($id = null) {

@@ -26,7 +26,7 @@ define(
             initialize: function(opts) {
                 this.render();
                 this.delegateEvents();
-                this.url = '/#/rooms/'+this.model.get('number').toLowerCase().underscore();
+                this.url = '/#/rooms/'+this.model.get('slug');
             },
 
             render: function() {

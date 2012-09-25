@@ -9,7 +9,7 @@ define(
                 return this.replace(/(\w+?)([\s\-_]+?)(\w+?)/g, function(whole, word1, blah, word2) { return word1 + word2.capitalize(); });
             },
             underscore: function() {
-                return this.hyphenate().replace(/^\-/, '').replace('-', '_');
+                return this.hyphenate().replace(/^\-/, '').replace(/\-/g, '_');
             },
             asType: function(type) {
                 var cast_var = this,

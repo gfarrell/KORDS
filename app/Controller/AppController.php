@@ -42,6 +42,7 @@ class AppController extends Controller {
 			}
 		} else {
 			// mod_ucam_webauth isn't enabled, so there is no authentication system...
+			$this->Session->write('Raven.user', 'admin');
 			$this->Session->write('Kords.user_authorised', true);
 			return true;
 		}

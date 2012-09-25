@@ -55,7 +55,7 @@ define(
                 });
             },
             room_view: function(id) {
-                var _room = new Room();
+                var _room = new Room({slug: id});
                 
                 this.AppView.loadView('Rooms/Display', function(view) {
                     view.model = _room;
@@ -63,7 +63,6 @@ define(
                 });
 
                 _room.fetch({
-                    url:'/json/rooms/view/'+id,
                     error: function(_model, xhr, response) {
                         if(xhr.status == 404) {
                             this.AppView.loadView('Errors/404', function(view) {

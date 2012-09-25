@@ -130,13 +130,13 @@ define(
                 }));
                 this.$list.appendTo(this.$main);                                // add the list into the $main el
 
-                // Last but not least, the preload display element
+                // // Last but not least, the preload display element
                 // this.$preloader = $(this.make('div', {
                 //     'class': 'span3 offset5'
                 // }, this.template('preloader', {})));
 
-                // Let's quickly process the animation durations on the preloader elements
-                // They all need to be random with random durations to achieve the cool effect
+                // // Let's quickly process the animation durations on the preloader elements
+                // // They all need to be random with random durations to achieve the cool effect
                 // this.$preloader.find('.block').each(function(index, block) { // non-standard jquery .each syntax
                 //     var prefixes = ['-webkit-', '-moz-', '-ms-', '-o-'],
                 //         duration = Math.random()+1,
@@ -150,11 +150,17 @@ define(
                 // });
 
                 // Instead of a preloader here we're going to have a load more button
-                this.$loadMoreButton = $(this.make('button', {'type':'button', 'class':'btn', 'data-loading-text':'loading...', 'autocomplete':'off'}, 'Load more'));
-                this.$loadMoreButton.append(' <i class="icon-refresh"></i>');
-                // We have to explicitly set events here because it's not currently in the DOM
-                this.$loadMoreButton.on('click', this.loadMoreButtonPressed.bind(this));
-                this.$loadMoreButton.appendTo(this.$main);
+                // this.$loadMoreButton = $(this.make('button', {'type':'button', 'class':'btn', 'data-loading-text':'loading...', 'autocomplete':'off'}, 'Load more'));
+                // this.$loadMoreButton.append(' <i class="icon-refresh"></i>');
+                // // We have to explicitly set events here because it's not currently in the DOM
+                // this.$loadMoreButton.on('click', this.loadMoreButtonPressed.bind(this));
+                // this.$loadMoreButton.appendTo(this.$main);
+
+                // I have decided not to bother with pagination, but to use a very simple "loading" message instead of a complex preloader for aesthetic issues
+                // the previous one was cool but the loading time isn't long enough to justify it
+                this.$preloader = $(this.helpers.Html.element('div', '', {'class':'loading-message'}));
+                this.$preloader.append($(this.helpers.Html.image('/img/ajax-loader.gif', 'loading')));
+
 
                 // We have to synchronise the filter controls with the values we have stored in localStorage
                 // (and those that are set anyway)
@@ -318,16 +324,21 @@ define(
             },
 
             showLoading: function() {
-                this.$loadMoreButton.button('loading');
+                //this.$loadMoreButton.button('loading');
+                this.$preloader.appendTo(this.$main);
+                this.$preloader.show();
             },
             hideLoading: function(remove) {
-                this.$loadMoreButton.button('reset');
+                this.$preloader.hide();
+                this.$preloader.remove();
 
-                if(remove === true) {
-                    this.$loadMoreButton.remove();
-                } else {
-                    this.$loadMoreButton.appendTo(this.$main);
-                }
+                // this.$loadMoreButton.button('reset');
+
+                // if(remove === true) {
+                //     this.$loadMoreButton.remove();
+                // } else {
+                //     this.$loadMoreButton.appendTo(this.$main);
+                // }
             },
 
             add: function(model, collection, options) {

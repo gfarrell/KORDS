@@ -41,7 +41,10 @@ define(
                 e.preventDefault();
                 this.helpers.Html.Bootstrap.Bootbox.confirm('Are you sure you want to delete this comment? This is not reversible.', function(r) {
                     if(r) {
+                        var c = this.model.collection;
                         this.model.destroy();
+
+                        if(c) c.trigger('change');
                     }
                 }.bind(this));
             }

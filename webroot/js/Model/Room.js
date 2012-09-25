@@ -20,8 +20,15 @@ define(
     ) {
         var Room = AppModel.extend({
             name:             'Room',
-            url:              '/json/rooms',    // API URL for rooms
             displayAttribute: 'number',
+
+            url: function() {
+                var _url = '/rooms';
+                if(this.get('slug')) _url += '/view/' + this.get('slug');
+                _url += '.json';
+
+                return _url;
+            },
 
             defaults:       {},
             relations:      [

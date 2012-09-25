@@ -12,7 +12,8 @@ define(
         'Mootools/core', 'backbone',
         'Model/Room',
         'Collection/Rooms', 'Collection/Locations',
-        'View/App'
+        'View/App',
+        'View/Errors/404'
     ],
     function(_Mootools, Backbone, Room, RoomsCollection, LocationsCollection, AppView) {
         var Router = Backbone.Router.extend({
@@ -61,7 +62,16 @@ define(
                     _room.on('change', view.render, view);
                 });
 
-                _room.fetch({url:'/json/rooms/view/'+id});
+                _room.fetch({
+                    url:'/json/rooms/view/'+id,
+                    error: function(_model, xhr, response) {
+                        if(xhr.status == 404) {
+                            this.AppView.loadView('Errors/404', function(view) {
+                                view.item_type = 'Room';
+                            });
+                        }
+                    }.bind(this)
+                });
             },
             room_add: function() {},
             room_edit: function(id) {},

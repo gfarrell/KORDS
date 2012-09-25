@@ -16,7 +16,7 @@
         <table id="InfoTable" class="table-striped table-condensed span6">
             <tr>
                 <td>Location</td>
-                <td><%= location.name %></td>
+                <td><%= Html.link('/#/locations/'+location.id, location.name) %></td>
             </tr>
             <tr>
                 <td>Contract</td>

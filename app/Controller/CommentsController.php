@@ -135,7 +135,7 @@ class CommentsController extends AppController {
 				'action'		=> 'view'
 			);
 
-			$this->set(array('message'=>$message, '_serialize'=>'message'));
+			$this->set(array('Comment'=>$this->Comment->read(null, $this->Comment->id), '_serialize'=>'Comment'));
 		} else {
 			throw new MethodNotAllowedException();
 		}

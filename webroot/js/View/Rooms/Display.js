@@ -40,7 +40,9 @@ define(
                         rent_band: this.model.get('RentBand'),
                         images:    this.model.get('RoomImage')
                     }));
-                    this.$el.find('#RoomImages').carousel().carousel('next');
+                    if(this.model.get('RoomImage').length > 0) {
+                        this.$el.find('#RoomImages').carousel().carousel('next');
+                    }
                     this.Comments = new CommentsView({
                                         el:         this.$el.find('#Comments'),
                                         collection: this.model.get('Comment'),

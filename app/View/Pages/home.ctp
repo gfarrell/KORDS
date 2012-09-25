@@ -14,7 +14,11 @@ define('app_bootstrap', function() {
     return {
         Locations:   <?php echo $locations;    ?>,
         RentBands:   <?php echo $rent_bands;   ?>,
-        TenantTypes: <?php echo $tenant_types; ?>
+        TenantTypes: <?php echo $tenant_types; ?>,
+        Session:     {
+            'User.crsid':    "<?php echo $this->Session->read('Raven.user'); ?>",
+            'User.isAdmin':  <?php echo $this->Session->read('Kords.user_authorised'); ?>
+        }
     }
 });
 </script>

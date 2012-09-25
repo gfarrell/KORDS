@@ -20,7 +20,7 @@ define(
                 this.$rows = $(this.helpers.Html.element('ul', '', {'class':'rows comments'}));
                 this.$rows.appendTo(this.$el);
 
-                this.creator = new AddCommentView({room_id: opts.room_id});
+                this.creator = new AddCommentView({room_id: opts.room_id, collection: this.collection});
                 this.creator.$el.appendTo(this.$el);
 
                 this.collection.on('change', this.render, this);

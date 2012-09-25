@@ -187,12 +187,8 @@ class RoomsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		if($id === null) $id = $this->params['id'];
-
-		if(preg_match('/^\d+$/', ''.$id) === 0) {
-			$id = $this->Room->field('id', array('Room.number'=>$id));
-		}
+	public function view($slug = null) {
+		$id = $this->Room->field('id', array('Room.slug'=>$slug));
 
 		$this->Room->id = $id;
 

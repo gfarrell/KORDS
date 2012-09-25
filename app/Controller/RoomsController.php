@@ -160,14 +160,20 @@ class RoomsController extends AppController {
 		}
 		
 		// Now perform the find
-		// We're going to do this via pagination...
-		$this->paginate['Room'] = array(
+		// We're going to do this via a findAll - pagination is annoying...
+		// $this->paginate['Room'] = array(
+		// 	'conditions'	=>	$filter_conds,
+		// 	'order'			=>	$sort,
+		// 	'maxLimit'		=>	50,
+		// 	'contain'		=> 	array('Location', 'RentBand')
+		// );
+		// $rooms = $this->paginate('Room');
+		
+		$rooms = $this->Room->find('all', array(
 			'conditions'	=>	$filter_conds,
 			'order'			=>	$sort,
-			'maxLimit'		=>	50,
-			'contain'		=> 	array('Location', 'RentBand')
-		);
-		$rooms = $this->paginate('Room');
+			'contain'		=>	array('Location', 'RentBand')
+		));
 
 		$this->set(array(
 			'rooms'			=> $rooms,

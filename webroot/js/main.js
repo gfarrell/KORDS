@@ -42,6 +42,13 @@ require(
     function(_Mootools, _jQuery, _, Backbone, Kords, Router, app_bootstrap) {
         Backbone.emulateHTTP = true;
 
+        // Session bootstrap
+        _.each(app_bootstrap.Session, function(val, key) {
+            $.jStorage.set(key, val);
+        });
+
+        delete app_bootstrap.Session;
+
         Kords.bootstrap = app_bootstrap;
         Kords.Router = new Router(Kords);
 

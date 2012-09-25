@@ -8,8 +8,16 @@
  */
 
 define(
-    ['Backbone/relational', 'Model/AppModel', 'Model/Location', 'Model/RentBand', 'Model/TenantType', 'Model/Comment', 'Model/RoomImage'],
-    function(Backbone, AppModel, Location, RentBand, TenantType, Comment, RoomImage) {
+    [
+        'backbone', 
+        'Model/AppModel', 'Model/Location', 'Model/RentBand', 'Model/TenantType', 'Model/Comment', 'Model/RoomImage',
+        'Collection/Comments'
+    ],
+    function(
+        Backbone,
+        AppModel, Location, RentBand, TenantType, Comment, RoomImage,
+        CommentsCollection
+    ) {
         var Room = AppModel.extend({
             name:             'Room',
             url:              '/json/rooms',    // API URL for rooms
@@ -44,7 +52,7 @@ define(
                     type:               Backbone.HasMany,
                     relatedModel:       Comment,
                     key:                'Comment',
-                    //collectionType:     'CommentsCollection',
+                    collectionType:     CommentsCollection,
                     includeInJSON:      'id'
                 },
                 {// Room hasMany RoomImage

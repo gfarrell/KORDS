@@ -38,6 +38,10 @@ define(
                 this.collection.create({
                     body:    value,
                     room_id: this.room_id
+                }, {
+                    error: function() {
+                        this.helpers.Html.Bootstrap.Bootbox.alert('Sorry, I was unable to post your comment. Please try again.');
+                    }.bind(this)
                 });
 
                 this.reset();

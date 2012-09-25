@@ -40,7 +40,8 @@ class RoomsController extends AppController {
 				'type'		=>	'boolean'
 			),
 			'rent_band'	=>	array(
-				'type'		=>	'id'
+				'type'		=>	'range',
+				'key'		=>  'rent_band_id'
 			),
 			'tenant_type'	=>	array(
 				'type'		=>	'id',
@@ -82,14 +83,28 @@ class RoomsController extends AppController {
 			foreach($named as $parameter=>$value) {
 				if(strpos($parameter, 'filter_') == 0) {		// if it starts with filter_
 					$f = str_replace('filter_', '', $parameter);
+					// check for metafilters (e.g. range)
+					$isRange = preg_match('/(.+)_(upper|lower)/', $f);
+					if($isRange) {
+						$f = preg_replace('/(.+)(_(upper|lower))/', '$1', $f);
+						$isUpper = preg_match('/(.+)_(upper)/', $parameter);
+					}
 					if(array_key_exists($f, $this->filters)) {	// if we have defined this filter
-						$filters[$f] = $this->filters[$f];
+						if(!array_key_exists($f, $filters)) $filters[$f] = $this->filters[$f];
 						$filters[$f]['value'] = $value;
+					}
+					if($isRange) {
+						$filters[$f]['value'] = null;
+						if($isUpper) {
+							$filters[$f]['upper'] = $value;
+						} else {
+							$filters[$f]['lower'] = $value;
+						}
 					}
 				}
 			}
 		}
-
+		
 		// Now that we have extracted the filters from the request, let's go through them
 		foreach($filters as $f=>$filter) {
 			$c = $filter['value'] or null;					// convenience variable
@@ -106,6 +121,11 @@ class RoomsController extends AppController {
 					if($this->$model->exists()) {				// if the record exists
 						$filter_conds[$key] = $c;				// then set it as a condition
 					}
+					break;
+				case 'range':
+					// conditions:
+					$filter_conds[$filters[$f]['key'].' <='] = $filters[$f]['upper'];
+					$filter_conds[$filters[$f]['key'].' >='] = $filters[$f]['lower'];
 					break;
 				case 'boolean':									// Booleans require special parsing
 					$filter_conds[$f] = filter_var($c, FILTER_VALIDATE_BOOLEAN);

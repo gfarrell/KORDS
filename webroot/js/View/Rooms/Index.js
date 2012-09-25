@@ -34,17 +34,19 @@ define(
             split_sort: ['Location.name', 'RoomStatus.name', 'Room.rent_band_id'],
 
             _filters: {
-                'available': 'yes',
-                'contract':  'any',
-                'ensuite':   'all',
-                'set':       'all',
-                'double':    'all',
-                'piano':     'all',
-                'smoking':   'all',
-                'location':  '',
-                'rent_band': '',
-                'for':       'all'
+                'available':       'yes',
+                'contract':        'any',
+                'ensuite':         'all',
+                'set':             'all',
+                'double':          'all',
+                'piano':           'all',
+                'smoking':         'all',
+                'location':        '',
+                'rent_band_lower': 1,
+                'rent_band_upper': 6,
+                'for':             'all'
             },
+
             _filter_maps: {
                 value_map: {
                         all: {
@@ -254,7 +256,7 @@ define(
                 this._filters[filter] = value;
 
                 // update the filter in localStorage
-                $.jStorage.set('Kords.Index.Filter.'+filter, value);
+                this.helpers.Storage.set('Kords.Index.Filter.'+filter, value);
 
                 // Fetch
                 this.fetch();
@@ -267,7 +269,7 @@ define(
             synchroniseFilters: function() {
                 Object.each(this._filters, function(value, filter) {
                     var el    = this.$filter.find('#Filter'+filter.camelise().capitalize()),
-                        stord = $.jStorage.get('Kords.Index.Filter.'+filter);
+                        stord = this.helpers.Storage.get('Kords.Index.Filter.'+filter);
 
                     if(el.length === 0) {
                         return;
@@ -276,7 +278,7 @@ define(
                     var type  = el[0].nodeName.toLowerCase();
 
                     if(stord === null) {
-                        $.jStorage.set('Kords.Index.Filter.'+filter, value);
+                        this.helpers.Storage.set('Kords.Index.Filter.'+filter, value);
                     } else if (value != stord) {
                         this._filters[filter] = stord;
                         value = stord;

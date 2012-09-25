@@ -39,6 +39,8 @@ define(
                     body:    value,
                     room_id: this.room_id
                 });
+
+                this.reset();
             },
             reset: function(e) {
                 if(e) e.preventDefault();

@@ -14,6 +14,28 @@ define(
             model: Room,
             url: '/json/rooms',
 
+            getBySlug: function(room_slug) {
+                return this.getByField('slug', room_slug);
+            },
+
+            getByNumber: function(room_number) {
+                return this.getByField('number', room_number);
+            },
+
+            getByField: function(field, value) {
+                var query  = {},
+                    result;
+                
+                query[field] = value;
+                result = this.where(query);
+
+                if(result.length > 1) {
+                    return null;
+                } else {
+                    return result[0];
+                }
+            },
+
             filterByNumber: function(query, exact) {
                 exact = !!exact;                                        // Make sure it's a boolean
                 var regex = new RegExp(query, 'gi'),                    // Instantiate Regex obj (for non-exact matching)

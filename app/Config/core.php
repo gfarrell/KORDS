@@ -19,6 +19,9 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+// Set timezone to suppress PHP warnings
+date_default_timezone_set('Europe/London');
+
 /**
  * CakePHP Debug Level:
  *
